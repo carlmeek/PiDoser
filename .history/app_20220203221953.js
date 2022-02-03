@@ -64,7 +64,7 @@ function networkPoll() {
             console.log("Software Update Required from "+pjson.version+" to "+res.data.newversion+"...")
             clearInterval(testingTimer);
             clearInterval(networkTimer);
-            server.close();
+            srvr.close();
             update.update();
         }
 

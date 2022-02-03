@@ -4,7 +4,6 @@ var settings = require('./settings.js').settings();
 var macaddress = require('macaddress');
 var update = require("./update.js")
 var pjson = require('./package.json');
-var server
 
 //To increase version use  npm version patch
 
@@ -64,7 +63,6 @@ function networkPoll() {
             console.log("Software Update Required from "+pjson.version+" to "+res.data.newversion+"...")
             clearInterval(testingTimer);
             clearInterval(networkTimer);
-            server.close();
             update.update();
         }
 
