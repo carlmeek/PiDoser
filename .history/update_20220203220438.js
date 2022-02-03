@@ -22,7 +22,7 @@ function restartApp()
     });)
 }
 
-function updateNPM() {
+function updateNPM() {}
 
     console.log("Spawning NPM INSTALL...")
     var npmchild=spawn('npm', ['install'])

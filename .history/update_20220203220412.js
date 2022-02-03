@@ -17,12 +17,7 @@ function restartApp()
     gitchild.stderr.on('data', function(data) {
         console.log('GIT PULL ERR: ' + data);
     });
-    gitchild.on('close', function() {
-        updateNPM();
-    });)
-}
-
-function updateNPM() {
+    gitchild.on('close')
 
     console.log("Spawning NPM INSTALL...")
     var npmchild=spawn('npm', ['install'])

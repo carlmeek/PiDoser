@@ -18,11 +18,13 @@ function restartApp()
         console.log('GIT PULL ERR: ' + data);
     });
     gitchild.on('close', function() {
-        updateNPM();
+        //spawn('coffee', ['-c', './routes/coffee.coffee']).on('close', function() {
+            if (child) {
+                child.kill();
+            }
+            startApp();
+        //});
     });)
-}
-
-function updateNPM() {
 
     console.log("Spawning NPM INSTALL...")
     var npmchild=spawn('npm', ['install'])
