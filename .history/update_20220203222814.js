@@ -66,9 +66,9 @@ function startApp()
         //  a new process.
         //  The `child_process` module lets us
         //  access OS functionalities by running any bash command.`.
-        console.log("APP ON EXIT("+exitCode+")...")
+        console.log("APP ON EXIT("+process.exitCode+")...")
 
-        if (exitCode==99) {
+        if (process.exitCode==99) {
             spawn(
                 process.argv.shift(),
                 process.argv,

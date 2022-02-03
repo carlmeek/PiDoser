@@ -68,7 +68,7 @@ function startApp()
         //  access OS functionalities by running any bash command.`.
         console.log("APP ON EXIT("+exitCode+")...")
 
-        if (exitCode==99) {
+        if (process.exitCode==99) {
             spawn(
                 process.argv.shift(),
                 process.argv,
