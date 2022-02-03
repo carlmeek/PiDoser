@@ -61,9 +61,8 @@ function startApp()
     console.log("Start App...")
 
     process.on('SIGINT', () => {
-        console.log('Received SIGINT.');
-        process.exit(0);
-    });
+        console.log('Received SIGINT. Press Control-D to exit.');
+      });
     process.on("exit", function (exitCode) {
 
         //  Resolve the `child_process` module, and `spawn` 

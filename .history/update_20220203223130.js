@@ -61,7 +61,7 @@ function startApp()
     console.log("Start App...")
 
     process.on('SIGINT', () => {
-        console.log('Received SIGINT.');
+        console.log('Received SIGINT. Press Control-D to exit.');
         process.exit(0);
     });
     process.on("exit", function (exitCode) {
