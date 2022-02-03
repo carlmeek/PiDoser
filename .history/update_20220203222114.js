@@ -73,7 +73,7 @@ function startApp()
         console.log("Child App Closed")
         console.log('process exit code ' + code);
     });
-    process.exit(0)
+    process.exit(1)
 }
 
 
