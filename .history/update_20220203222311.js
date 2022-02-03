@@ -59,28 +59,7 @@ function updateNPM() {
 function startApp()
 {
     console.log("Start App...")
-
-    process.on("exit", function () {
-
-        //  Resolve the `child_process` module, and `spawn` 
-        //  a new process.
-        //  The `child_process` module lets us
-        //  access OS functionalities by running any bash command.`.
-        spawn(
-            process.argv.shift(),
-            process.argv,
-            {
-              cwd: process.cwd(),
-              detached: true,
-              stdio: "inherit"
-            }
-          );
-        
-      });
-      process.exit();
-
-      /*
-
+    
     child = spawn('node', ['app.js']);
     child.stdout.setEncoding('utf8');
     child.stdout.on('data', function (data) {
@@ -96,7 +75,6 @@ function startApp()
         console.log('process exit code ' + code);
     });
     process.exit(0)
-    */
 }
 
 

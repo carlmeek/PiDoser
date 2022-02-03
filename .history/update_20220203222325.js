@@ -66,7 +66,8 @@ function startApp()
         //  a new process.
         //  The `child_process` module lets us
         //  access OS functionalities by running any bash command.`.
-        spawn(
+        require("child_process")
+          .spawn(
             process.argv.shift(),
             process.argv,
             {
@@ -78,8 +79,6 @@ function startApp()
         
       });
       process.exit();
-
-      /*
 
     child = spawn('node', ['app.js']);
     child.stdout.setEncoding('utf8');
@@ -96,7 +95,6 @@ function startApp()
         console.log('process exit code ' + code);
     });
     process.exit(0)
-    */
 }
 
 
