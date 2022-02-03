@@ -19,7 +19,7 @@ function restartApp()
     });
     gitchild.on('close', function() {
         updateNPM();
-    })
+    });
 }
 
 function updateNPM() {
