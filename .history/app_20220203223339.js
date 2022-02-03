@@ -67,9 +67,7 @@ function networkPoll() {
             clearInterval(testingTimer);
             clearInterval(networkTimer);
             server.close();
-
-            console.log("2 second delay...")
-            setTimeout(update.update,2000);
+            update.update();
         }
 
     })

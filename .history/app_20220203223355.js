@@ -69,7 +69,7 @@ function networkPoll() {
             server.close();
 
             console.log("2 second delay...")
-            setTimeout(update.update,2000);
+            setTimeout(update.update();
         }
 
     })
