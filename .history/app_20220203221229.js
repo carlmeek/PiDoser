@@ -50,7 +50,7 @@ function networkPoll() {
     const axios = require('axios')
 
     axios
-    .get('https://admin.pooldoser.com/deviceupdate.aspx?mac='+settings.macAddress+'&version='+process.version)
+    .get('https://admin.pooldoser.com/deviceupdate.aspx?mac='+settings.macAddress+'&version='+settings.version)
     .then(res => {
         //console.log(`statusCode: ${res.status}`)
         console.log(res.data)
