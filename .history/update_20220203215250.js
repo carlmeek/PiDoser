@@ -3,14 +3,10 @@ function update() {
 
     function restartApp(req, res)
     {
-        console.log("Spawning GIT PULL...")
         spawn('git', ['pull']);
-
-        console.log("Killing Child App...")
         child.kill();
-
-        console.log("Starting App...")
         startApp();
+        res.send('ok.');
     }
     
     function startApp()

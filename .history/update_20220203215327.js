@@ -6,11 +6,12 @@ function update() {
         console.log("Spawning GIT PULL...")
         spawn('git', ['pull']);
 
-        console.log("Killing Child App...")
+        console.log("Killing App...")
         child.kill();
-
-        console.log("Starting App...")
+        
+        console.log("Killing App...")
         startApp();
+        res.send('ok.');
     }
     
     function startApp()

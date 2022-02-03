@@ -33,7 +33,7 @@ async function go() {
     testingPoll()
 
     console.log("Setting up Network Poll every "+settings.networkPollInterval)
-    networkTimer=setInterval(networkPoll, settings.networkPollInterval);
+    setInterval(networkPoll, settings.networkPollInterval);
     networkPoll()
 }
 
@@ -57,8 +57,6 @@ function networkPoll() {
         //update
         if (res.data.newversion!='') {
             console.log("Software Update Required to version "+res.data.newversion+"...")
-            clearInterval(testingTimer);
-            clearInterval(networkTimer);
             update.update();
         }
 

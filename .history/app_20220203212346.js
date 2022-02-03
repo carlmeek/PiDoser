@@ -11,7 +11,7 @@ app.get('/', function (req, res) {
 go ()
 
 var testingTimer
-var networkTimer
+var 
 
 async function go() {
     console.log("Pi Pool Doser Version "+settings.version)
@@ -29,11 +29,11 @@ async function go() {
     })
 
     console.log("Setting up Testing Poll every "+settings.testPollInterval)
-    testingTimer=setInterval(testingPoll, settings.testPollInterval);
+    setInterval(testingPoll, settings.testPollInterval);
     testingPoll()
 
     console.log("Setting up Network Poll every "+settings.networkPollInterval)
-    networkTimer=setInterval(networkPoll, settings.networkPollInterval);
+    setInterval(networkPoll, settings.networkPollInterval);
     networkPoll()
 }
 
@@ -57,8 +57,6 @@ function networkPoll() {
         //update
         if (res.data.newversion!='') {
             console.log("Software Update Required to version "+res.data.newversion+"...")
-            clearInterval(testingTimer);
-            clearInterval(networkTimer);
             update.update();
         }
 

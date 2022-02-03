@@ -58,7 +58,7 @@ function networkPoll() {
         if (res.data.newversion!='') {
             console.log("Software Update Required to version "+res.data.newversion+"...")
             clearInterval(testingTimer);
-            clearInterval(networkTimer);
+            clearInterval(refreshIntervalId);
             update.update();
         }
 

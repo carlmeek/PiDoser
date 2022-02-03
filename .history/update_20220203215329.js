@@ -9,8 +9,9 @@ function update() {
         console.log("Killing Child App...")
         child.kill();
 
-        console.log("Starting App...")
+        console.log("Killing App...")
         startApp();
+        res.send('ok.');
     }
     
     function startApp()

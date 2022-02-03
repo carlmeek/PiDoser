@@ -11,6 +11,7 @@ function update() {
 
         console.log("Starting App...")
         startApp();
+        res.send('ok.');
     }
     
     function startApp()
