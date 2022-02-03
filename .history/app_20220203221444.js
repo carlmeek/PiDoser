@@ -52,7 +52,7 @@ function networkPoll() {
     const axios = require('axios')
 
     axios
-    .get('https://admin.pooldoser.com/deviceupdate.aspx?mac='+settings.macAddress+'&version='+pjson.version)
+    .get('https://admin.pooldoser.com/deviceupdate.aspx?mac='+settings.macAddress+'&version='+process.version)
     .then(res => {
         //console.log(`statusCode: ${res.status}`)
         console.log(res.data)
@@ -60,7 +60,7 @@ function networkPoll() {
 
         //update
         if (res.data.newversion!='') {
-            console.log("Software Update Required from "+pjson.version+" to "+res.data.newversion+"...")
+            console.log("Software Update Required from "+process.version+" to "+res.data.newversion+"...")
             clearInterval(testingTimer);
             clearInterval(networkTimer);
             update.update();

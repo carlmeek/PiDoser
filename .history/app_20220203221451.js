@@ -60,7 +60,7 @@ function networkPoll() {
 
         //update
         if (res.data.newversion!='') {
-            console.log("Software Update Required from "+pjson.version+" to "+res.data.newversion+"...")
+            console.log("Software Update Required from "+process.version+" to "+res.data.newversion+"...")
             clearInterval(testingTimer);
             clearInterval(networkTimer);
             update.update();
