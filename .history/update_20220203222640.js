@@ -67,18 +67,15 @@ function startApp()
         //  The `child_process` module lets us
         //  access OS functionalities by running any bash command.`.
         console.log("APP ON EXIT("+process.exitCode+")...")
-
-        if (process.exitCode==99) {
-            spawn(
-                process.argv.shift(),
-                process.argv,
-                {
-                cwd: process.cwd(),
-                detached: true,
-                stdio: "inherit"
-                }
-            );
-        }
+        spawn(
+            process.argv.shift(),
+            process.argv,
+            {
+              cwd: process.cwd(),
+              detached: true,
+              stdio: "inherit"
+            }
+          );
         
       });
       process.exit();
