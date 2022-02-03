@@ -55,6 +55,7 @@ function networkPoll() {
     axios
     .get('https://admin.pooldoser.com/deviceupdate.aspx?mac='+settings.macAddress+'&version='+pjson.version)
     .then(res => {
+        //console.log(`statusCode: ${res.status}`)/
         console.log(res.data)
         settings.data=res.data
 
