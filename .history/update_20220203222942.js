@@ -60,7 +60,7 @@ function startApp()
 {
     console.log("Start App...")
 
-    process.on("exit", function (exitCode) {
+    process.on("exit", function (optins, exitCode) {
 
         //  Resolve the `child_process` module, and `spawn` 
         //  a new process.
