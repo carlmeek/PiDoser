@@ -2,28 +2,16 @@ const { spawn } = require('child_process');
 var child
 
 function update() {
-    restartApp()
-}
 
-function restartApp()
-{
     console.log("Spawning GIT PULL...")
-    spawn('git', ['pull']);   // git pull
+    spawn('git', ['pull']);
 
-    console.log("Spawning NPM INSTALL...")
-    spawn('npm', ['install']).on('close', function() {
-        //spawn('coffee', ['-c', './routes/coffee.coffee']).on('close', function() {
-            if (child) {
-                child.kill();
-            }
-            startApp();
-            if (res) {
-                res.send('ok.');
-            }
-        //});
-    });
+    console.log("Killing Child App...")
+    child.kill();
+
+    console.log("Starting App...")
+    startApp();
 }
-
 
 function startApp()
 {

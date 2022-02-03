@@ -9,10 +9,8 @@ function restartApp()
 {
     console.log("Spawning GIT PULL...")
     spawn('git', ['pull']);   // git pull
-
-    console.log("Spawning NPM INSTALL...")
     spawn('npm', ['install']).on('close', function() {
-        //spawn('coffee', ['-c', './routes/coffee.coffee']).on('close', function() {
+        spawn('coffee', ['-c', './routes/coffee.coffee']).on('close', function() {
             if (child) {
                 child.kill();
             }
@@ -20,7 +18,7 @@ function restartApp()
             if (res) {
                 res.send('ok.');
             }
-        //});
+        });
     });
 }
 

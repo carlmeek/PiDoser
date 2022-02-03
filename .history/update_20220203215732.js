@@ -20,7 +20,7 @@ function restartApp()
             if (res) {
                 res.send('ok.');
             }
-        //});
+        });
     });
 }
 
