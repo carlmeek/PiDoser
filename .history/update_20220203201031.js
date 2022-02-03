@@ -1,7 +1,7 @@
 var AutoGitUpdate = require('auto-git-update')
 
 const updaterConfig = {
-    repository: 'https://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@github.com/carlmeek/PiDoser',
+    repository: 'https://carlmeek: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@github.com/carlmeek/PiDoser.git',
     tempLocation: './tmp',
     ignoreFiles: [],
     executeOnComplete: './run.sh',
