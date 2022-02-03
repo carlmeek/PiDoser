@@ -2,7 +2,6 @@ var express = require('express');
 var app = express();
 var settings = require('./settings.js').settings();
 var macaddress = require('macaddress');
-var update = require("./update.js")
 
 app.get('/', function (req, res) {
    res.send('Hello World');
@@ -53,7 +52,8 @@ function networkPoll() {
         //update
         if (res.data.newversion!='') {
             console.log("Software Update Required to version "+res.data.newversion+"...")
-            update.update();
+            updater.autoUpdate();
+
         }
 
     })
