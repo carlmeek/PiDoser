@@ -5,9 +5,9 @@ const updaterConfig = {
     tempLocation: './tmp',
     ignoreFiles: [],
     executeOnComplete: './run.sh',
-    exitOnComplete: true
+    exitOnComplete: true,
+    token: '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'
 }
-//    token: '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'
 
 function update() {
     const updater = new AutoGitUpdate(updaterConfig);
