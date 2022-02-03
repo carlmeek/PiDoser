@@ -23,6 +23,7 @@ function startApp()
         console.log('process exit code ' + code);
     });
 }
+}
 
 
 module.exports = {update}
