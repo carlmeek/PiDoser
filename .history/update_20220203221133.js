@@ -25,7 +25,7 @@ function restartApp()
     });
     gitchild.on('close', function() {
         if (RunNPM) {
-            updateNPM();
+        updateNPM();
         }
     })
 }

@@ -24,9 +24,7 @@ function restartApp()
         console.log('GIT PULL ERR: ' + data);
     });
     gitchild.on('close', function() {
-        if (RunNPM) {
-            updateNPM();
-        }
+        updateNPM();
     })
 }
 

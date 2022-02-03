@@ -15,7 +15,7 @@ function restartApp()
     gitchild.stdout.on('data', function(data) {
         console.log('GIT PULL: ' + data);
         if (data.indexOf("Already up to date.")!=-1) {
-            RunNPM=false
+            
         }
     });
 
@@ -24,9 +24,7 @@ function restartApp()
         console.log('GIT PULL ERR: ' + data);
     });
     gitchild.on('close', function() {
-        if (RunNPM) {
-            updateNPM();
-        }
+        updateNPM();
     })
 }
 

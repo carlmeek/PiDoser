@@ -8,15 +8,12 @@ function update() {
 function restartApp()
 {
     var RunNPM = true
-
+    
     console.log("Spawning GIT PULL...")
     var gitchild = spawn('git', ['pull']);   // git pull
     gitchild.stdout.setEncoding('utf8');
     gitchild.stdout.on('data', function(data) {
         console.log('GIT PULL: ' + data);
-        if (data.indexOf("Already up to date.")!=-1) {
-            RunNPM=false
-        }
     });
 
     gitchild.stderr.setEncoding('utf8');
@@ -24,9 +21,7 @@ function restartApp()
         console.log('GIT PULL ERR: ' + data);
     });
     gitchild.on('close', function() {
-        if (RunNPM) {
-            updateNPM();
-        }
+        updateNPM();
     })
 }
 
