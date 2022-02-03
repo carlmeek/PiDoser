@@ -4,7 +4,7 @@ var settings = require('./settings.js').settings();
 var macaddress = require('macaddress');
 var update = require("./update.js")
 var pjson = require('./package.json');
-const routes = require('./routes');
+const routes = require('./routes/index');
 
 var server
 

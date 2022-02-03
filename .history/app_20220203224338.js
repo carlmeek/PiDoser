@@ -4,9 +4,8 @@ var settings = require('./settings.js').settings();
 var macaddress = require('macaddress');
 var update = require("./update.js")
 var pjson = require('./package.json');
-const routes = require('./routes');
-
 var server
+const routes = require('./routes/index');
 
 //To increase version use  npm version patch
 

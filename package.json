@@ -125,6 +125,7 @@
       "resolved": "https://registry.npmjs.org/body-parser/-/body-parser-1.19.1.tgz",
       "version": "1.19.1"
     },
+    "bootstrap": "^5.1.3",
     "brace-expansion": {
       "integrity": "sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==",
       "requires": {
