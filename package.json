@@ -502,11 +502,7 @@
       "resolved": "https://registry.npmjs.org/jstream/-/jstream-1.0.1.tgz",
       "version": "1.0.1"
     },
-    "macaddress": {
-      "integrity": "sha512-cYYBbT3b84hTEHssWE6OmsuqF/NiLXE2RGK9Sc9SwwE9kMoKrbaUAJtKs6ucd0FFgZjXE1Wm3hoGEEYas0N6EA==",
-      "resolved": "https://registry.npmjs.org/macaddress/-/macaddress-0.5.2.tgz",
-      "version": "0.5.2"
-    },
+    "macaddress": "^0.5.2",
     "match-stream": {
       "integrity": "sha1-mesFAJOzTf+t5CG5rAtBCpz6F88=",
       "requires": {
