@@ -63,11 +63,11 @@ function startApp()
     child.stdout.setEncoding('utf8');
     child.stdout.on('data', function (data) {
         var str = data.toString()
-        console.log('Child App: '+str);
+        console.log(str);
     });
-    child.stderr.setEncoding('utf8');
-    child.stderr.on('data', function(data) {
-        console.log('Child App ERR: ' + data);
+    npmchild.stderr.setEncoding('utf8');
+    npmchild.stderr.on('data', function(data) {
+        console.log('GIT PULL ERR: ' + data);
     });
     child.on('close', function (code) {
         console.log("Child App Closed")

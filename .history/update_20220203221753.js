@@ -63,14 +63,9 @@ function startApp()
     child.stdout.setEncoding('utf8');
     child.stdout.on('data', function (data) {
         var str = data.toString()
-        console.log('Child App: '+str);
-    });
-    child.stderr.setEncoding('utf8');
-    child.stderr.on('data', function(data) {
-        console.log('Child App ERR: ' + data);
+        console.log(str);
     });
     child.on('close', function (code) {
-        console.log("Child App Closed")
         console.log('process exit code ' + code);
     });
 }
