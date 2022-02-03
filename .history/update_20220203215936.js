@@ -9,28 +9,21 @@ function restartApp()
 {
     console.log("Spawning GIT PULL...")
     var gitchild = spawn('git', ['pull']);   // git pull
-    gitchild.stdout.setEncoding('utf8');
     gitchild.stdout.on('data', function(data) {
         console.log('GIT PULL: ' + data);
     });
     gitchild.stderr.setEncoding('utf8');
     gitchild.stderr.on('data', function(data) {
-        console.log('GIT PULL ERR: ' + data);
+        //Here is where the error output goes
+    
+        console.log('stderr: ' + data);
+    
+        data=data.toString();
+        scriptOutput+=data;
     });
 
     console.log("Spawning NPM INSTALL...")
-    var npmchild=spawn('npm', ['install'])
-    
-    npmchild.stdout.setEncoding('utf8');
-    npmchild.stdout.on('data', function(data) {
-        console.log('GIT PULL: ' + data);
-    });
-    npmchild.stderr.setEncoding('utf8');
-    npmchild.stderr.on('data', function(data) {
-        console.log('GIT PULL ERR: ' + data);
-    });
-
-    npmchild.on('close', function() {
+    spawn('npm', ['install']).on('close', function() {
         //spawn('coffee', ['-c', './routes/coffee.coffee']).on('close', function() {
             if (child) {
                 child.kill();

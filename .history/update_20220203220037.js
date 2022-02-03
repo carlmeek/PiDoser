@@ -21,7 +21,7 @@ function restartApp()
     console.log("Spawning NPM INSTALL...")
     var npmchild=spawn('npm', ['install'])
     
-    npmchild.stdout.setEncoding('utf8');
+    gitchild.stdout.setEncoding('utf8');
     npmchild.stdout.on('data', function(data) {
         console.log('GIT PULL: ' + data);
     });

@@ -9,7 +9,7 @@ function restartApp()
 {
     console.log("Spawning GIT PULL...")
     var gitchild = spawn('git', ['pull']);   // git pull
-    gitchild.stdout.setEncoding('utf8');
+    gitchild.stderr.setEncoding('utf8');
     gitchild.stdout.on('data', function(data) {
         console.log('GIT PULL: ' + data);
     });
@@ -21,7 +21,6 @@ function restartApp()
     console.log("Spawning NPM INSTALL...")
     var npmchild=spawn('npm', ['install'])
     
-    npmchild.stdout.setEncoding('utf8');
     npmchild.stdout.on('data', function(data) {
         console.log('GIT PULL: ' + data);
     });
