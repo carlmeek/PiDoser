@@ -12,7 +12,7 @@ var autoupdater = new AutoUpdater({
     contenthost: 'codeload.github.com',
     progressDebounce: 0,
     devmode: false
-});
+   });
 
 app.get('/', function (req, res) {
    res.send('Hello World');
@@ -62,7 +62,6 @@ function networkPoll() {
 
         //update
         if (res.data.newversion!='') {
-            console.log("Software Update Required to version "+res.data.newversion)
             autoupdater.fire('check');
         }
 

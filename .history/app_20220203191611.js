@@ -62,7 +62,6 @@ function networkPoll() {
 
         //update
         if (res.data.newversion!='') {
-            console.log("Software Update Required to version "+res.data.newversion)
             autoupdater.fire('check');
         }
 
