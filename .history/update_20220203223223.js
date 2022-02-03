@@ -64,8 +64,8 @@ function startApp()
         console.log('Received SIGINT.');
         process.exit(0);
     });
-    process.on('SIGTERM', () => {
-        console.log('Received SIGTERM.');
+    process.on('SIGINT', () => {
+        console.log('Received SIGINT.');
         process.exit(0);
     });
     process.on("exit", function (exitCode) {
