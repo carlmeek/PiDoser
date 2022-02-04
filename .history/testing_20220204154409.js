@@ -39,6 +39,10 @@ async function testingPoll() {
                 console.log("Found pH Device:")
                 const r = await item.GetReading();
                 console.log('pH reading:'+r);
+            } else if(item instanceof atlas.rTO){
+                console.log("Found pH Device:")
+                const r = await item.GetReading();
+                console.log('pH reading:'+r);
             }else{
                 console.log("Found Other Device:")
                     //for everything else, print out the device's class

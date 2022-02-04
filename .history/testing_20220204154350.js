@@ -37,8 +37,8 @@ async function testingPoll() {
     devs.forEach(async item=>{
             if(item instanceof atlas.pH){
                 console.log("Found pH Device:")
-                const r = await item.GetReading();
-                console.log('pH reading:'+r);
+                    const r = await item.GetReading();
+                    console.log('pH reading:'+r);
             }else{
                 console.log("Found Other Device:")
                     //for everything else, print out the device's class
