@@ -46,6 +46,10 @@ async function testingPoll() {
                 console.log(">> Get Reading...")
 
                 const r=await this.SendCommand('R').toString('ascii',1);
+                    
+                    this.waitTime=300;
+                    return r;
+                }
 
                 console.log('Reading:'+r);
             }
