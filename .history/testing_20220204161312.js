@@ -45,7 +45,7 @@ async function testingPoll() {
                 console.log(item.constructor.name);
                 console.log(">> Get Reading...")
 
-                item.waitTime=900;
+                item.this.waitTime=900;
                 const Cmd=await item.SendCommand('R')
                 console.log(Cmd)
 
