@@ -13,7 +13,7 @@ function pH() {
     return {}
 }
 
-function ORP() {
+function pH() {
     return {}
 }
 class DummyAtlasDevice {
@@ -22,4 +22,4 @@ class DummyAtlasDevice {
     }
 }
 
-module.exports={ FindAllDevices,pH,ORP }
+module.exports={ FindAllDevices,pH }

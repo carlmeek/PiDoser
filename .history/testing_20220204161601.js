@@ -39,10 +39,6 @@ async function testingPoll() {
                 console.log(">> Found pH Device:")
                 const r = await item.GetReading();
                 console.log('pH reading:'+r);
-            } else if(item instanceof atlas.ORP){
-                console.log(">> Found ORP Device:")
-                const r = await item.GetReading();
-                console.log('ORP reading:'+r);
             }else{
                 console.log(">> Found Temperature Device:")
                     //for everything else, print out the device's class

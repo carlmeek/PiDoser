@@ -22,4 +22,4 @@ class DummyAtlasDevice {
     }
 }
 
-module.exports={ FindAllDevices,pH,ORP }
+module.exports={ FindAllDevices,pH }
