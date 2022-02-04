@@ -44,7 +44,7 @@ async function testingPoll() {
                     //for everything else, print out the device's class
                 console.log(item.constructor.name);
                 const r = await item.GetReading();
-                console.log('reading:'+r);
+                console.log('pH reading:'+r);
             }
     });
     

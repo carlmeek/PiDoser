@@ -42,9 +42,7 @@ async function testingPoll() {
             }else{
                 console.log(">> Found Other Device:")
                     //for everything else, print out the device's class
-                console.log(item.constructor.name);
-                const r = await item.GetReading();
-                console.log('reading:'+r);
+                    console.log(item.constructor.name);
             }
     });
     
