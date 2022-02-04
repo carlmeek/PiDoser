@@ -45,7 +45,7 @@ async function testingPoll() {
                 console.log(item.constructor.name);
                 console.log(">> Get Reading...")
                 const r = await item.GetReading();
-                console.log('Reading:'+r);
+                console.log('reading:'+r);
             }
     });
     
