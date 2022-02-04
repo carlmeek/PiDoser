@@ -30,7 +30,7 @@ async function testingPoll() {
     console.log(devs);
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
     devs.forEach(async item=>{
-            if(item instanceof atlas.pH){
+            if(item instanceof as_dev.pH){
                     const r = await item.GetReading();
                     console.log('pH reading:'+r);
             }else{

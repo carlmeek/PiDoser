@@ -5,11 +5,11 @@ var i2c
 var atlas
 if (os.arch() == 'arm') {
     i2c = require('i2c-bus');
-    atlas = require('atlas-scientific-i2c');
 } else {
     i2c = require('./i2c-dummy.js');
-    atlas = require('./atlas-dummy.js')
 }
+
+const as_dev=require('atlas-scientific-i2c');
 
 
 function initialise(passparams) {
@@ -24,13 +24,13 @@ async function testingPoll() {
     const bus = await i2c.openPromisified(1);
 
     //find all EZO devices
-    const devs=await atlas.FindAllDevices(bus);
+    const devs=await as_dev.FindAllDevices(bus);
 
     //print out all detected devices
     console.log(devs);
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
     devs.forEach(async item=>{
-            if(item instanceof atlas.pH){
+            if(item instanceof as_dev.pH){
                     const r = await item.GetReading();
                     console.log('pH reading:'+r);
             }else{
