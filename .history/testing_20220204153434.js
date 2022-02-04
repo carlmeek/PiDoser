@@ -21,7 +21,6 @@ async function testingPoll() {
     params.lastTestingPoll=new Date()
 
     //open the i2c bus
-    console.log("Open i2c Bus...")
     const bus = await i2c.openPromisified(1);
 
     //find all EZO devices
@@ -29,7 +28,6 @@ async function testingPoll() {
     const devs=await atlas.FindAllDevices(bus);
 
     //print out all detected devices
-    console.log("Devices Found:")
     console.log(devs);
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
     devs.forEach(async item=>{

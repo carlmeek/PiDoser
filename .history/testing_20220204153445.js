@@ -29,7 +29,6 @@ async function testingPoll() {
     const devs=await atlas.FindAllDevices(bus);
 
     //print out all detected devices
-    console.log("Devices Found:")
     console.log(devs);
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
     devs.forEach(async item=>{
