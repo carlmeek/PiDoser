@@ -418,6 +418,7 @@
       "resolved": "https://registry.npmjs.org/http-signature/-/http-signature-1.2.0.tgz",
       "version": "1.2.0"
     },
+    "i2c-bus": "^5.2.2",
     "iconv-lite": {
       "integrity": "sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==",
       "requires": {
@@ -440,6 +441,7 @@
       "resolved": "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz",
       "version": "2.0.4"
     },
+    "ip": "^1.1.5",
     "ipaddr.js": {
       "integrity": "sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g==",
       "resolved": "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz",
@@ -563,6 +565,7 @@
       "resolved": "https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz",
       "version": "0.5.5"
     },
+    "moment": "^2.29.1",
     "ms": {
       "integrity": "sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=",
       "resolved": "https://registry.npmjs.org/ms/-/ms-2.0.0.tgz",

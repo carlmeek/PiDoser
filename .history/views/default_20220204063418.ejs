@@ -1,0 +1,12 @@
+<%- include('includes/header.ejs') %>
+
+<div class="container">
+<%- include('includes/param.ejs',{key:"Date & Time",value:funcs.formatDate(new Date())}) %>
+<%- include('includes/param.ejs',{key:"Last Network Poll",value:funcs.ago(params.lastNetworkPoll)}) %>
+<%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
+<%- include('includes/param.ejs',{key:"Last Testing Poll",value:funcs.ago(params.lastTestingPoll)}) %>
+</div>
+
+<%- include('includes/footer.ejs') %>
+
+
