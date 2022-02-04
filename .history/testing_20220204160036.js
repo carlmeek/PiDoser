@@ -45,8 +45,7 @@ async function testingPoll() {
                 console.log(item.constructor.name);
                 console.log(">> Get Reading...")
 
-                const Cmd=await item.SendCommand('R')
-                const r=await Cmd.toString('ascii',1);
+                const Cmd=await item.SendCommand('R').toString('ascii',1);
 
                 console.log('Reading:'+r);
             }
