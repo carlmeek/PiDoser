@@ -44,9 +44,12 @@ async function testingPoll() {
                     //for everything else, print out the device's class
                 console.log(item.constructor.name);
                 console.log(">> Get Reading...")
+                const r = await item.GetReading();
 
-                const r= (await this.SendCommand('R')).toString('ascii',1);
-                    
+
+                async GetReading(){
+                    this.waitTime=900;
+                    const r= (await this.SendCommand('R')).toString('ascii',1);
                     this.waitTime=300;
                     return r;
                 }
