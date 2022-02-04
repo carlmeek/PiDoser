@@ -15,7 +15,7 @@ function pH() {
 
 class DummyAtlasDevice {
     SendCommand(X) {
-        return "BLAH"
+
     }
 }
 
