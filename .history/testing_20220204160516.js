@@ -47,7 +47,6 @@ async function testingPoll() {
 
                 const Cmd=await item.SendCommand('R')
                 console.log(Cmd)
-                
                 const r=await Cmd.toString('ascii',1);
 
                 console.log('Reading:'+r);
