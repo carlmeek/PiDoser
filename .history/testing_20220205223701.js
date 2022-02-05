@@ -64,7 +64,6 @@ async function testingPoll() {
         }
     });
     
-    log("All Complete")
     params.lasttestinglog=params.testinglog
 }
 
