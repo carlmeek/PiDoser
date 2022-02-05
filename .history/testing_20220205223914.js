@@ -39,9 +39,8 @@ async function testingPoll() {
 
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
     log("Looping Devices...")
-    for (const item of devs) {
-
-    //devs.forEach(async item=>{
+    for (const file of files) {
+    devs.forEach(async item=>{
         if(item instanceof atlas.pH){
             log(">> Found pH Device:")
             const r = await item.GetReading();
@@ -64,7 +63,7 @@ async function testingPoll() {
 
             log('     Reading:'+r);
         }
-    }//);
+    });
     
     log("All Complete")
     params.lasttestinglog=params.testinglog

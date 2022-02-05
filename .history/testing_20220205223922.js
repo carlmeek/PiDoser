@@ -64,7 +64,7 @@ async function testingPoll() {
 
             log('     Reading:'+r);
         }
-    }//);
+    });
     
     log("All Complete")
     params.lasttestinglog=params.testinglog

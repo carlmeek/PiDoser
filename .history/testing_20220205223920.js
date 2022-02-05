@@ -41,7 +41,7 @@ async function testingPoll() {
     log("Looping Devices...")
     for (const item of devs) {
 
-    //devs.forEach(async item=>{
+    devs.forEach(async item=>{
         if(item instanceof atlas.pH){
             log(">> Found pH Device:")
             const r = await item.GetReading();
@@ -64,7 +64,7 @@ async function testingPoll() {
 
             log('     Reading:'+r);
         }
-    }//);
+    });
     
     log("All Complete")
     params.lasttestinglog=params.testinglog
