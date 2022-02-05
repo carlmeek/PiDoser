@@ -72,18 +72,6 @@ function startApp()
         console.log("APP ON EXIT("+exitCode+")...")
 
         if (exitCode==99) {
-
-            var pm2child=spawn('pm2', ['restart 0'])
-            
-            pm2child.stdout.setEncoding('utf8');
-            pm2child.stdout.on('data', function(data) {
-                console.log('PM2: ' + data);
-            });
-            pm2child.stderr.setEncoding('utf8');
-            pm2child.stderr.on('data', function(data) {
-                console.log('PM2: ' + data);
-            });
-
             /*
             spawn(
                 process.argv.shift(),

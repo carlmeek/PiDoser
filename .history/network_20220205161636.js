@@ -21,7 +21,6 @@ function networkPoll() {
         if (res.data.command!='') {
             switch (res.data.command){
                 case 'UPGRADE':
-                    
                     break;
             }
         }

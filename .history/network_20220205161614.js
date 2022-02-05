@@ -19,10 +19,8 @@ function networkPoll() {
         params.lastNetworkStatus="OK"
 
         if (res.data.command!='') {
-            switch (res.data.command){
-                case 'UPGRADE':
-                    
-                    break;
+            select (res.data.command){
+                case 'UPGRADE'
             }
         }
 

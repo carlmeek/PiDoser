@@ -73,7 +73,7 @@ function startApp()
 
         if (exitCode==99) {
 
-            var pm2child=spawn('pm2', ['restart 0'])
+            var pm2child=spawn('npm', ['install'])
             
             pm2child.stdout.setEncoding('utf8');
             pm2child.stdout.on('data', function(data) {
@@ -81,7 +81,7 @@ function startApp()
             });
             pm2child.stderr.setEncoding('utf8');
             pm2child.stderr.on('data', function(data) {
-                console.log('PM2: ' + data);
+                console.log('GIT PULL ERR: ' + data);
             });
 
             /*

@@ -18,14 +18,6 @@ function networkPoll() {
         params.settings=res.data
         params.lastNetworkStatus="OK"
 
-        if (res.data.command!='') {
-            switch (res.data.command){
-                case 'UPGRADE':
-                    
-                    break;
-            }
-        }
-
         //update OLD METHOD
         /*
         if (typeof(res.data.newversion)!='undefined' && res.data.newversion!='') {

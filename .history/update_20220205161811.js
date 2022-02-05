@@ -73,16 +73,16 @@ function startApp()
 
         if (exitCode==99) {
 
-            var pm2child=spawn('pm2', ['restart 0'])
-            
-            pm2child.stdout.setEncoding('utf8');
-            pm2child.stdout.on('data', function(data) {
-                console.log('PM2: ' + data);
-            });
-            pm2child.stderr.setEncoding('utf8');
-            pm2child.stderr.on('data', function(data) {
-                console.log('PM2: ' + data);
-            });
+            var npmchild=spawn('npm', ['install'])
+    
+    npmchild.stdout.setEncoding('utf8');
+    npmchild.stdout.on('data', function(data) {
+        console.log('GIT PULL: ' + data);
+    });
+    npmchild.stderr.setEncoding('utf8');
+    npmchild.stderr.on('data', function(data) {
+        console.log('GIT PULL ERR: ' + data);
+    });
 
             /*
             spawn(
