@@ -13,11 +13,12 @@ function update() {
 
     gitchild.stderr.setEncoding('utf8');
     gitchild.stderr.on('data', function(data) {
-        console.log('UPDATE ERR: ' + data);
+        console.log('GIT PULL ERR: ' + data);
     });
     gitchild.on('close', function() {
-        console.log("Exit App...")
-        process.exit(0);
+        if (RunNPM) {
+            updateNPM();
+        }
     })
 }
 

@@ -4,24 +4,29 @@ var child
 function update() {
     var RunNPM = true
 
-    console.log("Spawning UPDATE...")
-    var gitchild = spawn('./update.sh'); 
+    console.log("Spawning GIT PULL...")
+    var gitchild = spawn('git', ['pull','--rebase']);   // git pull
     gitchild.stdout.setEncoding('utf8');
     gitchild.stdout.on('data', function(data) {
-        console.log('UPDATE: ' + data);
+        console.log('GIT PULL: ' + data);
+        if (data.indexOf("Already up to date.")!=-1) {
+            RunNPM=false 
+            startApp();
+        }
     });
 
     gitchild.stderr.setEncoding('utf8');
     gitchild.stderr.on('data', function(data) {
-        console.log('UPDATE ERR: ' + data);
+        console.log('GIT PULL ERR: ' + data);
     });
     gitchild.on('close', function() {
-        console.log("Exit App...")
-        process.exit(0);
+        if (RunNPM) {
+            updateNPM();
+        }
     })
 }
 
-function XXupdate() {
+function update() {
     var RunNPM = true
 
     console.log("Spawning GIT PULL...")

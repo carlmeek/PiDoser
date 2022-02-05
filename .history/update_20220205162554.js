@@ -16,8 +16,8 @@ function update() {
         console.log('UPDATE ERR: ' + data);
     });
     gitchild.on('close', function() {
-        console.log("Exit App...")
-        process.exit(0);
+            updateNPM();
+        }
     })
 }
 
