@@ -1,9 +1,8 @@
 var params
 var update
 
-function initialise(passparams,passupdate) {
+function initialise(passparams) {
     params=passparams
-    update=passupdate
 }
 
 function networkPoll() {
