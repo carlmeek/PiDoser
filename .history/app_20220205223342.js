@@ -53,7 +53,7 @@ async function go() {
     params.systemdata += '<br>Host name: '+os.hostname()
     params.systemdata += '<br>OS: '+os.type()+" "+os.version()
     params.systemdata += '<br>Platform: '+os.platform()
-    params.systemdata += '<br>Memory: '+Math.round(os.totalmem()/1024/1024/1024)+" gb"
+    params.systemdata += '<br>Memory: '+Math.round(os.totalmem()/1024/1024/1024)
 
     params.macAddress = await macaddress.one()
     console.log("MAC Address: " + params.macAddress)

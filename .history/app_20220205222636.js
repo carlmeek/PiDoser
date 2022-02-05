@@ -48,12 +48,7 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    params.systemdata='Architecture:'+os.arch()
-    params.systemdata += '<br>'+os.cpus().length+" CPUs: "+os.cpus()[0].model
-    params.systemdata += '<br>Host name: '+os.hostname()
-    params.systemdata += '<br>OS: '+os.type()+" "+os.version()
-    params.systemdata += '<br>Platform: '+os.platform()
-    params.systemdata += '<br>Memory: '+Math.round(os.totalmem()/1024/1024/1024)+" gb"
+    params.systemdata='Architecture:'
 
     params.macAddress = await macaddress.one()
     console.log("MAC Address: " + params.macAddress)
