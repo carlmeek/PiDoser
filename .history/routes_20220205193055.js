@@ -14,11 +14,10 @@ router.get('/system', (req, res)   => { res.render('system',{params:params,funcs
 router.get('/update', (req, res)   => { update(req,res) });
 function update(req,res) {
     res.write("Updating Software...")
+    res.close()
     network.update()
-    res.end()
 }
 
-//Initialise this class
 function initialise(passparams,passnetwork) {
     params=passparams
     network=passnetwork

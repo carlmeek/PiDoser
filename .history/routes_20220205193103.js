@@ -15,7 +15,6 @@ router.get('/update', (req, res)   => { update(req,res) });
 function update(req,res) {
     res.write("Updating Software...")
     network.update()
-    res.end()
 }
 
 //Initialise this class
