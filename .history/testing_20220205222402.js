@@ -67,6 +67,18 @@ async function testingPoll() {
     params.lasttestinglog=params.testinglog
 }
 
+const toCelsius = rawData => {
+    rawData = (rawData >> 8) + ((rawData & 0xff) << 8);
+    let celsius = (rawData & 0x0fff) / 16;
+    if (rawData & 0x1000) {
+      celsius -= 256;
+    }
+    return celsius;
+  };
+
+
+
+
 
 class Probe{
 

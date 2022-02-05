@@ -61,11 +61,36 @@ async function testingPoll() {
             const r=await Cmd.toString('ascii',1);
 
             log('Reading:'+r);
+
         }
     });
     
+    /*
+
+    const TEMP_REG = 0x01;
+
+    i2c.openPromisified(1).
+        then(i2c1 => i2c1.readWord(params.tempProbeAddress, TEMP_REG).
+        then(rawData => log(toCelsius(rawData))).
+        then(_ => i2c1.close())
+        ).catch(log);
+
+        */
+
     params.lasttestinglog=params.testinglog
 }
+
+const toCelsius = rawData => {
+    rawData = (rawData >> 8) + ((rawData & 0xff) << 8);
+    let celsius = (rawData & 0x0fff) / 16;
+    if (rawData & 0x1000) {
+      celsius -= 256;
+    }
+    return celsius;
+  };
+
+
+
 
 
 class Probe{
