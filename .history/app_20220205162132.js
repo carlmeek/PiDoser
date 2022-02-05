@@ -1,4 +1,4 @@
-//To increase version use:    npm version patch --force
+//To increase version use  npm version patch --force
 //
 //PiDoser is saved in Documents folder on the Pi
 //test pi is 10.243.20.29
