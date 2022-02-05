@@ -1,8 +1,9 @@
 var params
-const { spawn } = require('child_process');
+var update
 
-function initialise(passparams) {
+function initialise(passparams,passupdate) {
     params=passparams
+    update=passupdate
 }
 
 
@@ -20,11 +21,12 @@ function networkPoll() {
         params.settings=res.data
         params.lastNetworkStatus="OK"
 
-        if (typeof(res.data.command)!='undefined' && res.data.command!='') {
+        if (res.data.command!='') {
             console.log("*** COMMAND: "+res.data.command)
             switch (res.data.command){
                 case 'UPGRADE':
-                    update();
+                    const { spawn } = require('child_process');
+
                     break;
             }
         }
@@ -51,31 +53,5 @@ function networkPoll() {
         params.lastNetworkError=error
     })
 }
-
-
-
-function update() {
-    var RunNPM = true
-
-    clearInterval(params.testingTimer);
-    clearInterval(params.networkTimer);
-
-    console.log("Spawning UPDATE...")
-    var gitchild = spawn('./update.sh'); 
-    gitchild.stdout.setEncoding('utf8');
-    gitchild.stdout.on('data', function(data) {
-        console.log('UPDATE: ' + data);
-    });
-
-    gitchild.stderr.setEncoding('utf8');
-    gitchild.stderr.on('data', function(data) {
-        console.log('UPDATE ERR: ' + data);
-    });
-    gitchild.on('close', function() {
-        console.log("Exit App...")
-        process.exit(0);
-    })
-}
-
 
 module.exports = {initialise,networkPoll}

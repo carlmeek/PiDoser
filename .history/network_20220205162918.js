@@ -20,7 +20,7 @@ function networkPoll() {
         params.settings=res.data
         params.lastNetworkStatus="OK"
 
-        if (typeof(res.data.command)!='undefined' && res.data.command!='') {
+        if (res.data.command!='') {
             console.log("*** COMMAND: "+res.data.command)
             switch (res.data.command){
                 case 'UPGRADE':

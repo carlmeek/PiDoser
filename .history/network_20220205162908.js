@@ -1,8 +1,9 @@
 var params
-const { spawn } = require('child_process');
+var update
 
-function initialise(passparams) {
+function initialise(passparams,passupdate) {
     params=passparams
+    update=passupdate
 }
 
 
@@ -20,11 +21,13 @@ function networkPoll() {
         params.settings=res.data
         params.lastNetworkStatus="OK"
 
-        if (typeof(res.data.command)!='undefined' && res.data.command!='') {
+        if (res.data.command!='') {
             console.log("*** COMMAND: "+res.data.command)
             switch (res.data.command){
                 case 'UPGRADE':
                     update();
+                    const { spawn } = require('child_process');
+
                     break;
             }
         }

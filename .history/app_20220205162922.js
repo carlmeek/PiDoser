@@ -30,7 +30,7 @@ const routes = require('./routes.js');
 routes.initialise(params)
 
 var network = require('./network.js')
-network.initialise(params)
+network.initialise(params,update)
 
 var testing = require('./testing.js')
 testing.initialise(params)

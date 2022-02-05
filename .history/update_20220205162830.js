@@ -3,6 +3,9 @@ const { spawn } = require('child_process');
 function update() {
     var RunNPM = true
 
+    clearInterval(params.testingTimer);
+    clearInterval(networkTimer);
+
     console.log("Spawning UPDATE...")
     var gitchild = spawn('./update.sh'); 
     gitchild.stdout.setEncoding('utf8');
