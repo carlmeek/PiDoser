@@ -1,8 +1,7 @@
 <%- include('includes/header.ejs',{active:'system'}) %>
 <div class="container">
 <button class="btn btn-primary" onClick="$.get('update', function(data) {alert(data)});">Update Software</button>
-<br>
-<button class="btn btn-primary" onClick="$.get('reboot', function(data) {alert(data)});">Reboot</button>
+<button class="btn btn-primary" onClick="$.get('reboot', function(data) {alert(data)});">Update Software</button>
 </div>
 <%- include('includes/footer.ejs') %>
 
