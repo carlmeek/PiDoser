@@ -22,7 +22,7 @@ function networkPoll() {
             console.log("*** COMMAND: "+res.data.command)
             switch (res.data.command){
                 case 'UPGRADE':
-                    console.log("2 second delay before update...")
+                    console.log("2 second delay...")
                     setTimeout(update.update,2000);
                     break;
             }

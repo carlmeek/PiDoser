@@ -19,11 +19,10 @@ function networkPoll() {
         params.lastNetworkStatus="OK"
 
         if (res.data.command!='') {
-            console.log("*** COMMAND: "+res.data.command)
             switch (res.data.command){
                 case 'UPGRADE':
-                    console.log("2 second delay before update...")
-                    setTimeout(update.update,2000);
+                    console.log("2 second delay...")
+            setTimeout(update.update,2000);
                     break;
             }
         }
