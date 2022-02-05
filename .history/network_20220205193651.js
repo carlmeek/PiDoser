@@ -40,27 +40,12 @@ function networkPoll() {
 }
 
 function reboot() {
-    clearInterval(params.testingTimer);
-    clearInterval(params.networkTimer);
 
-    console.log("Spawning UPDATE...")
-    var gitchild = spawn('sudo /sbin/shutdown -r now'); 
-    gitchild.stdout.setEncoding('utf8');
-    gitchild.stdout.on('data', function(data) {
-        console.log('REBOOT: ' + data);
-    });
-
-    gitchild.stderr.setEncoding('utf8');
-    gitchild.stderr.on('data', function(data) {
-        console.log('REBOOT ERR: ' + data);
-    });
-    gitchild.on('close', function() {
-        console.log("Exit App...")
-        process.exit(0);
-    })
 }
 
 function update() {
+    var RunNPM = true
+
     clearInterval(params.testingTimer);
     clearInterval(params.networkTimer);
 

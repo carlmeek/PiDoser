@@ -20,8 +20,8 @@ function update(req,res) {
 
 router.get('/reboot', (req, res)   => { update(req,res) });
 function update(req,res) {
-    res.write("Rebooting...")
-    network.reboot()
+    res.write("Rebooting Software...")
+    network.update()
     res.end()
 }
 

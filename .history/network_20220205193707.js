@@ -44,7 +44,7 @@ function reboot() {
     clearInterval(params.networkTimer);
 
     console.log("Spawning UPDATE...")
-    var gitchild = spawn('sudo /sbin/shutdown -r now'); 
+    var gitchild = spawn('./update.sh'); 
     gitchild.stdout.setEncoding('utf8');
     gitchild.stdout.on('data', function(data) {
         console.log('REBOOT: ' + data);
