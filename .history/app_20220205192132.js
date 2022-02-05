@@ -26,11 +26,11 @@ params.ip=ip.address()
 var pjson = require('./package.json');
 params.version=pjson.version
 
-var network = require('./network.js')
-network.initialise(params)
-
 const routes = require('./routes.js');
 routes.initialise(params,network)
+
+var network = require('./network.js')
+network.initialise(params)
 
 var testing = require('./testing.js')
 testing.initialise(params)

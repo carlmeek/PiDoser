@@ -11,8 +11,8 @@ router.get('/log', (req, res)      => { res.render('log',{params:params,funcs:fu
 router.get('/system', (req, res)   => { res.render('system',{params:params,funcs:funcs});});
 router.get('/update', (req, res)   => { update(req,res) });
 
-function update(req,res) {
-    res.write("Updating Software...")
+function reboot(req,res) {
+    res.write("Rebooting...")
     res.close()
     network.update()
 }

@@ -1,0 +1,8 @@
+<%- include('includes/header.ejs',{active:'system'}) %>
+<div class="container">
+<h1>System</h1>
+<button class="btn btn-primary" onClick="$.get( "ajax/test.html", function( data ) { alert(data)});">Reboot</button>
+</div>
+<%- include('includes/footer.ejs') %>
+
+
