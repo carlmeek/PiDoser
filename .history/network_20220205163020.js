@@ -27,6 +27,22 @@ function networkPoll() {
                     break;
             }
         }
+
+        //update OLD METHOD
+        /*
+        if (typeof(res.data.newversion)!='undefined' && res.data.newversion!='') {
+            console.log("Software Update Required from "+params.version+" to "+res.data.newversion+"...")
+
+            //Clean up processes
+            clearInterval(params.testingTimer);
+            clearInterval(params.networkTimer);
+            server.close();
+
+            console.log("2 second delay...")
+            setTimeout(update.update,2000);
+        }
+        */
+
     })
     .catch(error => {
         console.error(error)
