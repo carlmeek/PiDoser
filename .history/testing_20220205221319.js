@@ -1,6 +1,5 @@
 var params
 os = require('os')
-moment = require('moment')
 
 var i2c
 var atlas
@@ -19,8 +18,7 @@ function initialise(passparams) {
 
 function log(txt) {
     console.log(txt)
-    var n = new moment(new Date())
-    params.testinglog+=n.format("HH:mm:ss")+' - '+txt+'<br>'
+    params.testinglog+
 }
 
 async function testingPoll() {

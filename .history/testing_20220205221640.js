@@ -20,7 +20,7 @@ function initialise(passparams) {
 function log(txt) {
     console.log(txt)
     var n = new moment(new Date())
-    params.testinglog+=n.format("HH:mm:ss")+' - '+txt+'<br>'
+    params.testinglog+=n.format("HH:mm")+' - '+txt+'<br>'
 }
 
 async function testingPoll() {

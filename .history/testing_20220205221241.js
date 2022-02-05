@@ -1,6 +1,5 @@
 var params
 os = require('os')
-moment = require('moment')
 
 var i2c
 var atlas
@@ -17,54 +16,46 @@ function initialise(passparams) {
     params=passparams
 }
 
-function log(txt) {
-    console.log(txt)
-    var n = new moment(new Date())
-    params.testinglog+=n.format("HH:mm:ss")+' - '+txt+'<br>'
-}
-
 async function testingPoll() {
-    params.testinglog=''
-
     log('Testing Poll...');
     params.lastTestingPoll=new Date()
 
     //open the i2c bus
-    log("Open i2c Bus...")
+    console.log("Open i2c Bus...")
     const bus = await i2c.openPromisified(1);
 
     //find all EZO devices
-    log("Find All Devices...")
+    console.log("Find All Devices...")
     const devs=await atlas.FindAllDevices(bus);
 
     //print out all detected devices
-    log("Devices Found:")
-    log(devs);
+    console.log("Devices Found:")
+    console.log(devs);
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
 
-    log("Looping Devices...")
+    console.log("Looping Devices...")
     devs.forEach(async item=>{
             if(item instanceof atlas.pH){
-                log(">> Found pH Device:")
+                console.log(">> Found pH Device:")
                 const r = await item.GetReading();
-                log('pH reading:'+r);
+                console.log('pH reading:'+r);
             } else if(item instanceof atlas.ORP){
-                log(">> Found ORP Device:")
+                console.log(">> Found ORP Device:")
                 const r = await item.GetReading();
-                log('ORP reading:'+r);
+                console.log('ORP reading:'+r);
             }else{
-                log(">> Found Temperature Device:")
+                console.log(">> Found Temperature Device:")
                     //for everything else, print out the device's class
-                log(item.constructor.name);
-                log(">> Get Reading...")
+                console.log(item.constructor.name);
+                console.log(">> Get Reading...")
 
                 item.waitTime=900;
                 const Cmd=await item.SendCommand('R')
-                log(Cmd)
+                console.log(Cmd)
 
                 const r=await Cmd.toString('ascii',1);
 
-                log('Reading:'+r);
+                console.log('Reading:'+r);
 
             }
     });
@@ -75,9 +66,9 @@ async function testingPoll() {
 
     i2c.openPromisified(1).
         then(i2c1 => i2c1.readWord(params.tempProbeAddress, TEMP_REG).
-        then(rawData => log(toCelsius(rawData))).
+        then(rawData => console.log(toCelsius(rawData))).
         then(_ => i2c1.close())
-        ).catch(log);
+        ).catch(console.log);
 
         */
 }
@@ -102,7 +93,7 @@ class Probe{
     }
    
     print(){
-       log('Name is :'+ this.name);
+       console.log('Name is :'+ this.name);
     }
 
 }
