@@ -12,17 +12,17 @@
 <%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
 <%- include('includes/param.ejs',{key:"Last Testing Poll",value:funcs.ago(params.lastTestingPoll)}) %>
 
-<% for (const [key,value] of Object.entries(params.probes)) { %>
+<% for (const item of params.probes) { %>
     <div class="card">
         <div class="card-header">
-          <%=key%>
+          Featured
         </div>
         <div class="card-body">
           <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">Reading <%=value.reading%>.</p>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
       </div>
-      <Br> 
 <% } %>
 
 </div>
