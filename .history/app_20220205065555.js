@@ -52,7 +52,7 @@ async function go() {
 
     console.log("Settings: "+JSON.stringify(params.settings))
 
-    server = app.listen(3000, function () { //Cannot be port 80 due to permissions.
+    server = app.listen(3000, function () { //Cannot be port 80
     var host = server.address().address
     var port = server.address().port
     console.log("Pi Pool Doser listening at http://%s:%s", host, port)
