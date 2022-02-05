@@ -1,6 +1,5 @@
 //To increase version use  npm version patch
 //
-//PiDoser is saved in Documents folder on the Pi
 //To make PM2 run at startup: sudo env PATH=$PATH:/usr/local/bin pm2 startup systemd -u pi --hp /home/pi
 var server
 
