@@ -39,7 +39,7 @@ async function testingPoll() {
 
     //print out all detected devices
     log("Devices Found:")
-    log(JSON.stringify(devs));
+    log(devs);
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
 
     log("Looping Devices...")
@@ -81,7 +81,7 @@ async function testingPoll() {
 
         */
 
-    params.lasttestinglog=params.testinglog
+    params.testinglog
 }
 
 const toCelsius = rawData => {
