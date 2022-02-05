@@ -38,7 +38,7 @@ testing.initialise(params)
 app.set('view engine', 'ejs');
 app.use('/', routes.router);
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
-app.use(express.static(__dirname + '/node_modules/jquery/dist'));
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use(express.static(__dirname + '/static'));
 
 go ()
