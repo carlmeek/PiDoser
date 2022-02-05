@@ -19,15 +19,13 @@ var params = {
     tempProbeAddress: 0x66,
     probes:{
         orp:new probe.Probe('orp'),
-        ph:new probe.Probe('ph'),
-        tds:new probe.Probe('tds'),
-        temp:new probe.Probe('temp')
     }
 }
 
 var macaddress = require('macaddress');
 var ip = require("ip");
 params.ip=ip.address()
+
 
 var pjson = require('./package.json');
 params.version=pjson.version

@@ -40,23 +40,27 @@ async function testingPoll() {
     //Loop through the list, using 'instanceof' to find the pH chip, and pull a reading from it.
     log("Looping Devices...")
     for (const item of devs) {
-        var probe
         if(item instanceof atlas.pH){
-            probe=params.probes.ph
-            log(">> Found pH Device")
-            probe.reading = await item.GetReading();
-            log('     pH reading:'+probe.reading);
+            log(">> Found pH Device:")
+            const r = await item.GetReading();
+            log('     pH reading:'+r);
         } else if(item instanceof atlas.ORP){
-            probe=params.probes.orp
-            log(">> Found ORP Device")
-            probe.reading = await item.GetReading();
-            log('     ORP reading:'+probe.reading);
+            log(">> Found ORP Device:")
+            const r = await item.GetReading();
+            log('     ORP reading:'+r);
         }else{
-            probe=params.probes.temp
-            log(">> Found (assumed) RTD Temperature Device")
+            log(">> Found RTD Temperature Device:")
+            //for everything else, print out the device's class
+            log(item.constructor.name);
+            log("     Get Reading...")
+
             item.waitTime=900;
-            probe.reading = await item.SendCommand('R').toString('ascii',1);
-            log('     Temp Reading:'+probe.reading);
+            const Cmd=await item.SendCommand('R')
+            log(Cmd)
+
+            const r=await Cmd.toString('ascii',1);
+
+            log('     Reading:'+r);
         }
     }//);
     
@@ -65,5 +69,16 @@ async function testingPoll() {
 }
 
 
+class Probe{
+
+    constructor(name){
+       this.name = name ;
+    }
+   
+    print(){
+       log('Name is :'+ this.name);
+    }
+
+}
 
 module.exports = {initialise,testingPoll}

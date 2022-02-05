@@ -44,19 +44,20 @@ async function testingPoll() {
         if(item instanceof atlas.pH){
             probe=params.probes.ph
             log(">> Found pH Device")
-            probe.reading = await item.GetReading();
-            log('     pH reading:'+probe.reading);
+            const r = await item.GetReading();
+            log('     pH reading:'+r);
         } else if(item instanceof atlas.ORP){
-            probe=params.probes.orp
             log(">> Found ORP Device")
-            probe.reading = await item.GetReading();
-            log('     ORP reading:'+probe.reading);
+            const r = await item.GetReading();
+            log('     ORP reading:'+r);
+            probe=params.probes.orp
         }else{
-            probe=params.probes.temp
             log(">> Found (assumed) RTD Temperature Device")
             item.waitTime=900;
-            probe.reading = await item.SendCommand('R').toString('ascii',1);
-            log('     Temp Reading:'+probe.reading);
+            const Cmd=await item.SendCommand('R')
+            const r=await Cmd.toString('ascii',1);
+            log('     Temp Reading:'+r);
+            probe=params.probes.temp
         }
     }//);
     

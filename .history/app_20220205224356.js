@@ -16,18 +16,13 @@ var params = {
     networkPollInterval: 10000,
     settings:settings.settings(),
     uptime:new Date(),
-    tempProbeAddress: 0x66,
-    probes:{
-        orp:new probe.Probe('orp'),
-        ph:new probe.Probe('ph'),
-        tds:new probe.Probe('tds'),
-        temp:new probe.Probe('temp')
-    }
+    tempProbeAddress: 0x66
 }
 
 var macaddress = require('macaddress');
 var ip = require("ip");
 params.ip=ip.address()
+
 
 var pjson = require('./package.json');
 params.version=pjson.version

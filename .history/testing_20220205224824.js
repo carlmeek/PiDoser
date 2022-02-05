@@ -55,7 +55,8 @@ async function testingPoll() {
             probe=params.probes.temp
             log(">> Found (assumed) RTD Temperature Device")
             item.waitTime=900;
-            probe.reading = await item.SendCommand('R').toString('ascii',1);
+            const Cmd=await item.SendCommand('R')
+            const r=await Cmd.toString('ascii',1);
             log('     Temp Reading:'+probe.reading);
         }
     }//);
