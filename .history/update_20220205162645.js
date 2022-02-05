@@ -20,12 +20,6 @@ function update() {
     })
 }
 
-
-
-
-
-var child
-
 function XXupdate() {
     var RunNPM = true
 
