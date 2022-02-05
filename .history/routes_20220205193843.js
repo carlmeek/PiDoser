@@ -18,7 +18,7 @@ function update(req,res) {
     res.end()
 }
 
-router.get('/reboot', (req, res)   => { reboot(req,res) });
+router.get('/reboot', (req, res)   => { update(req,res) });
 function reboot(req,res) {
     res.write("Rebooting...")
     network.reboot()
