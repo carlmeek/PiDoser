@@ -60,7 +60,7 @@ async function testingPoll() {
 
             const r=await Cmd.toString('ascii',1);
 
-            log('     Reading:'+r);
+            log('Reading:'+r);
         }
     });
     

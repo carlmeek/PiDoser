@@ -52,7 +52,7 @@ async function testingPoll() {
             log(">> Found RTD Temperature Device:")
             //for everything else, print out the device's class
             log(item.constructor.name);
-            log("     Get Reading...")
+            log(">> Get Reading...")
 
             item.waitTime=900;
             const Cmd=await item.SendCommand('R')
@@ -60,7 +60,7 @@ async function testingPoll() {
 
             const r=await Cmd.toString('ascii',1);
 
-            log('     Reading:'+r);
+            log('Reading:'+r);
         }
     });
     

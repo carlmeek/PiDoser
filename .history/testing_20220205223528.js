@@ -43,16 +43,16 @@ async function testingPoll() {
         if(item instanceof atlas.pH){
             log(">> Found pH Device:")
             const r = await item.GetReading();
-            log('     pH reading:'+r);
+            log('pH reading:'+r);
         } else if(item instanceof atlas.ORP){
             log(">> Found ORP Device:")
             const r = await item.GetReading();
-            log('     ORP reading:'+r);
+            log('   ORP reading:'+r);
         }else{
             log(">> Found RTD Temperature Device:")
             //for everything else, print out the device's class
             log(item.constructor.name);
-            log("     Get Reading...")
+            log(">> Get Reading...")
 
             item.waitTime=900;
             const Cmd=await item.SendCommand('R')
@@ -60,7 +60,7 @@ async function testingPoll() {
 
             const r=await Cmd.toString('ascii',1);
 
-            log('     Reading:'+r);
+            log('Reading:'+r);
         }
     });
     
