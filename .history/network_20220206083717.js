@@ -14,19 +14,15 @@ function networkPoll() {
 
     const axios = require('axios')
 
-    params.lastURL  = 'https://admin.pooldoser.com/deviceupdate.aspx'
-    params.lastURL += '?mac='+params.macAddress
-    params.lastURL += '&version='+params.version
+    var qs = ''
     for (const [key,probe] of Object.entries(params.probes)) {
-        params.lastURL += probe.queryString()
+        qs +=
     }
 
-    console.log("URL: " + params.lastURL)
-
     axios
-    .get(params.lastURL)
+    .get('https://admin.pooldoser.com/deviceupdate.aspx?mac='+params.macAddress+'&version='+params.version+qs)
     .then(res => {
-        console.log(res.data)
+        //console.log(res.data)
         params.settings=res.data
         params.lastNetworkStatus="OK"
 
