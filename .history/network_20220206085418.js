@@ -15,8 +15,8 @@ function networkPoll() {
     const axios = require('axios')
 
     params.lastURL  = 'https://admin.pooldoser.com/deviceupdate.aspx'
-    params.lastURL += '?mac='+escape(params.macAddress)
-    params.lastURL += '&version='+escape(params.version)
+    params.lastURL += '?mac='+escape(params.macAddress
+    params.lastURL += '&version='+params.version
     for (const [key,probe] of Object.entries(params.probes)) {
         params.lastURL += probe.queryString()
     }

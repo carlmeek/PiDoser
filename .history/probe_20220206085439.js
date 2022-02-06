@@ -39,7 +39,7 @@ class Probe{
     }
 
     queryString() {
-        var qs = '&' + this.name + '=' + escape(this.reading)
+        var qs = '&' + this.name + '=' + escape(this.reading
         return qs
     }
    
