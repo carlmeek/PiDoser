@@ -16,7 +16,7 @@ function networkPoll() {
 
     params.lastURL  = 'https://admin.pooldoser.com/deviceupdate.aspx'
     params.lastURL += '?mac='+escape(params.macAddress)
-    params.lastURL += '&ip='+escape(params.ip)
+    params.lastURL += '&version='+escape(params.ip
     params.lastURL += '&version='+escape(params.version)
     for (const [key,probe] of Object.entries(params.probes)) {
         params.lastURL += probe.queryString()
