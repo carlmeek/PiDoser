@@ -1,0 +1,48 @@
+<%- include('includes/header.ejs',{active:'default'}) %>
+
+<div class="container">
+
+<div class="card">
+    <div class="card-header">
+        System Details
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+<%- include('includes/param.ejs',{key:"Name",value:params.settings.title}) %>
+<%- include('includes/param.ejs',{key:"Version",value:params.version}) %>
+<%- include('includes/param.ejs',{key:"Up Since",value:funcs.formatDate(params.uptime)}) %>
+<%- include('includes/param.ejs',{key:"Up Time",value:funcs.ago(params.uptime)}) %>
+<%- include('includes/param.ejs',{key:"MAC Address",value:params.macAddress}) %>
+<%- include('includes/param.ejs',{key:"IP Address",value:params.ip}) %>
+<%- include('includes/param.ejs',{key:"Date & Time",value:funcs.formatDate(new Date())}) %>
+<%- include('includes/param.ejs',{key:"Last Network Poll",value:funcs.ago(params.lastNetworkPoll)}) %>
+<%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
+<%- include('includes/param.ejs',{key:"Last Testing Poll",value:funcs.ago(params.lastTestingPoll)}) %>
+    </div>
+    </div>
+    <Br> 
+
+
+<% for (const [key,value] of Object.entries(params.probes)) { %>
+    <div class="card">
+        <div class="card-header">
+          <%=value.title%> - <%=value.desc%>
+        </div>
+        <div class="card-body">
+
+          <% if (typeof(value.lastReading)=='object') { %>
+            <h5 class="card-title"><%=value.reading%></h5>
+            Last Reading:<%=funcs.formatDate(value.lastReading)%>
+          <% } else { %>
+            No reading ever taken
+          <% } %>
+        </div>
+      </div>
+      <Br> 
+<% } %>
+
+</div>
+
+<%- include('includes/footer.ejs') %>
+
+
