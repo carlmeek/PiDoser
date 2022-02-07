@@ -38,6 +38,8 @@ class Probe{
     }
 
     relayOff() {
+        this.relayState=false
+
         var settings = this.settings()
         var pin = settings.pin
 
@@ -45,11 +47,10 @@ class Probe{
 
         var gpio = new Gpio(pin,'out')
         gpio.writeSync(0);
-        
-        this.relayState=false
     }
 
     relayOn() {
+        this.relayState=true
 
         var settings = this.settings()
         var pin = settings.pin
@@ -57,8 +58,6 @@ class Probe{
         console.log(this.name + " Relay ON (pin "+pin+')')
         var gpio = new Gpio(pin,'out')
         gpio.writeSync(1);
-
-        this.relayState=true
     }
 
     formatReading() {
