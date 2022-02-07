@@ -61,6 +61,7 @@ async function testingPoll() {
             probe.reading = await item.GetReading();
             probe.lastReading = new Date()
             log('     EC reading:'+probe.reading);
+            log('After converting to Float: '+probe.reading)
         }else{
             probe=params.probes.temp
             log(">> Found (assumed) RTD Temperature Device")
@@ -70,8 +71,6 @@ async function testingPoll() {
             probe.lastReading = new Date()
             log('     Temp Reading:'+probe.reading);
         }
-        log('    After converting to Float: '+probe.reading)
-        probe.reading=parseFloat(probe.reading)
     }//);
     
     log("All Complete, now running Logic...")

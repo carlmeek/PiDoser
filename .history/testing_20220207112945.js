@@ -71,7 +71,6 @@ async function testingPoll() {
             log('     Temp Reading:'+probe.reading);
         }
         log('    After converting to Float: '+probe.reading)
-        probe.reading=parseFloat(probe.reading)
     }//);
     
     log("All Complete, now running Logic...")
