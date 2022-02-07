@@ -123,16 +123,12 @@ async function probelogic(probe) {
 
             log("Max Run for Relay is "+probeSettings.maxruntime)
             if (typeof(probeSettings.maxruntime)!='undefined') {
-                if(mins >= probeSettings.maxruntime) {
-                    log("MAX RUN HIT")
-                    probe.relayOff()
-                    params.today.lastmaxrun[probe.name]=new Date()
-                    return
-                }
+            if(mins >= probeSettings.maxruntime) {
+                log("MAX RUN HIT")
+                probe.relayOff()
+                params.today.lastmaxrun[probe.name]=new Date()
+                return
             }
-            //its already on, but send command anyway
-            probe.relayOn()
-            return
         } else {
             //Check max run release
             if (probe.lastMaxRun()!=null) {

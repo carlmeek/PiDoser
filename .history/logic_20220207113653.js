@@ -131,8 +131,7 @@ async function probelogic(probe) {
                 }
             }
             //its already on, but send command anyway
-            probe.relayOn()
-            return
+            
         } else {
             //Check max run release
             if (probe.lastMaxRun()!=null) {
