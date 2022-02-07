@@ -28,9 +28,7 @@ class pH {
     GetSlope() {
         return "SLOPE!"
     }
-    SetTemperatureCompensation(temp,getreading){
-        
-    }
+    SetTemperatureCompensation(temp,getreading)params.probes[temp].reading, false)
 }
 class EC {
     GetReading() {

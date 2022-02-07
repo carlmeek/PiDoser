@@ -38,9 +38,6 @@ class Probe{
     }
 
     settings() {
-        if (typeof(this.params.settings)=='undefined') {
-            return null
-        }
         switch (this.name){
             case 'orp' : { return this.params.settings.orp }
             case 'ph'  : { return this.params.settings.ph }
@@ -68,7 +65,7 @@ class Probe{
     relaySet(val) {
         var changing = (val!=this.relayState)
         var settings = this.settings()
-        var pin = this.settings().gpio
+        var pin = settings.gpio
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
@@ -107,9 +104,6 @@ class Probe{
     }
 
     queryString() {
-        if (typeof(this.params.settings)=='undefined') {
-            return ''
-        }
 
         var qs = '&' + this.name + '=' + escape(this.reading)
         qs += '&' + this.name + 'target=' + escape(this.settings().target)
@@ -118,11 +112,9 @@ class Probe{
         if (typeof(this.calibration)!='undefined') {
             qs += '&' + this.name + 'cal=' + this.calibration
         }
-        if (typeof(this.slope)!='undefined') {
-            qs += '&' + this.name + 'slope=' + this.slope
-        }
 
-        qs += '&' + this.name + 'dosedtoday=' +this.runTimeToday()
+        qs += '&' + this.name + 'dosedtodayon=' +this.runTimeToday()
+        //dosedtoday
         //count
         //low
         //high

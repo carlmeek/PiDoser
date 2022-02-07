@@ -82,7 +82,7 @@ async function testingPoll() {
             log('ORP reading:'+probe.reading,probe);
 
             probe.calibration = item.IsCalibrated()
-            log("ORP Calibration is "+probe.calibration,probe)
+            log("pH Calibration is "+probe.calibration,probe)
         } else if(item instanceof atlas.EC){
             probe=params.probes.tds
             probe.testingLog=''
@@ -92,7 +92,6 @@ async function testingPoll() {
             log('EC reading:'+probe.reading,probe);
 
             probe.calibration = item.IsCalibrated()
-            log("EC TDS Calibration is "+probe.calibration,probe)
         }else{
             probe=params.probes.temp
             probe.testingLog=''

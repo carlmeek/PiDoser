@@ -92,7 +92,7 @@ async function testingPoll() {
             log('EC reading:'+probe.reading,probe);
 
             probe.calibration = item.IsCalibrated()
-            log("EC TDS Calibration is "+probe.calibration,probe)
+            log("ORP Calibration is "+probe.calibration,probe)
         }else{
             probe=params.probes.temp
             probe.testingLog=''

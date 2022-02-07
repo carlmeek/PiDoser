@@ -118,9 +118,6 @@ class Probe{
         if (typeof(this.calibration)!='undefined') {
             qs += '&' + this.name + 'cal=' + this.calibration
         }
-        if (typeof(this.slope)!='undefined') {
-            qs += '&' + this.name + 'slope=' + this.slope
-        }
 
         qs += '&' + this.name + 'dosedtoday=' +this.runTimeToday()
         //count

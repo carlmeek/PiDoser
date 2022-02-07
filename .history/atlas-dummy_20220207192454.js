@@ -26,9 +26,6 @@ class pH {
         return "DUMMYCAL"
     }
     GetSlope() {
-        return "SLOPE!"
-    }
-    SetTemperatureCompensation(temp,getreading){
         
     }
 }

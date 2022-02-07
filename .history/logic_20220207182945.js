@@ -93,11 +93,7 @@ async function probelogic(probe) {
     }
 
     //Pause
-    if (probeSettings.pause=="1") {
-        log("PAUSED in settings. Turning Relay Off.",probe)
-        probe.relayOff()
-        return
-    }
+    if 
 
     //Manually set dose until
     if (typeof(probeSettings.doseuntil)!='undefined' && probeSettings.doseuntil!="" && probeSettings.doseuntil!="0") {
@@ -177,4 +173,4 @@ async function probelogic(probe) {
 
 
 
-module.exports = {initialise,logic,writeToday}
+module.exports = {initialise,logic}

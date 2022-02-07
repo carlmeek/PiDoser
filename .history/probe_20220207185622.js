@@ -107,9 +107,6 @@ class Probe{
     }
 
     queryString() {
-        if (typeof(this.params.settings)=='undefined') {
-            return ''
-        }
 
         var qs = '&' + this.name + '=' + escape(this.reading)
         qs += '&' + this.name + 'target=' + escape(this.settings().target)
@@ -117,9 +114,6 @@ class Probe{
 
         if (typeof(this.calibration)!='undefined') {
             qs += '&' + this.name + 'cal=' + this.calibration
-        }
-        if (typeof(this.slope)!='undefined') {
-            qs += '&' + this.name + 'slope=' + this.slope
         }
 
         qs += '&' + this.name + 'dosedtoday=' +this.runTimeToday()

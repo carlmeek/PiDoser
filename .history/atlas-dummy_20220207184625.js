@@ -25,19 +25,10 @@ class pH {
     IsCalibrated() {
         return "DUMMYCAL"
     }
-    GetSlope() {
-        return "SLOPE!"
-    }
-    SetTemperatureCompensation(temp,getreading){
-        
-    }
 }
 class EC {
     GetReading() {
         return "1000"
-    }
-    IsCalibrated() {
-        return "DUMMYCAL"
     }
 }
 class temp {

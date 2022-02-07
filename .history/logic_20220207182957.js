@@ -94,7 +94,7 @@ async function probelogic(probe) {
 
     //Pause
     if (probeSettings.pause=="1") {
-        log("PAUSED in settings. Turning Relay Off.",probe)
+        log("...No reading for "+secs+" Seconds. Turning Relay Off.",probe)
         probe.relayOff()
         return
     }
@@ -177,4 +177,4 @@ async function probelogic(probe) {
 
 
 
-module.exports = {initialise,logic,writeToday}
+module.exports = {initialise,logic}

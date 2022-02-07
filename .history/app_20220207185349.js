@@ -8,6 +8,7 @@ var server
 
 var express = require('express');
 var app = express();
+var settings = require('./settings.js');
 var probe = require('./probe.js')
 var fs = require('fs')
 var os = require('os')
@@ -15,6 +16,7 @@ var os = require('os')
 var params = {
     testPollInterval: 5000,
     networkPollInterval: 10000,
+    settings:settings.settings(),
     uptime:new Date(),
     tempProbeAddress: 0x66,
     firstNetwork:true,
@@ -111,10 +113,8 @@ async function go() {
     }
 
     if (typeof(params.settings)!='undefined') {
-        console.log("Switching all relays off")
         for (const [key,probe] of Object.entries(params.probes)) {
-            probe.relayOff()
-        }
+        probe.relayOff()
     }
 
     console.log("Setting up Testing Poll every "+params.testPollInterval)

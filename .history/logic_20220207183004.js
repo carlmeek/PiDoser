@@ -177,4 +177,4 @@ async function probelogic(probe) {
 
 
 
-module.exports = {initialise,logic,writeToday}
+module.exports = {initialise,logic}

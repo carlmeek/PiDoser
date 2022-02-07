@@ -64,14 +64,12 @@ async function testingPoll() {
             log('pH reading:'+probe.reading,probe);
 
             probe.calibration = item.IsCalibrated()
-            log("pH Calibration is "+probe.calibration,probe)
 
             var temperature = params.probes.temp.reading
-            log("Temperature for compensation is "+temperature,probe)
+            log("Temperature for compensation is "+temperature)
             item.SetTemperatureCompensation(temperature, false)
 
             probe.slope = item.GetSlope() 
-            log("pH Slope is "+probe.slope,probe)
 
         } else if(item instanceof atlas.ORP){
             probe=params.probes.orp
@@ -82,7 +80,6 @@ async function testingPoll() {
             log('ORP reading:'+probe.reading,probe);
 
             probe.calibration = item.IsCalibrated()
-            log("ORP Calibration is "+probe.calibration,probe)
         } else if(item instanceof atlas.EC){
             probe=params.probes.tds
             probe.testingLog=''
@@ -92,7 +89,6 @@ async function testingPoll() {
             log('EC reading:'+probe.reading,probe);
 
             probe.calibration = item.IsCalibrated()
-            log("EC TDS Calibration is "+probe.calibration,probe)
         }else{
             probe=params.probes.temp
             probe.testingLog=''

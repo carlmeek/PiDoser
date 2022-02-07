@@ -28,9 +28,6 @@ class pH {
     GetSlope() {
         return "SLOPE!"
     }
-    SetTemperatureCompensation(temp,getreading){
-        
-    }
 }
 class EC {
     GetReading() {

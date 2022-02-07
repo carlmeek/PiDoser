@@ -15,6 +15,7 @@ var os = require('os')
 var params = {
     testPollInterval: 5000,
     networkPollInterval: 10000,
+    settings:settings.settings(),
     uptime:new Date(),
     tempProbeAddress: 0x66,
     firstNetwork:true,
