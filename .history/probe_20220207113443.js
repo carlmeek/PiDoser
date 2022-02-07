@@ -57,7 +57,7 @@ class Probe{
         gpio.writeSync(val?0:1);
 
         if (changing) {
-            this.relayState=val
+            this.relayState=v
             this.relayStateSince=new Date()
         }
     }
