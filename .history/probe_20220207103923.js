@@ -52,7 +52,7 @@ class Probe{
     relayOn() {
 
         var settings = this.settings()
-        var pin = settings.gpio
+        var pin = settings.pin
 
         console.log(this.name + " Relay ON (pin "+pin+')')
         var gpio = new Gpio(pin,'out')
