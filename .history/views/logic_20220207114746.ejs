@@ -1,0 +1,27 @@
+<%- include('includes/header.ejs',{active:'logic'}) %>
+<div class="container">
+    <%-params.lastlogiclog.replaceAll(' ','&nbsp;')%>
+
+<% for (const [key,probe] of Object.entries(params.probes)) { %>
+    <div class="card">
+        <div class="card-header">
+          <%=probe.title%> - <%=probe.desc%>
+        </div>
+        <div class="card-body">
+
+          <% if (typeof(probe.lastReading)=='object') { %>
+            <h5 class="card-title"><%-probe.formatReading()%></h5>
+            Last Reading: <%=funcs.ago(probe.lastReading)%> (<%=funcs.formatDate(probe.lastReading)%>)
+          <% } else { %>
+            No reading ever taken
+          <% } %>
+
+          <%=JSON.stringify(probe.settings())%>
+        </div>
+      </div>
+      <Br> 
+<% } %>
+</div>
+<%- include('includes/footer.ejs') %>
+
+

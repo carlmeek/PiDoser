@@ -71,8 +71,6 @@ async function logic() {
 
 
 async function probelogic(probe) {
-    probe.logicLog=''
-    
     var probeSettings = probe.settings()
     var nowMoment = new moment(new Date())
 

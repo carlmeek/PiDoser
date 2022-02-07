@@ -71,8 +71,6 @@ async function logic() {
 
 
 async function probelogic(probe) {
-    probe.logicLog=''
-    
     var probeSettings = probe.settings()
     var nowMoment = new moment(new Date())
 
@@ -164,7 +162,7 @@ async function probelogic(probe) {
     }
     
     //End action - we got to here and nothing turned it on, so turn it off.
-    log("...No reason to turn on. Turning Relay Off.",probe)
+    log("...No reason to turn on. Turning Relay Off.")
     probe.relayOff()
 }
 

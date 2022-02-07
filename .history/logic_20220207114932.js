@@ -71,8 +71,6 @@ async function logic() {
 
 
 async function probelogic(probe) {
-    probe.logicLog=''
-    
     var probeSettings = probe.settings()
     var nowMoment = new moment(new Date())
 
@@ -124,9 +122,9 @@ async function probelogic(probe) {
             var m = new moment(probe.relayStateSince)
             var n = new moment(new Date()) 
             var mins = n.diff(m, 'minutes');
-            log("Relay Already On Since "+probe.relayStateSince+" for "+mins+" Minutes",probe)
+            log("Relay Already On Since "+probe.relayStateSince+" for "+mins+" Minutes")
 
-            log("Max Run for Relay is "+probeSettings.maxruntime,probe)
+            log("Max Run for Relay is "+probeSettings.maxruntime)
             if (typeof(probeSettings.maxruntime)!='undefined') {
                 if(mins >= probeSettings.maxruntime) {
                     log("MAX RUN HIT")
@@ -141,30 +139,30 @@ async function probelogic(probe) {
         } else {
             //Check max run release
             if (probe.lastMaxRun()!=null) {
-                log("Last Max run is "+probe.lastMaxRun(),probe)
+                log("Last Max run is "+probe.lastMaxRun())
                 var m = new moment(probe.lastMaxRun())
                 var n = new moment(new Date()) 
                 var mins = n.diff(m, 'minutes');
-                log("Minutes since last max run hit: "+mins,probe)
+                log("Minutes since last max run hit: "+mins)
                 if (mins>probeSettings.maxrunrelease) {
-                    log("Release",probe)
+                    log("Release")
                     params.today.lastmaxrun[probe.name]=null
                 } else {
-                    log("Not released from max run yet",probe)
+                    log("Not released from max run yet")
                     probe.relayOff()
                     return
                 }
             }
             //Turn ON
-            log("Turning Relay On",probe)
+            log("Turning Relay On")
             probe.relayOn()
-            log("Relay now showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince,probe)
+            log("Relay now showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince)
             return
         }
     }
     
     //End action - we got to here and nothing turned it on, so turn it off.
-    log("...No reason to turn on. Turning Relay Off.",probe)
+    log("...No reason to turn on. Turning Relay Off.")
     probe.relayOff()
 }
 

@@ -71,8 +71,6 @@ async function logic() {
 
 
 async function probelogic(probe) {
-    probe.logicLog=''
-    
     var probeSettings = probe.settings()
     var nowMoment = new moment(new Date())
 
@@ -147,24 +145,24 @@ async function probelogic(probe) {
                 var mins = n.diff(m, 'minutes');
                 log("Minutes since last max run hit: "+mins,probe)
                 if (mins>probeSettings.maxrunrelease) {
-                    log("Release",probe)
+                    log("Release")
                     params.today.lastmaxrun[probe.name]=null
                 } else {
-                    log("Not released from max run yet",probe)
+                    log("Not released from max run yet")
                     probe.relayOff()
                     return
                 }
             }
             //Turn ON
-            log("Turning Relay On",probe)
+            log("Turning Relay On")
             probe.relayOn()
-            log("Relay now showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince,probe)
+            log("Relay now showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince)
             return
         }
     }
     
     //End action - we got to here and nothing turned it on, so turn it off.
-    log("...No reason to turn on. Turning Relay Off.",probe)
+    log("...No reason to turn on. Turning Relay Off.")
     probe.relayOff()
 }
 

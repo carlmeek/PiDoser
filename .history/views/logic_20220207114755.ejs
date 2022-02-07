@@ -8,7 +8,10 @@
             <%=probe.title%> - <%=probe.desc%>
             </div>
             <div class="card-body">
-            <%-probe.logicLog%>
+                No reading ever taken
+            <% } %>
+
+            <%=JSON.stringify(probe.settings())%>
             </div>
         </div>
         <Br> 
