@@ -1,5 +1,4 @@
 var os = require('os');
-var moment = require('moment')
 const { logic } = require('./logic.js');
 var Gpio
 if (os.arch() == 'arm') {

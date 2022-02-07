@@ -1,5 +1,4 @@
 var os = require('os');
-var moment = require('moment')
 const { logic } = require('./logic.js');
 var Gpio
 if (os.arch() == 'arm') {
@@ -44,16 +43,8 @@ class Probe{
     }
 
     runTimeToday() {
-        var accumulated = this.params.today.runtime[this.name]
-        //now add in current
-        if (this.relayState) {
-            var m = new moment(this.relayStateSince)
-            var nowMoment = new moment(new Date())
-            var minutes = nowMoment.diff(m, 'minutes');
-            accumulated += minutes
-        }
-
-        return accumulated
+        
+        return this.params.today.runtime[this.name]
     }
     lastMaxRun() {
         return this.params.today.lastmaxrun[this.name]
