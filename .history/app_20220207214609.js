@@ -109,7 +109,7 @@ async function go() {
             console.log("TODAY FROM FILE:")
             console.log(params.today)
         } else {
-            console.log("Today data blank")
+            
         }
     } else {
         console.log("Cannot read local today file - it does not exist")

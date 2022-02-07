@@ -18,10 +18,10 @@ class Probe{
     name
     title
     desc
-    count = 0
-    min = 999999
-    max = -999999
-    total = 0
+    count
+    min
+    max
+    total
     lastReading = 'Never'
     reading = 0
     relayState = false
@@ -38,14 +38,6 @@ class Probe{
            case 'tds' : { this.title = 'TDS'         ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
            case 'temp': { this.title = 'Temperature' ; this.desc='Temperature'            ; this.direction=true; break }
        }
-    }
-
-    average() {
-        if (this.count>0 && this.total>0) {
-            return this.total/this.count
-        } else {
-            return 0
-        }
     }
 
     settings() {
@@ -122,7 +114,7 @@ class Probe{
             return ''
         }
 
-        var qs = '&' + this.name + '=' + escape(this.average())
+        var qs = '&' + this.name + '=' + escape(this.reading)
         qs += '&' + this.name + 'target=' + escape(this.settings().target)
         qs += '&' + this.name + 'on=' + (this.relayState?1:0)
 
@@ -135,15 +127,13 @@ class Probe{
 
         qs += '&' + this.name + 'dosedtoday=' +this.runTimeToday()
         qs += '&' + this.name + 'count=' +this.count
-        qs += '&' + this.name + 'low=' +this.min
-        qs += '&' + this.name + 'high=' +this.max
+        qs += '&' + this.name + 'l=' +this.count
+        qs += '&' + this.name + 'count=' +this.count
+        //count
+        //low
+        //high
 
         this.logic.writeToday()
-
-        this.count=0
-        this.total=0
-        this.min=99999
-        this.max=-99999
 
         return qs
     }

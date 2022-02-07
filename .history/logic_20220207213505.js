@@ -77,7 +77,7 @@ async function probelogic(probe) {
     var nowMoment = new moment(new Date())
 
     //check probe settings found
-    if (typeof(probeSettings)=='undefined') {
+    if (typeof(probeSettings)!='undefined') {
         log("...Probe Settings Undefined. Turning Relay Off.",probe)
         probe.relayOff()
         return

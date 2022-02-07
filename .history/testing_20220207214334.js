@@ -113,8 +113,7 @@ async function testingPoll() {
         log('Final Count:'+probe.count,probe)
         log('Final Total:'+probe.total,probe)
         log('Final Min:'+probe.min,probe)
-        log('Final Max:'+probe.max,probe)
-        log('Final Average:'+probe.average(),probe)
+        log('Final Max:'+probe.count,probe)
     }//);
     
     log("All Complete, now running Logic...")

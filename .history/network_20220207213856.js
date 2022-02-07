@@ -42,6 +42,7 @@ function networkPoll() {
         params.settings=res.data
         params.lastNetworkStatus="OK"
 
+
         if (typeof(res.data.command)!='undefined' && res.data.command!='') {
             log("*** COMMAND: "+res.data.command)
             switch (res.data.command){
@@ -58,15 +59,6 @@ function networkPoll() {
             log("HasError header was set to YES")
             params.lastNetworkStatus="HasError"
             params.lastNetworkError="Unknown"
-        } else {
-            //NO ERROR
-            log("Writing Settings File")
-            fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
-                if (err) {
-                  console.error(err)
-                  return
-                }
-            })    
         }
         params.lastnetworklog=params.networklog
     })

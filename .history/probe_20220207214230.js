@@ -21,7 +21,7 @@ class Probe{
     count = 0
     min = 999999
     max = -999999
-    total = 0
+    total
     lastReading = 'Never'
     reading = 0
     relayState = false

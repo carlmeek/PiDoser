@@ -18,10 +18,10 @@ class Probe{
     name
     title
     desc
-    count = 0
+    count
     min = 999999
     max = -999999
-    total = 0
+    total
     lastReading = 'Never'
     reading = 0
     relayState = false
@@ -42,7 +42,7 @@ class Probe{
 
     average() {
         if (this.count>0 && this.total>0) {
-            return this.total/this.count
+            return total/count
         } else {
             return 0
         }

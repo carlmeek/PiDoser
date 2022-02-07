@@ -58,15 +58,6 @@ function networkPoll() {
             log("HasError header was set to YES")
             params.lastNetworkStatus="HasError"
             params.lastNetworkError="Unknown"
-        } else {
-            //NO ERROR
-            log("Writing Settings File")
-            fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
-                if (err) {
-                  console.error(err)
-                  return
-                }
-            })    
         }
         params.lastnetworklog=params.networklog
     })

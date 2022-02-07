@@ -66,7 +66,8 @@ function networkPoll() {
                   console.error(err)
                   return
                 }
-            })    
+            })
+    
         }
         params.lastnetworklog=params.networklog
     })

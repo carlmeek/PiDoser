@@ -105,12 +105,9 @@ async function go() {
         var data = fs.readFileSync(params.todayFile)
         console.log("Today Data: "+data)
         if (data!='') {
-            params.today=JSON.parse(data)
-            console.log("TODAY FROM FILE:")
-            console.log(params.today)
-        } else {
-            console.log("Today data blank")
-        }
+        params.today=JSON.parse(data)
+        console.log("TODAY FROM FILE:")
+        console.log(params.today)
     } else {
         console.log("Cannot read local today file - it does not exist")
     }

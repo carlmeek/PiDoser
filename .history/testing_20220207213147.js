@@ -108,13 +108,7 @@ async function testingPoll() {
 
         probe.count ++
         probe.total += probe.reading
-        if (probe.reading < probe.min) probe.min=probe.reading
-        if (probe.reading > probe.max) probe.max=probe.reading
-        log('Final Count:'+probe.count,probe)
-        log('Final Total:'+probe.total,probe)
-        log('Final Min:'+probe.min,probe)
-        log('Final Max:'+probe.max,probe)
-        log('Final Average:'+probe.average(),probe)
+        if (probe.reading < probe.min) probe.min=
     }//);
     
     log("All Complete, now running Logic...")
