@@ -1,5 +1,4 @@
 var params
-var logic
 var os = require('os')
 var moment = require('moment')
 
@@ -14,9 +13,8 @@ if (os.arch() == 'arm') {
 }
 
 
-function initialise(passparams,passlogic) {
+function initialise(passparams) {
     params=passparams
-    logic=passlogic
     logic.initialise(passparams)
 }
 

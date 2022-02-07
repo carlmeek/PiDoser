@@ -1,5 +1,4 @@
-var os = require('os');
-const { logic } = require('./logic.js');
+var os = require('os')
 var Gpio
 if (os.arch() == 'arm') {
     Gpio = require('onoff').Gpio;
@@ -9,7 +8,6 @@ if (os.arch() == 'arm') {
 
 class Probe{
 
-    logic
     direction  //true means UP (orp) and false means down (ph)
     params
     name
@@ -20,10 +18,9 @@ class Probe{
     relayState = false
     relayStateSince = null
 
-    constructor(passparams,name,passlogic){
+    constructor(passparams,name){
        this.name = name
        this.params = passparams
-       this.logic = passlogic
        
        switch (name){
            case 'orp' : { this.title = 'ORP'         ; this.desc='Oxygen Redux Potential' ; this.direction=true; break }
@@ -68,11 +65,7 @@ class Probe{
     relayOff() {
         //Was it ON? If so - accumulate daily total.
         if (this.relayState) {
-            var m = new moment(probe.lastReading)
-            var nowMoment = new moment(new Date())
-            var minutes = nowMoment.diff(m, 'minutes');
-            this.params.today.runtime[this.name]+=minutes
-            logic.writeToday()
+            
         }
         this.relaySet(false)
     }

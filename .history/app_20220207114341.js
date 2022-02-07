@@ -53,13 +53,6 @@ logic.initialise(params)
 var testing = require('./testing.js')
 testing.initialise(params,logic)
 
-params.probes= {
-    orp:new probe.Probe(params,'orp',logic),
-    ph:new probe.Probe(params,'ph',logic),
-    tds:new probe.Probe(params,'tds',logic),
-    temp:new probe.Probe(params,'temp',logic)
-}
-
 app.set('view engine', 'ejs');
 app.use('/', routes.router);
 app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));

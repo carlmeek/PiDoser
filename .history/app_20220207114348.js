@@ -55,9 +55,9 @@ testing.initialise(params,logic)
 
 params.probes= {
     orp:new probe.Probe(params,'orp',logic),
-    ph:new probe.Probe(params,'ph',logic),
-    tds:new probe.Probe(params,'tds',logic),
-    temp:new probe.Probe(params,'temp',logic)
+    ph:new probe.Probe(params,'ph'),
+    tds:new probe.Probe(params,'tds'),
+    temp:new probe.Probe(params,'temp')
 }
 
 app.set('view engine', 'ejs');

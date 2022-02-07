@@ -1,5 +1,4 @@
 var params
-var logic
 var os = require('os')
 var moment = require('moment')
 

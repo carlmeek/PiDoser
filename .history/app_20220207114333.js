@@ -34,6 +34,13 @@ var params = {
     }
 }
 
+params.probes= {
+        orp:new probe.Probe(params,'orp'),
+        ph:new probe.Probe(params,'ph'),
+        tds:new probe.Probe(params,'tds'),
+        temp:new probe.Probe(params,'temp')
+    }
+
 var macaddress = require('macaddress');
 var ip = require("ip");
 params.ip=ip.address()
@@ -51,14 +58,7 @@ var logic = require('./logic')
 logic.initialise(params)
 
 var testing = require('./testing.js')
-testing.initialise(params,logic)
-
-params.probes= {
-    orp:new probe.Probe(params,'orp',logic),
-    ph:new probe.Probe(params,'ph',logic),
-    tds:new probe.Probe(params,'tds',logic),
-    temp:new probe.Probe(params,'temp',logic)
-}
+testing.initialise(params)
 
 app.set('view engine', 'ejs');
 app.use('/', routes.router);

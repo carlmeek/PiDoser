@@ -9,7 +9,6 @@ if (os.arch() == 'arm') {
 
 class Probe{
 
-    logic
     direction  //true means UP (orp) and false means down (ph)
     params
     name
@@ -20,10 +19,9 @@ class Probe{
     relayState = false
     relayStateSince = null
 
-    constructor(passparams,name,passlogic){
+    constructor(passparams,name,logic){
        this.name = name
        this.params = passparams
-       this.logic = passlogic
        
        switch (name){
            case 'orp' : { this.title = 'ORP'         ; this.desc='Oxygen Redux Potential' ; this.direction=true; break }

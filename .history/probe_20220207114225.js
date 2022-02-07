@@ -9,7 +9,6 @@ if (os.arch() == 'arm') {
 
 class Probe{
 
-    logic
     direction  //true means UP (orp) and false means down (ph)
     params
     name
