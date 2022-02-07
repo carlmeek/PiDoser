@@ -16,7 +16,6 @@ class Probe{
     lastReading = 'Never'
     reading = 0
     relayState = false
-    relayStateSince = null
 
     constructor(passparams,name){
        this.name = name
@@ -40,34 +39,31 @@ class Probe{
     }
 
     runTimeToday() {
-        return this.params.today.runtime[this.name]
-    }
-    lastMaxRun() {
-        return this.params.today.lastmaxrun[this.name]
-    }
-
-    relaySet(val) {
-        var changing = (val!=this.relayState)
-        var settings = this.settings()
-        var pin = settings.gpio
-
-        console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
-
-        var gpio = new Gpio(pin,'out')
-        gpio.writeSync(val?1:0);
-
-        if (changing) {
-            this.relayState=false
-            this.relayStateSince=new Date()
-        }
+        
     }
 
     relayOff() {
-        this.relaySet(false)
+        var settings = this.settings()
+        var pin = settings.gpio
+
+        console.log(this.name + " Relay OFF (pin "+pin+')')
+
+        var gpio = new Gpio(pin,'out')
+        gpio.writeSync(0);
+
+        this.relayState=false
     }
 
     relayOn() {
-        this.relaySet(true)
+
+        var settings = this.settings()
+        var pin = settings.gpio
+
+        console.log(this.name + " Relay ON (pin "+pin+')')
+        var gpio = new Gpio(pin,'out')
+        gpio.writeSync(1);
+
+        this.relayState=true
     }
 
     formatReading() {

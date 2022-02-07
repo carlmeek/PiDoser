@@ -63,11 +63,11 @@ class Probe{
     }
 
     relayOff() {
-        this.relaySet(false)
+        relaySet(false)
     }
 
     relayOn() {
-        this.relaySet(true)
+        relaySet(true)
     }
 
     formatReading() {

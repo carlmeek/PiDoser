@@ -63,7 +63,7 @@ class Probe{
     }
 
     relayOff() {
-        this.relaySet(false)
+        relaySet(false)
     }
 
     relayOn() {

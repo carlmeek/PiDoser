@@ -16,17 +16,16 @@ class Probe{
     lastReading = 'Never'
     reading = 0
     relayState = false
-    relayStateSince = null
 
     constructor(passparams,name){
        this.name = name
        this.params = passparams
        
        switch (name){
-           case 'orp' : { this.title = 'ORP'         ; this.desc='Oxygen Redux Potential' ; this.direction=true; break }
-           case 'ph'  : { this.title = 'pH'          ; this.desc='Acidity'                ; this.direction=false; break }
-           case 'tds' : { this.title = 'TDS'         ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
-           case 'temp': { this.title = 'Temperature' ; this.desc='Temperature'            ; this.direction=true; break }
+           case 'orp' : { this.title = 'ORP'         ; this.desc='Oxygen Redux Potential' ; break }
+           case 'ph'  : { this.title = 'pH'          ; this.desc='Acidity'                ; break }
+           case 'tds' : { this.title = 'TDS'         ; this.desc='Total Dissolved Solids' ; break }
+           case 'temp': { this.title = 'Temperature' ; this.desc='Temperature'            ; break }
        }
     }
 
@@ -39,35 +38,28 @@ class Probe{
         }       
     }
 
-    runTimeToday() {
-        return this.params.today.runtime[this.name]
-    }
-    lastMaxRun() {
-        return this.params.today.lastmaxrun[this.name]
-    }
-
-    relaySet(val) {
-        var changing = (val!=this.relayState)
+    relayOff() {
         var settings = this.settings()
         var pin = settings.gpio
 
-        console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
+        console.log(this.name + " Relay OFF (pin "+pin+')')
 
         var gpio = new Gpio(pin,'out')
-        gpio.writeSync(val?1:0);
+        gpio.writeSync(0);
 
-        if (changing) {
-            this.relayState=false
-            this.relayStateSince=new Date()
-        }
-    }
-
-    relayOff() {
-        this.relaySet(false)
+        this.relayState=false
     }
 
     relayOn() {
-        this.relaySet(true)
+
+        var settings = this.settings()
+        var pin = settings.gpio
+
+        console.log(this.name + " Relay ON (pin "+pin+')')
+        var gpio = new Gpio(pin,'out')
+        gpio.writeSync(1);
+
+        this.relayState=true
     }
 
     formatReading() {

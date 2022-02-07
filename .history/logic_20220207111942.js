@@ -46,10 +46,10 @@ async function logic() {
             },
             lastmaxrun:{
                 orp:null,
-                ph:null,
-                tds:null,
-                floc:null,
-                temp:null
+                ph:0,
+                tds:0,
+                floc:0,
+                temp:0
             }
         }
         writeToday()
@@ -125,26 +125,8 @@ async function probelogic(probe) {
             if(mins >= probeSettings.maxruntime) {
                 log("MAX RUN HIT")
                 probe.relayOff()
-                params.today.lastmaxrun[probe.name]=new Date()
-                return
             }
         } else {
-            //Check max run release
-            if (probe.lastMaxRun()!=null) {
-                log("Last Max run is "+probe.lastMaxRun())
-                var m = new moment(probe.lastMaxRun())
-                var n = new moment(new Date()) 
-                var mins = n.diff(m, 'minutes');
-                log("Minutes since last max run hit: "+mins)
-                if (mins>probeSettings.maxrunrelease) {
-                    log("Release")
-                    params.today.lastmaxrun[probe.name]=null
-                } else {
-                    log("Not released from max run yet")
-                    probe.relayOff()
-                    return
-                }
-            }
             //Turn ON
             log("Turning Relay On")
             probe.relayOn()

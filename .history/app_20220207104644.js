@@ -22,7 +22,6 @@ var params = {
     firstNetwork:true,
     rootURL:'https://admin.pooldoser.com/deviceupdate.aspx',
     settingsFile:'../settings.json',
-    todayFile:'../today.json',
     testinglog:'',
     lasttestinglog:'',
     networklog:'',
@@ -100,14 +99,22 @@ async function go() {
     }
 
     if (fs.existsSync(params.todayFile)) {
-        console.log("Reading TODAY from file")
-        var data = fs.readFileSync(params.todayFile)
-        params.today=JSON.parse(data)
-        console.log("TODAY FROM FILE:")
-        console.log(params.today)
+        console.log("Reading settings from file")
+        var data = fs.readFileSync(params.settingsFile)
+        params.settings=JSON.parse(data)
+        console.log("SETTINGS FROM FILE:")
+        console.log(params.settings)
     } else {
-        console.log("Cannot read local today file - it does not exist")
+        console.log("Cannot read local settings file - it does not exist")
     }
+
+    ,
+        runtime:{
+            orp:0,
+            ph:0,
+            tds:0,
+            floc:0
+        }
 
     for (const [key,probe] of Object.entries(params.probes)) {
         probe.relayOff()

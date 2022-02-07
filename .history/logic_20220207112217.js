@@ -126,7 +126,6 @@ async function probelogic(probe) {
                 log("MAX RUN HIT")
                 probe.relayOff()
                 params.today.lastmaxrun[probe.name]=new Date()
-                return
             }
         } else {
             //Check max run release
@@ -138,11 +137,6 @@ async function probelogic(probe) {
                 log("Minutes since last max run hit: "+mins)
                 if (mins>probeSettings.maxrunrelease) {
                     log("Release")
-                    params.today.lastmaxrun[probe.name]=null
-                } else {
-                    log("Not released from max run yet")
-                    probe.relayOff()
-                    return
                 }
             }
             //Turn ON

@@ -44,7 +44,7 @@ async function logic() {
                 floc:0,
                 temp:0
             },
-            lastmaxrun:{
+            onsince:{
                 orp:null,
                 ph:null,
                 tds:null,
@@ -106,50 +106,7 @@ async function probelogic(probe) {
     log("Reading is "+probe.reading+". Target "+probeSettings.target+". Diff is "+diff)
     if (diff > 0) {
         log("Consider dosing...")
-        log("Today runtime is "+probe.runTimeToday()+" Max Run Per Day is "+probeSettings.maxrunperday)
-        if (probe.runTimeToday() >= probeSettings.maxrunperday) {
-            log("MAX RUN HIT FOR TODAY")
-            probe.relayOff()
-            return;
-        }
-        log("Relay currently showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince)
-
-        if(probe.relayState) {
-            //Already ON
-            var m = new moment(probe.relayStateSince)
-            var n = new moment(new Date()) 
-            var mins = n.diff(m, 'minutes');
-            log("Relay Already On Since "+probe.relayStateSince+" for "+mins+" Minutes")
-            log("Max Run for Relay is "+probeSettings.maxruntime)
-
-            if(mins >= probeSettings.maxruntime) {
-                log("MAX RUN HIT")
-                probe.relayOff()
-                params.today.lastmaxrun[probe.name]=new Date()
-                return
-            }
-        } else {
-            //Check max run release
-            if (probe.lastMaxRun()!=null) {
-                log("Last Max run is "+probe.lastMaxRun())
-                var m = new moment(probe.lastMaxRun())
-                var n = new moment(new Date()) 
-                var mins = n.diff(m, 'minutes');
-                log("Minutes since last max run hit: "+mins)
-                if (mins>probeSettings.maxrunrelease) {
-                    log("Release")
-                    params.today.lastmaxrun[probe.name]=null
-                } else {
-                    log("Not released from max run yet")
-                    probe.relayOff()
-                    return
-                }
-            }
-            //Turn ON
-            log("Turning Relay On")
-            probe.relayOn()
-            log("Relay now showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince)
-        }
+        log("Today runtime is "+probe.runTimeToday())
     }
     
     //End action - we got to here and nothing turned it on, so turn it off.

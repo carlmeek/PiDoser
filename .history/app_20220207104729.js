@@ -22,7 +22,7 @@ var params = {
     firstNetwork:true,
     rootURL:'https://admin.pooldoser.com/deviceupdate.aspx',
     settingsFile:'../settings.json',
-    todayFile:'../today.json',
+    todayFile:'../today.json'
     testinglog:'',
     lasttestinglog:'',
     networklog:'',
