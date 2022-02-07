@@ -27,12 +27,13 @@ function log(txt,probe) {
     if (probe==null) {
         params.testinglog+=txt
     } else {
-        probe.testingLog+=txt
+        probe.testinglog+=txt
     }
 }
 
 
 async function testingPoll() {
+    params.testinglog=''
 
     log('Testing Poll...');
     params.lastTestingPoll=new Date()
@@ -51,36 +52,32 @@ async function testingPoll() {
         var probe
         if(item instanceof atlas.pH){
             probe=params.probes.ph
-            probe.testingLog=''
-            log("Found pH Device",probe)
+            log(">> Found pH Device",probe)
             probe.reading = await item.GetReading();
             probe.lastReading = new Date()
-            log('pH reading:'+probe.reading,probe);
+            log('     pH reading:'+probe.reading,probe);
         } else if(item instanceof atlas.ORP){
             probe=params.probes.orp
-            probe.testingLog=''
-            log("Found ORP Device",probe)
+            log(">> Found ORP Device",probe)
             probe.reading = await item.GetReading();
             probe.lastReading = new Date()
-            log('ORP reading:'+probe.reading,probe);
+            log('     ORP reading:'+probe.reading,probe);
         } else if(item instanceof atlas.EC){
             probe=params.probes.tds
-            probe.testingLog=''
-            log("Found EC (TDS) Device",probe)
+            log(">> Found EC (TDS) Device")
             probe.reading = await item.GetReading();
             probe.lastReading = new Date()
-            log('EC reading:'+probe.reading,probe);
+            log('     EC reading:'+probe.reading);
         }else{
             probe=params.probes.temp
-            probe.testingLog=''
-            log("Found (assumed) RTD Temperature Device",probe)
+            log(">> Found (assumed) RTD Temperature Device")
             item.waitTime=900;
             var cmd = await item.SendCommand('R')
             probe.reading = await cmd.toString('ascii',1);
             probe.lastReading = new Date()
-            log('Temp Reading:'+probe.reading,probe);
+            log('     Temp Reading:'+probe.reading);
         }
-        log('After converting to Float: '+probe.reading,probe)
+        log('    After converting to Float: '+probe.reading)
         probe.reading=parseFloat(probe.reading)
     }//);
     

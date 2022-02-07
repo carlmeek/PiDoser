@@ -73,14 +73,14 @@ async function testingPoll() {
         }else{
             probe=params.probes.temp
             probe.testingLog=''
-            log("Found (assumed) RTD Temperature Device",probe)
+            log(">> Found (assumed) RTD Temperature Device",probe)
             item.waitTime=900;
             var cmd = await item.SendCommand('R')
             probe.reading = await cmd.toString('ascii',1);
             probe.lastReading = new Date()
-            log('Temp Reading:'+probe.reading,probe);
+            log('     Temp Reading:'+probe.reading,probe);
         }
-        log('After converting to Float: '+probe.reading,probe)
+        log('    After converting to Float: '+probe.reading,probe)
         probe.reading=parseFloat(probe.reading)
     }//);
     

@@ -66,21 +66,21 @@ async function testingPoll() {
         } else if(item instanceof atlas.EC){
             probe=params.probes.tds
             probe.testingLog=''
-            log("Found EC (TDS) Device",probe)
+            log(">> Found EC (TDS) Device",probe)
             probe.reading = await item.GetReading();
             probe.lastReading = new Date()
-            log('EC reading:'+probe.reading,probe);
+            log('     EC reading:'+probe.reading,probe);
         }else{
             probe=params.probes.temp
             probe.testingLog=''
-            log("Found (assumed) RTD Temperature Device",probe)
+            log(">> Found (assumed) RTD Temperature Device",probe)
             item.waitTime=900;
             var cmd = await item.SendCommand('R')
             probe.reading = await cmd.toString('ascii',1);
             probe.lastReading = new Date()
-            log('Temp Reading:'+probe.reading,probe);
+            log('     Temp Reading:'+probe.reading,probe);
         }
-        log('After converting to Float: '+probe.reading,probe)
+        log('    After converting to Float: '+probe.reading,probe)
         probe.reading=parseFloat(probe.reading)
     }//);
     

@@ -80,7 +80,7 @@ class Probe{
     relayOff() {
         //Was it ON? If so - accumulate daily total.
         if (this.relayState) {
-            var m = new moment(this.relayStateSince)
+            var m = new moment(probe.lastReading)
             var nowMoment = new moment(new Date())
             var minutes = nowMoment.diff(m, 'minutes');
             this.params.today.runtime[this.name]+=minutes
