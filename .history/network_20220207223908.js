@@ -24,18 +24,13 @@ function networkPoll() {
 
     params.lastURL  = params.rootURL
     params.lastURL += '?m='+escape(params.macAddress)
-
-    if (diff>=params.networkPostInterval) {
-        params.lastURL += '&ip='+escape(params.ip)
-        params.lastURL += '&v='+escape(params.version)
-        //We just want the ENTIRE config every time so force f=1
-        params.lastURL += '&f=1'
-        params.lastURL += '&u='+new moment(new Date()).diff(new moment(params.uptime))
-        for (const [key,probe] of Object.entries(params.probes)) {
-            params.lastURL += probe.queryString()
-        }
-
-        params.lastNetworkPost=new Date()
+    params.lastURL += '&ip='+escape(params.ip)
+    params.lastURL += '&v='+escape(params.version)
+    //We just want the ENTIRE config every time so force f=1
+    params.lastURL += '&f=1'
+    params.lastURL += '&u='+new moment(new Date()).diff(new moment(params.uptime))
+    for (const [key,probe] of Object.entries(params.probes)) {
+        params.lastURL += probe.queryString()
     }
 
     log("Getting URL...")

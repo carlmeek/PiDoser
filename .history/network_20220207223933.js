@@ -23,9 +23,9 @@ function networkPoll() {
     log("Last full post was "+diff+" seconds ago")
 
     params.lastURL  = params.rootURL
-    params.lastURL += '?m='+escape(params.macAddress)
 
     if (diff>=params.networkPostInterval) {
+        params.lastURL += '?m='+escape(params.macAddress)
         params.lastURL += '&ip='+escape(params.ip)
         params.lastURL += '&v='+escape(params.version)
         //We just want the ENTIRE config every time so force f=1
@@ -34,8 +34,6 @@ function networkPoll() {
         for (const [key,probe] of Object.entries(params.probes)) {
             params.lastURL += probe.queryString()
         }
-
-        params.lastNetworkPost=new Date()
     }
 
     log("Getting URL...")

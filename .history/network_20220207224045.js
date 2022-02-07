@@ -35,7 +35,7 @@ function networkPoll() {
             params.lastURL += probe.queryString()
         }
 
-        params.lastNetworkPost=new Date()
+        params.lastNetworkPost=mew Date()
     }
 
     log("Getting URL...")

@@ -16,7 +16,6 @@ var params = {
     testPollInterval: 5000,
     networkPostInterval: 60, // seconds
     networkPollInterval: 10000,
-    lastNetworkPost:new Date('2000-01-01'),
     uptime:new Date(),
     tempProbeAddress: 0x66,
     firstNetwork:true,

@@ -34,8 +34,6 @@ function networkPoll() {
         for (const [key,probe] of Object.entries(params.probes)) {
             params.lastURL += probe.queryString()
         }
-
-        params.lastNetworkPost=new Date()
     }
 
     log("Getting URL...")

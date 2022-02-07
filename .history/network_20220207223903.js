@@ -14,7 +14,7 @@ function networkPoll() {
     log('Network Poll...');
     params.lastNetworkPoll=new Date()
     params.lastNetworkStatus="Connecting"
-
+    
     const axios = require('axios')
 
     var n=new moment(new Date())
@@ -22,20 +22,16 @@ function networkPoll() {
     var diff=n.diff(m,'seconds')
     log("Last full post was "+diff+" seconds ago")
 
+
     params.lastURL  = params.rootURL
     params.lastURL += '?m='+escape(params.macAddress)
-
-    if (diff>=params.networkPostInterval) {
-        params.lastURL += '&ip='+escape(params.ip)
-        params.lastURL += '&v='+escape(params.version)
-        //We just want the ENTIRE config every time so force f=1
-        params.lastURL += '&f=1'
-        params.lastURL += '&u='+new moment(new Date()).diff(new moment(params.uptime))
-        for (const [key,probe] of Object.entries(params.probes)) {
-            params.lastURL += probe.queryString()
-        }
-
-        params.lastNetworkPost=new Date()
+    params.lastURL += '&ip='+escape(params.ip)
+    params.lastURL += '&v='+escape(params.version)
+    //We just want the ENTIRE config every time so force f=1
+    params.lastURL += '&f=1'
+    params.lastURL += '&u='+new moment(new Date()).diff(new moment(params.uptime))
+    for (const [key,probe] of Object.entries(params.probes)) {
+        params.lastURL += probe.queryString()
     }
 
     log("Getting URL...")
