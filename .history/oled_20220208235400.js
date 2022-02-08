@@ -21,10 +21,8 @@ function initialise(passparams) {
      
     myoled = new oled(opts);
 
-    console.log("Clear OLED...")
     myoled.clearDisplay();
 
-    console.log("Draw Pixel OLED...")
     myoled.drawPixel([
         [128, 1, 1],
         [128, 32, 1],
