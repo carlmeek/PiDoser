@@ -114,9 +114,6 @@ async function go() {
                 params.today=JSON.parse(data)
                 console.log("TODAY FROM FILE:")
                 console.log(params.today)
-            } catch(e) {
-                console.log("Parse TODAY file FAILED.")
-            }
         } else {
             console.log("Today data blank")
         }

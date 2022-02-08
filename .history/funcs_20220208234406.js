@@ -8,10 +8,7 @@ function ago(d) {
     var m = new moment(d)
     var n = new moment(new Date())
     var secs = n.diff(m, 'seconds');
-    if (secs>60) {
-        return Math.round(secs/60,0) + " Minutes Ago"
-    } else {
-        return secs + " Seconds Ago"
-    }
+    if secs>60
+    return secs + " Seconds Ago"
 }
 module.exports = {formatDate,ago}
