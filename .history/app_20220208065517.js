@@ -11,6 +11,7 @@ var app = express();
 var probe = require('./probe.js')
 var fs = require('fs')
 var os = require('os')
+var oled = require('./oled.js')
 
 var params = {
     testPollInterval: 5000,
@@ -33,9 +34,6 @@ var params = {
         date:new Date("2000-01-01")
     }
 }
-
-var oled = require('./oled.js')
-oled.initialise(params)
 
 var macaddress = require('macaddress');
 var ip = require("ip");

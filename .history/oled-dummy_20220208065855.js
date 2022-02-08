@@ -7,7 +7,7 @@ class oled
         console.log("@OLED clear display")
     }
     drawPixel() {
-        console.log("@OLED draw pixel")
+        console.log("@OLED constructor")
     }
 }
 module.exports=oled

@@ -22,8 +22,6 @@ function log(txt,probe) {
 function writeToday() {
     log("Writing Today File")
     var json = JSON.stringify(params.today, null, 4)
-    log("JSON text to write is type: "+typeof(json))
-    log("Today file is "+json.length+" bytes")
     fs.writeFile(params.todayFile, json, err => {
         if (err) {
           console.error(err)

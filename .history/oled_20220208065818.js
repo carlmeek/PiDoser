@@ -22,7 +22,7 @@ function initialise(passparams) {
 
     myoled.clearDisplay();
 
-    myoled.drawPixel([
+    oled.drawPixel([
         [128, 1, 1],
         [128, 32, 1],
         [128, 16, 1],

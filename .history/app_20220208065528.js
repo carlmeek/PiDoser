@@ -34,9 +34,6 @@ var params = {
     }
 }
 
-var oled = require('./oled.js')
-oled.initialise(params)
-
 var macaddress = require('macaddress');
 var ip = require("ip");
 params.ip=ip.address()

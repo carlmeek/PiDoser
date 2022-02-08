@@ -61,7 +61,7 @@ class Probe{
     }
 
     runTimeToday() {
-        var accumulated = 0
+        var accumulated
         if (typeof(this.params.today)!='undefined' && typeof(this.params.today.runtime)!='undefined') {
             accumulated = this.params.today.runtime[this.name]
         }

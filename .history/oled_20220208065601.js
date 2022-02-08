@@ -1,12 +1,11 @@
 var oled
-var params
-var os = require('os')
 
 if (os.arch() == 'arm') {
     oled = require('rpi-oled');
 } else {
     oled = require('./oled-dummy.js')
 }
+
 
 var myoled
 
@@ -20,9 +19,9 @@ function initialise(passparams) {
      
     myoled = new oled(opts);
 
-    myoled.clearDisplay();
+    oled.clearDisplay();
 
-    myoled.drawPixel([
+    oled.drawPixel([
         [128, 1, 1],
         [128, 32, 1],
         [128, 16, 1],

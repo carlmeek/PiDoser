@@ -61,10 +61,8 @@ class Probe{
     }
 
     runTimeToday() {
-        var accumulated = 0
-        if (typeof(this.params.today)!='undefined' && typeof(this.params.today.runtime)!='undefined') {
-            accumulated = this.params.today.runtime[this.name]
-        }
+        var accumulated
+        accumulated = this.params.today.runtime[this.name]
         //now add in current
         if (this.relayState) {
             var m = new moment(this.relayStateSince)
@@ -82,13 +80,7 @@ class Probe{
     relaySet(val) {
         var changing = (val!=this.relayState)
         var settings = this.settings()
-
-        if (typeof(settings)=='undefined') {
-            console.log(this.name + " Relay cannot be set as settings is undefined")
-            return
-        }
-
-        var pin = settings.gpio
+        var pin = this.settings().gpio
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
