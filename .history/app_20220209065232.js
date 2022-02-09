@@ -79,7 +79,7 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    params.i2cbus = await i2c.openPromisified(1)
+    params.i2c = await i2c.openPromisified(1)
 
     var oled = require('./oled.js')
     oled.initialise(params)

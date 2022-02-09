@@ -15,12 +15,7 @@ class dummyi2c {
     close() {
         console.log("Dummy I2C Close")
     }
-    async i2cWrite() {
-        return {bytesWritten:100}
-    }
-    async i2cRead(addr, length, buffer) {
-        return {bytesRead:100,buffer:null}
-    }
+    
 }
 
 module.exports={ openPromisified }

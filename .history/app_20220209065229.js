@@ -16,8 +16,8 @@ var i2c
 if (os.arch() == 'arm') {
     i2c = require('i2c-bus');
 } else {
-    i2c = require('./i2c-dummy.js');
-}
+//    i2c = require('./i2c-dummy.js');
+//}
 
 var params = {
     testPollInterval: 5000,
@@ -79,7 +79,7 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    params.i2cbus = await i2c.openPromisified(1)
+    params.i2c = await i2c.openPromisified(1)
 
     var oled = require('./oled.js')
     oled.initialise(params)

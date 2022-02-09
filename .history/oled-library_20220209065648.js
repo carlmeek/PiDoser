@@ -140,10 +140,10 @@ var Oled = function(i2c, opts) {
   }
   
   // read a byte from the oled
-  Oled.prototype._readI2C = async function(fn) {
+  Oled.prototype._readI2C = function(fn) {
     //For version <6.0.0
     if(typeof Buffer.from == "undefined") {
-      await this.wire.i2cRead(this.ADDRESS, 0, new Buffer([0]), function(err, bytesRead, data) {
+      this.wire.i2cRead(this.ADDRESS, 0, new Buffer([0]), function(err, bytesRead, data) {
         // result is single byte
         if(typeof data === "object") {
           fn(data[0]);
@@ -156,7 +156,7 @@ var Oled = function(i2c, opts) {
     //For version >=6.0.0
     else {
       var data=[0];
-      await this.wire.i2cRead(this.ADDRESS, 1, Buffer.from(data));
+      await this.wire.i2cReadSync(this.ADDRESS, 1, Buffer.from(data));
       fn(data[0]);
     }
   }

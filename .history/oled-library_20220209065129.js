@@ -112,7 +112,7 @@ var Oled = function(i2c, opts) {
   }
   
   // writes both commands and data buffers to this device
-  Oled.prototype._transfer = async function(type, val, fn) {
+  Oled.prototype._transfer = function(type, val, fn) {
     var control;
     if (type === 'data') {
       control = 0x40;
@@ -133,17 +133,17 @@ var Oled = function(i2c, opts) {
     }
   
     // send control and actual val
-    sentCount = await this.wire.i2cWrite(this.ADDRESS, 2, bufferForSend).bytesWritten;
+    sentCount = this.wire.i2cWrite(this.ADDRESS, 2, bufferForSend);
     if(fn) {
       fn();
     }
   }
   
   // read a byte from the oled
-  Oled.prototype._readI2C = async function(fn) {
+  Oled.prototype._readI2C = function(fn) {
     //For version <6.0.0
     if(typeof Buffer.from == "undefined") {
-      await this.wire.i2cRead(this.ADDRESS, 0, new Buffer([0]), function(err, bytesRead, data) {
+      this.wire.i2cRead(this.ADDRESS, 0, new Buffer([0]), function(err, bytesRead, data) {
         // result is single byte
         if(typeof data === "object") {
           fn(data[0]);
@@ -156,7 +156,7 @@ var Oled = function(i2c, opts) {
     //For version >=6.0.0
     else {
       var data=[0];
-      await this.wire.i2cRead(this.ADDRESS, 1, Buffer.from(data));
+      this.wire.i2cReadSync(this.ADDRESS, 1, Buffer.from(data));
       fn(data[0]);
     }
   }
@@ -311,7 +311,7 @@ var Oled = function(i2c, opts) {
   // send the entire framebuffer to the oled
   Oled.prototype.update = function() {
     // wait for oled to be ready
-    this._waitUntilReady(async function() {
+    this._waitUntilReady(function() {
       // set the start and endbyte locations for oled display update
       var displaySeq = [
         this.COLUMN_ADDR,
@@ -331,7 +331,7 @@ var Oled = function(i2c, opts) {
   
       // write buffer data
           var bufferToSend = Buffer.concat([Buffer.from([0x40]), this.buffer]);
-          var sentCount = await this.wire.i2cWrite(this.ADDRESS, bufferToSend.length, bufferToSend);
+          var sentCount = this.wire.i2cWriteSync(this.ADDRESS, bufferToSend.length, bufferToSend);
   
     }.bind(this));
   }
