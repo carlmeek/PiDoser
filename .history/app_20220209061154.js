@@ -80,7 +80,7 @@ async function go() {
     console.log("Running in "+__dirname)
 
     params.i2cbus = await i2c.openPromisified(1);
-    params.i2cbussync = await i2c.openSync(1);
+    params.i2cbus = await i2c.openPromisified(1);
 
     var oled = require('./oled.js')
     oled.initialise(params)

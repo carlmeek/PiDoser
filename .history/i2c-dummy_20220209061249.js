@@ -27,4 +27,4 @@ class dummyi2c {
     }
 }
 
-module.exports={ openPromisified,openSync }
+module.exports={ openPromisified }
