@@ -3,10 +3,13 @@ var logic
 var os = require('os')
 var moment = require('moment')
 
+var i2c
 var atlas
 if (os.arch() == 'arm') {
+    i2c = require('i2c-bus');
     atlas = require('atlas-scientific-i2c');
 } else {
+    i2c = require('./i2c-dummy.js');
     atlas = require('./atlas-dummy.js')
 }
 
@@ -40,6 +43,9 @@ async function testingPoll() {
         return;
     }
 
+    //open the i2c bus
+    log("Open i2c Bus...")
+    const bus = await i2c.openPromisified(1);
 
     //find all EZO devices
     log("Find All Devices...")

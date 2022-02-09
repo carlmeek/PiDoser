@@ -20,7 +20,7 @@ function initialise(passparams) {
       address: 0x3C,
     };
      
-    myoled = new oled(params.i2cbus,opts);
+    myoled = new oled(opts);
 
     console.log("Clear OLED...")
     myoled.clearDisplay();

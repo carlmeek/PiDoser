@@ -15,10 +15,11 @@ var os = require('os')
 var i2c
 if (os.arch() == 'arm') {
     i2c = require('i2c-bus');
+    atlas = require('atlas-scientific-i2c');
 } else {
     i2c = require('./i2c-dummy.js');
+    atlas = require('./atlas-dummy.js')
 }
-
 var params = {
     testPollInterval: 5000,
     networkPostInterval: 60, // seconds
@@ -41,8 +42,8 @@ var params = {
     }
 }
 
-var oled = require('./oled.js')
-oled.initialise(params)
+//var oled = require('./oled.js')
+//oled.initialise(params)
 
 var macaddress = require('macaddress');
 var ip = require("ip");

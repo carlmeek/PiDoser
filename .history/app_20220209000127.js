@@ -18,7 +18,6 @@ if (os.arch() == 'arm') {
 } else {
     i2c = require('./i2c-dummy.js');
 }
-
 var params = {
     testPollInterval: 5000,
     networkPostInterval: 60, // seconds
@@ -41,8 +40,8 @@ var params = {
     }
 }
 
-var oled = require('./oled.js')
-oled.initialise(params)
+//var oled = require('./oled.js')
+//oled.initialise(params)
 
 var macaddress = require('macaddress');
 var ip = require("ip");

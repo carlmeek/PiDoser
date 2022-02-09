@@ -12,13 +12,6 @@ var probe = require('./probe.js')
 var fs = require('fs')
 var os = require('os')
 
-var i2c
-if (os.arch() == 'arm') {
-    i2c = require('i2c-bus');
-} else {
-    i2c = require('./i2c-dummy.js');
-}
-
 var params = {
     testPollInterval: 5000,
     networkPostInterval: 60, // seconds
@@ -41,8 +34,8 @@ var params = {
     }
 }
 
-var oled = require('./oled.js')
-oled.initialise(params)
+//var oled = require('./oled.js')
+//oled.initialise(params)
 
 var macaddress = require('macaddress');
 var ip = require("ip");
