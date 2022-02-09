@@ -79,6 +79,7 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
+    //open the i2c bus
     params.i2cbus = await i2c.openPromisified(1);
 
     var oled = require('./oled.js')

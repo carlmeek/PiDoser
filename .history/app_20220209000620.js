@@ -40,6 +40,11 @@ var params = {
         date:new Date("2000-01-01")
     }
 }
+//open the i2c bus
+params.i2cbus = await i2c.openPromisified(1);
+
+var oled = require('./oled.js')
+oled.initialise(params)
 
 var macaddress = require('macaddress');
 var ip = require("ip");
@@ -73,16 +78,9 @@ app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 app.use(express.static(__dirname + '/static'));
 
-go ()
-async function go() {
-    
+
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
-
-    params.i2cbus = await i2c.openPromisified(1);
-
-    var oled = require('./oled.js')
-    oled.initialise(params)
 
     params.systemdata='Architecture:'+os.arch()
     params.systemdata += '<br>'+os.cpus().length+" CPUs: "+os.cpus()[0].model
@@ -147,7 +145,6 @@ async function go() {
     console.log("Setting up Network Poll every "+params.networkPollInterval)
     params.networkTimer=setInterval(network.networkPoll, params.networkPollInterval);
     network.networkPoll()
-}
 
 
 
