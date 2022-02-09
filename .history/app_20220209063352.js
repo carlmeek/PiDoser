@@ -11,6 +11,7 @@ var app = express();
 var probe = require('./probe.js')
 var fs = require('fs')
 var os = require('os')
+var i2cwrapper = require('./i2c-wrapper.js')
 
 var i2c
 if (os.arch() == 'arm') {
@@ -75,11 +76,11 @@ app.use(express.static(__dirname + '/static'));
 
 go ()
 async function go() {
-
+    
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    params.i2c = await i2c.openPromisified(1)
+    params.i2cbus = await i2c.openPromisified(1);
 
     var oled = require('./oled.js')
     oled.initialise(params)

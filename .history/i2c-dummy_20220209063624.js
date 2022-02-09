@@ -1,11 +1,9 @@
-//This dummy class shims ASYNC + SYNC functions together
-//because atlas needs Async and OLED needs sync functions
-
-function openPromisified() {
-    return new dummyi2c
-}
 
 class dummyi2c {
+    openPromisified()
+    {
+        
+    }
     readWord() {
         return new Promise((resolve, reject) => {
             console.log("Dummy I2C Read Word")
@@ -17,4 +15,4 @@ class dummyi2c {
     }
 }
 
-module.exports={ openPromisified }
+module.exports={  }

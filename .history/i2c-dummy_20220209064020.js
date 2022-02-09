@@ -1,6 +1,4 @@
-//This dummy class shims ASYNC + SYNC functions together
-//because atlas needs Async and OLED needs sync functions
-
+//This dummy class shims 
 function openPromisified() {
     return new dummyi2c
 }
