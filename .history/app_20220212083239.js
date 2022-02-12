@@ -42,12 +42,33 @@ var params = {
         date:new Date("2000-01-01")
     },
     addError:function(err) {
-        err = 'Date:'+new Date +'<br>'+err
-        this.lastError=err
-        params.errors.push(err)
-        if (this.errors.length>10) this.errors.pop()
+        this.lastError='Date:'+new Date +'<br>' +
+        'Type:Uncaught Exception<br>' +
+        'Error:'+error.toString() + '<br>' +
+        'Source:'+source.toString()
+params.errors.push(params.lastError)
+if (params.errors.length>10) params.errors.pop()
     }
 }
+
+process.on('uncaughtException', (error, source) => {
+    params.lastError='Date:'+new Date +'<br>' +
+                     'Type:Uncaught Exception<br>' +
+                     'Error:'+error.toString() + '<br>' +
+                     'Source:'+source.toString()
+    params.errors.push(params.lastError)
+    if (params.errors.length>10) params.errors.pop()
+}); 
+
+process.on('unhandledRejection', (reason, promise) => {
+    params.lastError='Date:'+new Date +'<br>' +
+                     'Type:Unhandled Rejection' + '<br>' +
+                     'Reason:'+reason + '<br>' +
+                     'Promise:'+promise.toString()
+    params.errors.push(params.lastError)
+    if (params.errors.length>10) params.errors.pop()
+});
+  
 
 var macaddress = require('macaddress');
 var ip = require("ip");
@@ -87,20 +108,6 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    console.log("Uncaught Exception Handler...")
-    process.on('uncaughtException', (error, source) => {
-        params.addError('Type:Uncaught Exception<br>' +
-                        'Error:'+error.toString() + '<br>' +
-                        'Source:'+source.toString())
-    }); 
-
-    console.log("Unhandled Rejection Handler...")
-    process.on('unhandledRejection', (reason, promise) => {
-        params.addError('Type:Unhandled Rejection' + '<br>' +
-                        'Reason:'+reason + '<br>' +
-                        'Promise:'+promise.toString())
-    });
-    
     params.i2cbus = await i2c.openPromisified(1)
     
     var oled = require('./oled.js')

@@ -94,7 +94,6 @@ async function go() {
                         'Source:'+source.toString())
     }); 
 
-    console.log("Unhandled Rejection Handler...")
     process.on('unhandledRejection', (reason, promise) => {
         params.addError('Type:Unhandled Rejection' + '<br>' +
                         'Reason:'+reason + '<br>' +

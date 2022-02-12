@@ -87,20 +87,19 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    console.log("Uncaught Exception Handler...")
-    process.on('uncaughtException', (error, source) => {
-        params.addError('Type:Uncaught Exception<br>' +
-                        'Error:'+error.toString() + '<br>' +
-                        'Source:'+source.toString())
-    }); 
 
-    console.log("Unhandled Rejection Handler...")
-    process.on('unhandledRejection', (reason, promise) => {
-        params.addError('Type:Unhandled Rejection' + '<br>' +
-                        'Reason:'+reason + '<br>' +
-                        'Promise:'+promise.toString())
-    });
-    
+process.on('uncaughtException', (error, source) => {
+    params.addError('Type:Uncaught Exception<br>' +
+                     'Error:'+error.toString() + '<br>' +
+                     'Source:'+source.toString())
+}); 
+
+process.on('unhandledRejection', (reason, promise) => {
+    params.addError('Type:Unhandled Rejection' + '<br>' +
+                     'Reason:'+reason + '<br>' +
+                     'Promise:'+promise.toString())
+});
+  
     params.i2cbus = await i2c.openPromisified(1)
     
     var oled = require('./oled.js')

@@ -66,12 +66,9 @@ async function testingPoll() {
             log("Temperature for compensation is "+temperature,probe)
             item.SetTemperatureCompensation(temperature, false)
 
-            probe.slope = await item.GetSlope().catch(error => function() {
-                params.addError('Type:Error getting pH slope<br>Error:'+error);
-                probe.slope="ERROR"
-            });
-
-            log("pH Slope is "+probe.slope,probe)
+            probe.slope = item.GetSlope()
+            
+            log("pH Slope is "+await probe.slope,probe)
 
         } else if(item instanceof atlas.ORP){
             probe=params.probes.orp
