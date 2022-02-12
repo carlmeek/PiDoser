@@ -43,8 +43,7 @@ async function testingPoll() {
     //i2c scan
     //DEBUGGING ONLY - Not necessary for the below
     var founddevs = params.i2cbus.scanSync
-    for (var i=0; i<founddevs.length; i++) {
-        var item=founddevs[i]
+    for (var i=0; i<const item of founddevs) {
         log("i2cBus finds "+item)
     }
 
