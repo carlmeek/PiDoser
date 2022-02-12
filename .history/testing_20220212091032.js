@@ -44,9 +44,8 @@ async function testingPoll() {
     //DEBUGGING ONLY - Not necessary for the below
     var founddevs = params.i2cbus.scanSync
     for (const item of founddevs) {
-        log("i2cBus finds "+item)
     }
-
+    
     //find all EZO devices
     log("Find All Devices...")
     const devs=await atlas.FindAllDevices(params.i2cbus);
