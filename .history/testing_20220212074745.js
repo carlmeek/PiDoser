@@ -81,7 +81,6 @@ async function testingPoll() {
             log("ORP Calibration is "+await probe.calibration,probe)
         } else if(item instanceof atlas.EC){
             probe=params.probes.tds
-            if (probe.reading=="@") probe.reading=0
             probe.testingLog=''
             log("Found EC (TDS) Device",probe)
             probe.reading = await item.GetReading();
