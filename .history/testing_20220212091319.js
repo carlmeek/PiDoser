@@ -44,15 +44,12 @@ async function testingPoll() {
     //DEBUGGING ONLY - Not necessary for the below
     log("Scanning i2c Bus...")
     var founddevs = params.i2cbus.scanSync
-    if (typeof(founddevs)=='undefined') {
-        log("Bus results undefined")
-    } else {
-        for (var i=0; i<founddevs.length; i++) {
-            var item=founddevs[i]
-            log("i2cBus finds "+item)
-        }
+    if ()
+    for (var i=0; i<founddevs.length; i++) {
+        var item=founddevs[i]
+        log("i2cBus finds "+item)
     }
-    
+
     //find all EZO devices
     log("Find All Devices...")
     const devs=await atlas.FindAllDevices(params.i2cbus);
