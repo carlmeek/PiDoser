@@ -37,7 +37,7 @@ var params = {
     lastnetworklog:'',
     logiclog:'',
     lastlogiclog:'',
-    errors:[],
+    errors:queue({ errors: [] }),
     today:{
         date:new Date("2000-01-01")
     },
@@ -87,7 +87,7 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    params.addError('Type:Fake Error');
+    params.addError('Type:Fake Error<br>Error:'+error);
 
     console.log("Uncaught Exception Handler...")
     process.on('uncaughtException', (error, source) => {

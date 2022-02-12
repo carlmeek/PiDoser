@@ -67,7 +67,7 @@ async function testingPoll() {
             item.SetTemperatureCompensation(temperature, false)
 
             probe.slope = item.GetSlope().then((slope) => {
-                log("pH Slope is "+probe.slope,probe)
+
             }).catch(error => function() {
                 params.addError('Type:Error getting pH slope<br>Error:'+error);
                 probe.slope="ERROR"

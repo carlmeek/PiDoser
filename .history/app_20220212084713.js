@@ -37,7 +37,7 @@ var params = {
     lastnetworklog:'',
     logiclog:'',
     lastlogiclog:'',
-    errors:[],
+    errors:queue({ errors: [] }),
     today:{
         date:new Date("2000-01-01")
     },
