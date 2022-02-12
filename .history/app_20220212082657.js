@@ -58,7 +58,6 @@ process.on('unhandledRejection', (reason, promise) => {
                      'Reason:'+reason + '<br>' +
                      'Promise:'+promise.toString()
     params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
 });
   
 

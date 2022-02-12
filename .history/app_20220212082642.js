@@ -49,7 +49,6 @@ process.on('uncaughtException', (error, source) => {
                      'Error:'+error.toString() + '<br>' +
                      'Source:'+source.toString()
     params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
 }); 
 
 process.on('unhandledRejection', (reason, promise) => {
@@ -58,7 +57,6 @@ process.on('unhandledRejection', (reason, promise) => {
                      'Reason:'+reason + '<br>' +
                      'Promise:'+promise.toString()
     params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
 });
   
 

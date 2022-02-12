@@ -12,7 +12,6 @@ var probe = require('./probe.js')
 var fs = require('fs')
 var os = require('os')
 var queue = require('queue')
-
 var i2c
 if (os.arch() == 'arm') {
     i2c = require('i2c-bus');
@@ -37,7 +36,6 @@ var params = {
     lastnetworklog:'',
     logiclog:'',
     lastlogiclog:'',
-    errors:queue({ errors: [] }),
     today:{
         date:new Date("2000-01-01")
     }
@@ -48,8 +46,6 @@ process.on('uncaughtException', (error, source) => {
                      'Type:Uncaught Exception<br>' +
                      'Error:'+error.toString() + '<br>' +
                      'Source:'+source.toString()
-    params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
 }); 
 
 process.on('unhandledRejection', (reason, promise) => {
@@ -57,8 +53,6 @@ process.on('unhandledRejection', (reason, promise) => {
                      'Type:Unhandled Rejection' + '<br>' +
                      'Reason:'+reason + '<br>' +
                      'Promise:'+promise.toString()
-    params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
 });
   
 

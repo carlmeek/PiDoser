@@ -48,8 +48,7 @@ process.on('uncaughtException', (error, source) => {
                      'Type:Uncaught Exception<br>' +
                      'Error:'+error.toString() + '<br>' +
                      'Source:'+source.toString()
-    params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
+    params.errors.push()
 }); 
 
 process.on('unhandledRejection', (reason, promise) => {
@@ -57,8 +56,6 @@ process.on('unhandledRejection', (reason, promise) => {
                      'Type:Unhandled Rejection' + '<br>' +
                      'Reason:'+reason + '<br>' +
                      'Promise:'+promise.toString()
-    params.errors.push(params.lastError)
-    if (params.errors.length>10) params.errors.pop()
 });
   
 
