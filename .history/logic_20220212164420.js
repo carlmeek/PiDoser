@@ -101,7 +101,7 @@ async function probelogic(probe) {
         probe.relayOff()
         return
     } else {
-        log("...Last reading was "+secs+" Seconds ago.",probe)
+        log("...Last reading was "+secs+" Seconds. Turning Relay Off.",probe)
     }
 
     //Pause

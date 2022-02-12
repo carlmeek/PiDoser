@@ -101,7 +101,6 @@ async function probelogic(probe) {
         probe.relayOff()
         return
     } else {
-        log("...Last reading was "+secs+" Seconds ago.",probe)
     }
 
     //Pause
