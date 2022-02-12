@@ -43,7 +43,7 @@ async function testingPoll() {
     //i2c scan
     //DEBUGGING ONLY - Not necessary for the below
     log("Scanning i2c Bus...")
-    var founddevs = await params.i2cbus.scan()
+    var founddevs = params.i2cbus.scan()
     if (typeof(founddevs)=='undefined') {
         log("Bus results undefined")
     } else {
