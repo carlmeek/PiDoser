@@ -23,19 +23,7 @@
     <Br> 
 
 
-<% if (typeof(params.lastError)!='undefined') { %>
-
-<div class="card">
-  <div class="card-header">
-      Last Error
-  </div>
-  <div class="card-body">
-      <p class="card-text">
-        <%-params.lastError%>
-  </div>
-  </div>
-  <Br> 
-<% } %>
+<% if (typeof(params.lastError)!='')
 
 <% for (const [key,probe] of Object.entries(params.probes)) { %>
     <div class="card">

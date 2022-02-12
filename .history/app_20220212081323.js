@@ -41,20 +41,6 @@ var params = {
     }
 }
 
-process.on('uncaughtException', (error, source) => {
-    params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Uncaught Exception<br>' +
-                     'Error:'+error.toString() +
-                     'Source:'+source.toString()
-}); 
-
-process.on('unhandledRejection', (reason, promise) => {
-    params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Unhandled Rejection' +
-                     'Reason:'+reason
-});
-  
-
 var macaddress = require('macaddress');
 var ip = require("ip");
 params.ip=ip.address()
@@ -94,6 +80,8 @@ async function go() {
     console.log("Running in "+__dirname)
 
     params.i2cbus = await i2c.openPromisified(1)
+
+    process.on('uncaughtException')
     
     var oled = require('./oled.js')
     oled.initialise(params)

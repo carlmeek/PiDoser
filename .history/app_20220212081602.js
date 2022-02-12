@@ -42,17 +42,14 @@ var params = {
 }
 
 process.on('uncaughtException', (error, source) => {
-    params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Uncaught Exception<br>' +
-                     'Error:'+error.toString() +
-                     'Source:'+source.toString()
+    params.lastError=error
+    params.lastSource=source
 }); 
 
 process.on('unhandledRejection', (reason, promise) => {
-    params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Unhandled Rejection' +
-                     'Reason:'+reason
-});
+    console.log('Unhandled Rejection at:', promise, 'reason:', reason);
+    // Application specific logging, throwing an error, or other logic here
+  });
   
 
 var macaddress = require('macaddress');

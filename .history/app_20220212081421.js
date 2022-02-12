@@ -42,18 +42,8 @@ var params = {
 }
 
 process.on('uncaughtException', (error, source) => {
-    params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Uncaught Exception<br>' +
-                     'Error:'+error.toString() +
-                     'Source:'+source.toString()
+    fs.writeSync(process.stderr.fd, error, source);
 }); 
-
-process.on('unhandledRejection', (reason, promise) => {
-    params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Unhandled Rejection' +
-                     'Reason:'+reason
-});
-  
 
 var macaddress = require('macaddress');
 var ip = require("ip");
