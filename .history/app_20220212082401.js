@@ -52,7 +52,6 @@ process.on('unhandledRejection', (reason, promise) => {
     params.lastError='Date:'+new Date +'<br>' +
                      'Type:Unhandled Rejection' + '<br>' +
                      'Reason:'+reason + '<br>' +
-                     'Promise:'+promise.toString()
 });
   
 

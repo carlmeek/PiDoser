@@ -50,9 +50,8 @@ process.on('uncaughtException', (error, source) => {
 
 process.on('unhandledRejection', (reason, promise) => {
     params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Unhandled Rejection' + '<br>' +
-                     'Reason:'+reason + '<br>' +
-                     'Promise:'+promise.toString()
+                     'Type:Unhandled Rejection' +
+                     'Reason:'+reason
 });
   
 

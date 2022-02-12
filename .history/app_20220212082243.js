@@ -44,15 +44,14 @@ var params = {
 process.on('uncaughtException', (error, source) => {
     params.lastError='Date:'+new Date +'<br>' +
                      'Type:Uncaught Exception<br>' +
-                     'Error:'+error.toString() + '<br>' +
+                     'Error:'+error.toString() + '<Br>'
                      'Source:'+source.toString()
 }); 
 
 process.on('unhandledRejection', (reason, promise) => {
     params.lastError='Date:'+new Date +'<br>' +
-                     'Type:Unhandled Rejection' + '<br>' +
-                     'Reason:'+reason + '<br>' +
-                     'Promise:'+promise.toString()
+                     'Type:Unhandled Rejection' +
+                     'Reason:'+reason
 });
   
 
