@@ -99,7 +99,7 @@ function update() {
     writeStringAt(font,1,47,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
     
     if (params.lastError!=null) {
-        writeStringAt(font,1,56,"Error "+funcs.ago(params.lastError))
+        writeStringAt(font,1,55,"Error "+funcs.ago(params.lastError))
     }
 }
 
