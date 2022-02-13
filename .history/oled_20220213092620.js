@@ -109,7 +109,7 @@ function doProbe(font,y,probe) {
     txt += probe.reading
     writeStringAt(font,1,y,txt)
 
-    return
+    
     txt=(probe.relayState?"DOSING":"OFF")
     txt += " " + funcs.ago(probe.relayStateSince,true,true)
     writeStringAt(font,64,y,txt)
