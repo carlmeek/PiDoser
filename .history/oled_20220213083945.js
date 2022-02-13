@@ -86,8 +86,7 @@ function update() {
     console.log("OLED Update...")
 
     let font = FontPack.oled_5x7;
-    writeStringAt(font,1,25,"ORP:"+params.probes.orp.reading)
-    writeStringAt(font,1,35,"pH:"+params.probes.ph.reading)
+    writeStringAt(font,x,y,"ORP:"+params.probes.orp.reading)
     
 }
 

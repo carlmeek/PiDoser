@@ -85,9 +85,9 @@ function writeStringAt(font,x,y,text) {
 function update() {
     console.log("OLED Update...")
 
+    myoled.setCursor(1, 25);
     let font = FontPack.oled_5x7;
-    writeStringAt(font,1,25,"ORP:"+params.probes.orp.reading)
-    writeStringAt(font,1,35,"pH:"+params.probes.ph.reading)
+    myoled.writeString(font, 1, "ORP:"+params.probes[''], 1, false);
     
 }
 
