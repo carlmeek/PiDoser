@@ -96,11 +96,10 @@ async function go() {
 
     console.log("Uncaught Exception Handler...")
     process.on('uncaughtException', (error, source) => {
-        console.error("Uncaught Exception:"+error.toString()+' - '+Error().stack)
+        console.error("Uncaught Exception:"+error.toString())
         params.addError('Type:Uncaught Exception<br>' +
                         'Error:'+error.toString() + '<br>' +
-                        'Source:'+source.toString()+ '<BR>' +
-                        'Stack:'+new Error().stack)
+                        'Source:'+source.toString()+ '<BR>' + )
     }); 
 
     console.log("Unhandled Rejection Handler...")
