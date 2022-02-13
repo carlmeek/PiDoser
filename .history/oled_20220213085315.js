@@ -96,7 +96,7 @@ function update() {
     writeStringAt(font,1,25,testString(params.probes.orp))
     writeStringAt(font,1,35,testString(params.probes.ph))
     writeStringAt(font,1,45,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
-    writeStringAt(font,1,55,"Error")
+    writeStringAt(font,1,35,testString(params.probes.ph))
 }
 
 function testString(probe) {

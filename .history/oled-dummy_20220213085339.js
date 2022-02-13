@@ -3,7 +3,7 @@ class oled
     debug = false
 
     constructor() {
-        if (this.debug) console.log("@OLED constructor")
+        if (debug) console.log("@OLED constructor")
     }
     clearDisplay() {
         if (this.debug) console.log("@OLED clear display")
