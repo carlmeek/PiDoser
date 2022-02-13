@@ -49,7 +49,7 @@ function initialise(passparams) {
     // Load the legacy oled-font-5x7;
     let font5x7 = FontPack.oled_5x7;
 
-    let font = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
+    let font = FontPack.arial_normal_16x16
 
     // sets cursor to x = 1, y = 1
     myoled.setCursor(1, 1);
@@ -62,7 +62,7 @@ function initialise(passparams) {
     //int color - color of text. Can be specified as either 0 for 'off' or black, and 1 or 255 for 'on' or white.
     //bool wrapping - true applies word wrapping at the screen limit, false for no wrapping. If a long string without spaces is supplied as the text, just letter wrapping will apply instead.
     
-    myoled.writeString(font, 1, "Pool Doser", 1, false);
+    myoled.writeString(font, 1, "Pool Doser", 1, true);
 
 //    myoled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 

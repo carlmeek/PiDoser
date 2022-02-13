@@ -49,7 +49,7 @@ function initialise(passparams) {
     // Load the legacy oled-font-5x7;
     let font5x7 = FontPack.oled_5x7;
 
-    let font = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
+    let font = FontPack.arial_normal_16x16
 
     // sets cursor to x = 1, y = 1
     myoled.setCursor(1, 1);
