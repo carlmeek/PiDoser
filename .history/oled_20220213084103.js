@@ -85,14 +85,14 @@ function writeStringAt(font,x,y,text) {
 function update() {
     console.log("OLED Update...")
 
-    myoled.fillRect(1, 20, 128,64,0)
+    myoled.fillRect(1, 1, 10, 20, 1);
 
     let font = FontPack.oled_5x7;
     writeStringAt(font,1,25,"ORP:"+params.probes.orp.reading)
     writeStringAt(font,1,35,"pH:"+params.probes.ph.reading)
 
- //   <%- include('includes/param.ejs',{key:"Last Network Poll",value:funcs.ago(params.lastNetworkPoll)}) %>
-//<%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
+    <%- include('includes/param.ejs',{key:"Last Network Poll",value:funcs.ago(params.lastNetworkPoll)}) %>
+<%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
 
     
 }

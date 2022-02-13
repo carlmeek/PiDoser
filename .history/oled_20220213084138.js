@@ -91,8 +91,8 @@ function update() {
     writeStringAt(font,1,25,"ORP:"+params.probes.orp.reading)
     writeStringAt(font,1,35,"pH:"+params.probes.ph.reading)
 
- //   <%- include('includes/param.ejs',{key:"Last Network Poll",value:funcs.ago(params.lastNetworkPoll)}) %>
-//<%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
+    <%- include('includes/param.ejs',{key:"Last Network Poll",value:funcs.ago(params.lastNetworkPoll)}) %>
+<%- include('includes/param.ejs',{key:"Last Network Status",value:params.lastNetworkStatus}) %>
 
     
 }
