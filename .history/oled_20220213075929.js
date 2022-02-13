@@ -33,21 +33,21 @@ function initialise(passparams) {
         [128, 16, 1],
         [64, 16, 1]
     ]);
-    //myoled.drawLine(1, 1, 128, 32, 1);
-    //myoled.fillRect(1, 1, 10, 20, 1);
-    //myoled.drawBitmap(image.data);
-    //myoled.startscroll('left', 0, 15); // this will scroll an entire 128 x 32 screen
-    //myoled.stopscroll();
+    //oled.drawLine(1, 1, 128, 32, 1);
+    //oled.fillRect(1, 1, 10, 20, 1);
+    //oled.drawBitmap(image.data);
+    //oled.startscroll('left', 0, 15); // this will scroll an entire 128 x 32 screen
+    //oled.stopscroll();
     console.log("cursor...")
-    myoled.setCursor(1, 1);
+    oled.setCursor(1, 1);
 
     console.log("font")
     var font = require('oled-font-5x7');
 
     // sets cursor to x = 1, y = 1
-    myoled.setCursor(1, 1);
+    oled.setCursor(1, 1);
     console.log("string")
-    myoled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
+    oled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 }
 
 
