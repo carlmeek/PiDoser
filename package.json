@@ -27,6 +27,7 @@
     "jquery": "^3.6.0",
     "macaddress": "^0.5.2",
     "moment": "^2.29.1",
+    "oled-font-5x7": "^1.0.3",
     "onoff": "^6.0.3",
     "queue": "^6.0.2"
   }

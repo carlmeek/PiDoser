@@ -37,14 +37,6 @@ function initialise(passparams) {
     //oled.fillRect(1, 1, 10, 20, 1);
     //oled.drawBitmap(image.data);
     //oled.startscroll('left', 0, 15); // this will scroll an entire 128 x 32 screen
-    //oled.stopscroll();
-    oled.setCursor(1, 1);
-
-    var font = require('oled-font-5x7');
-
-    // sets cursor to x = 1, y = 1
-    oled.setCursor(1, 1);
-    oled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 }
 
 
