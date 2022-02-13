@@ -180,7 +180,7 @@ async function go() {
     network.networkPoll()
 
     console.log("Setting up OLED Poll every "+params.oledPollInterval)
-    params.oledTimer=setInterval(oled.update, params.oledPollInterval);
+    params.networkTimer=setInterval(oled.update, params.oledPollInterval);
     oled.update()
 }
 

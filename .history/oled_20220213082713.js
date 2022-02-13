@@ -47,13 +47,12 @@ function initialise(passparams) {
     //FONTS shown http://www.rinkydinkelectronics.com/r_fonts.php
     //let font3x5 = FontPack.oled_3x5;
     // Load the legacy oled-font-5x7;
-    //let font5x7 = FontPack.oled_5x7;
+    let font5x7 = FontPack.oled_5x7;
 
     let font = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
-    writeStringAt(font,1,1,"Pool Doser")
 
     // sets cursor to x = 1, y = 1
-    //console.log("string")
+    console.log("string")
 
     //Writestring params:
     //obj font - font object in JSON format (see note below on sourcing a font)

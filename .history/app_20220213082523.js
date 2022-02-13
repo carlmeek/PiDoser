@@ -22,7 +22,6 @@ if (os.arch() == 'arm') {
 
 var params = {
     testPollInterval: 5000,
-    oledPollInterval: 1000,
     networkPostInterval: 60, // seconds
     networkPollInterval: 10000,
     lastNetworkPost:new Date('2000-01-01'),
@@ -180,8 +179,8 @@ async function go() {
     network.networkPoll()
 
     console.log("Setting up OLED Poll every "+params.oledPollInterval)
-    params.oledTimer=setInterval(oled.update, params.oledPollInterval);
-    oled.update()
+    params.networkTimer=setInterval(network.networkPoll, params.networkPollInterval);
+    network.networkPoll()
 }
 
 
