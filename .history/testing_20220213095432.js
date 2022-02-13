@@ -123,7 +123,7 @@ async function testingPoll() {
         }
         log('After converting to Float: '+probe.reading,probe)
         probe.reading=parseFloat(probe.reading)
-        if (isNaN(probe.reading)) probe.reading=0;
+        if (isNaN())
 
         probe.count ++
         probe.total += probe.reading
