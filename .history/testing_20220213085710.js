@@ -3,6 +3,7 @@ var logic
 var oled
 var os = require('os')
 var moment = require('moment')
+const oled = require('./oled-dummy.js')
 
 var atlas
 if (os.arch() == 'arm') {

@@ -113,7 +113,8 @@ async function go() {
                         'Promise:'+promise.toString())
     });
     
-    params.i2cbus = await i2c.openPromisified(1)    
+    params.i2cbus = await i2c.openPromisified(1)
+    
     oled.initialise(params)
 
     params.systemdata='Architecture:'+os.arch()

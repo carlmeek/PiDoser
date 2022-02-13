@@ -66,8 +66,6 @@ routes.initialise(params,network)
 var logic = require('./logic')
 logic.initialise(params)
 
-var oled = require('./oled.js')
-
 var testing = require('./testing.js')
 testing.initialise(params,logic,oled)
 
@@ -113,7 +111,9 @@ async function go() {
                         'Promise:'+promise.toString())
     });
     
-    params.i2cbus = await i2c.openPromisified(1)    
+    params.i2cbus = await i2c.openPromisified(1)
+    
+    var oled = require('./oled.js')
     oled.initialise(params)
 
     params.systemdata='Architecture:'+os.arch()

@@ -3,6 +3,7 @@ var logic
 var oled
 var os = require('os')
 var moment = require('moment')
+const oled = require('./oled-dummy.js')
 
 var atlas
 if (os.arch() == 'arm') {
@@ -12,10 +13,9 @@ if (os.arch() == 'arm') {
 }
 
 
-function initialise(passparams,passlogic,passoled) {
+function initialise(passparams,passlogic) {
     params=passparams
     logic=passlogic
-    oled=passoled
     logic.initialise(passparams)
 }
 

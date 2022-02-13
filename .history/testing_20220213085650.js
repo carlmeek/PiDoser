@@ -1,6 +1,5 @@
 var params
 var logic
-var oled
 var os = require('os')
 var moment = require('moment')
 
@@ -12,10 +11,9 @@ if (os.arch() == 'arm') {
 }
 
 
-function initialise(passparams,passlogic,passoled) {
+function initialise(passparams,passlogic) {
     params=passparams
     logic=passlogic
-    oled=passoled
     logic.initialise(passparams)
 }
 
@@ -143,7 +141,6 @@ async function testingPoll() {
     logic.logic()
 
     log("Finally updating OLED")
-    oled.update();
 }
 
 
