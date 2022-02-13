@@ -49,7 +49,7 @@ function initialise(passparams) {
     // Load the legacy oled-font-5x7;
     let font5x7 = FontPack.oled_5x7;
 
-    let font = FontPack.ubuntu_bold_24x32
+    let font = FontPack.Calibri32x64GR
 
     // sets cursor to x = 1, y = 1
     myoled.setCursor(1, 1);

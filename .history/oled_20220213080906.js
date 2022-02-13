@@ -43,20 +43,16 @@ function initialise(passparams) {
     myoled.setCursor(1, 1);
 
     console.log("font")
-    //FONTS LIST HERE https://github.com/lynniemagoo/oled-font-pack/blob/master/index.js
-    //FONTS shown http://www.rinkydinkelectronics.com/r_fonts.php
+    //FONTS http://www.rinkydinkelectronics.com/r_fonts.php
     let font3x5 = FontPack.oled_3x5;
     // Load the legacy oled-font-5x7;
     let font5x7 = FontPack.oled_5x7;
 
-    let font = FontPack.ubuntu_bold_24x32
+    let font = FontPack.Calibri32x64GR
 
     // sets cursor to x = 1, y = 1
     myoled.setCursor(1, 1);
     console.log("string")
-    
-    myoled.writeString(font, 1, 'Pool Doser.', 1, true);
-
 //    myoled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 
     console.log("OLED Done")
