@@ -29,8 +29,24 @@ function initialise(passparams) {
     myoled.clearDisplay();
 
     let font = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
+    //myoled.LETTERSPACING=0
+    //writeStringAt(font,1,1,"Pool Doser")
     spaceText(font,1,1,"Pool Doser",12)
     writeStringAt(font,1,20,"Startup")
+
+    // sets cursor to x = 1, y = 1
+    //console.log("string")
+
+    //Writestring params:
+    //obj font - font object in JSON format (see note below on sourcing a font)
+    //int size - font size, as multiplier. Eg. 2 would double size, 3 would triple etc.
+    //string text - the actual text you want to show on the display.
+    //int color - color of text. Can be specified as either 0 for 'off' or black, and 1 or 255 for 'on' or white.
+    //bool wrapping - true applies word wrapping at the screen limit, false for no wrapping. If a long string without spaces is supplied as the text, just letter wrapping will apply instead.
+    //writeStringAt(font,1,1,"P")
+    //writeStringAt(font,1,16,"o")
+
+//    myoled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 
     console.log("OLED Done")
 }
