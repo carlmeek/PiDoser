@@ -34,10 +34,10 @@ class Probe{
        this.logic = passlogic
        
        switch (name){
-           case 'orp' : { this.title = 'ORP'         ; this.short = 'ORP'  ; this.desc='Oxygen Redux Potential' ; this.direction=true; break }
-           case 'ph'  : { this.title = 'pH'          ; this.short = 'pH'   ; this.desc='Acidity'                ; this.direction=false; break }
-           case 'tds' : { this.title = 'TDS'         ; this.short = 'TDS'  ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
-           case 'temp': { this.title = 'Temperature' ; this.short = 'Temp' ; this.desc='Temperature'            ; this.direction=true; break }
+           case 'orp' : { this.title = 'ORP'         ; this.title = 'ORP'         ; this.desc='Oxygen Redux Potential' ; this.direction=true; break }
+           case 'ph'  : { this.title = 'pH'          ; this.desc='Acidity'                ; this.direction=false; break }
+           case 'tds' : { this.title = 'TDS'         ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
+           case 'temp': { this.title = 'Temperature' ; this.desc='Temperature'            ; this.direction=true; break }
        }
     }
 
