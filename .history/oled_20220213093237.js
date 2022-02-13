@@ -27,7 +27,7 @@ function initialise(passparams) {
 
     console.log("Clear OLED...")
     oled.turnOffDisplay();
-    oled.turnOnDisplay();
+    oled.turnOffDisplay();
     myoled.clearDisplay();
 
     //console.log("Draw Pixel OLED...")

@@ -23,7 +23,7 @@ class oled
     turnOffDisplay() {
 
     }
-    turnOnDisplay() {
+    turnOffDisplay() {
         
     }
 }

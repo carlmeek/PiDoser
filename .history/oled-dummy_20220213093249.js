@@ -20,11 +20,6 @@ class oled
     fillRect() {
         if (this.debug) console.log("@OLED fill rect")
     }
-    turnOffDisplay() {
-
-    }
-    turnOnDisplay() {
-        
-    }
+    oled.turnOffDisplay()
 }
 module.exports=oled

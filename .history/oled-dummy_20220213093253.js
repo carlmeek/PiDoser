@@ -21,9 +21,6 @@ class oled
         if (this.debug) console.log("@OLED fill rect")
     }
     turnOffDisplay() {
-
-    }
-    turnOnDisplay() {
         
     }
 }
