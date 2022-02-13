@@ -3,7 +3,6 @@ var params
 var os = require('os')
 const FontPack = require('oled-font-pack');
 var funcs = require ('./funcs.js')
-var lastInitialise
 
 if (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');
@@ -25,7 +24,6 @@ function initialise(passparams) {
     params=passparams
  
     myoled = new oled(params.i2cbus,opts);
-    lastInitialise=new Date()
 
     console.log("Clear OLED...")
     myoled.clearDisplay(true);
@@ -52,16 +50,9 @@ function writeStringAt(font,x,y,text) {
 function update() {
     console.log("OLED Update...")
 
-    var m = new moment(lastInitialise)
-    var n = new moment(new Date())
-    var secs = n.diff(m, 'seconds');
+    myoled = new oled(params.i2cbus,opts);
 
-    if (secs>60) {
-        myoled = new oled(params.i2cbus,opts);
-        lastInitialise=new Date()
-    }
-
-    myoled.clearDisplay();
+    myoled.clearDisplay(false);
     let bigfont = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
     spaceText(bigfont,1,1, (params.title?params.title:'Pool Doser') ,12)
 

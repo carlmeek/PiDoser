@@ -58,9 +58,8 @@ function update() {
 
     if (secs>60) {
         myoled = new oled(params.i2cbus,opts);
-        lastInitialise=new Date()
     }
-
+    
     myoled.clearDisplay();
     let bigfont = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
     spaceText(bigfont,1,1, (params.title?params.title:'Pool Doser') ,12)

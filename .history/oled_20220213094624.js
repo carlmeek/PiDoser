@@ -56,10 +56,7 @@ function update() {
     var n = new moment(new Date())
     var secs = n.diff(m, 'seconds');
 
-    if (secs>60) {
-        myoled = new oled(params.i2cbus,opts);
-        lastInitialise=new Date()
-    }
+    myoled = new oled(params.i2cbus,opts);
 
     myoled.clearDisplay();
     let bigfont = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
