@@ -96,10 +96,9 @@ async function go() {
     console.log("Pi Pool Doser Version "+params.version)
     console.log("Running in "+__dirname)
 
-    if (os.arch() != 'arm') {
+    if (os.arch() == 'arm') {
         params.addError('Type:Fake Error');
-    }
-    
+
     console.log("Uncaught Exception Handler...")
     process.on('uncaughtException', (error, source) => {
         console.error("Uncaught Exception:"+error.toString()+' - '+Error().stack)
