@@ -46,7 +46,7 @@ var params = {
     addError:function(err) {
         err = 'Date:'+new Date +'<br>'+err
         this.lastError=err
-        params.lastError=new Date()
+        params.lastError
         params.errors.push(err)
         if (this.errors.length>10) this.errors.pop()
     }

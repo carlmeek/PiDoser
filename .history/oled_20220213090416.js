@@ -93,7 +93,7 @@ function update() {
     //myoled.fillRect(1, 20, 128,64,0)
 
     let font = FontPack.oled_5x7;
-    writeStringAt(font,1,15,testString(params.probes.temp))
+    writeStringAt(font,1,15,testString(params.probes.temp]))
     writeStringAt(font,1,25,testString(params.probes.orp))
     writeStringAt(font,1,35,testString(params.probes.ph))
     writeStringAt(font,1,45,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
