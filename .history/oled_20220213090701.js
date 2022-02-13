@@ -96,7 +96,7 @@ function update() {
     writeStringAt(font,1,20,testString(params.probes.temp))
     writeStringAt(font,1,29,testString(params.probes.orp))
     writeStringAt(font,1,38,testString(params.probes.ph))
-    writeStringAt(font,1,49,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
+    writeStringAt(font,1,47,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
     
     if (params.lastError!=null) {
         writeStringAt(font,1,55,"Error "+funcs.ago(params.lastError))
