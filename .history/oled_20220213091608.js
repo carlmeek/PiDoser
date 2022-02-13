@@ -94,8 +94,8 @@ function update() {
 
     let font = FontPack.oled_5x7;
     doProbe(font,20,params.probes.temp)
-    doProbe(font,29,params.probes.orp)
-    doProbe(font,38,params.probes.ph)
+    writeStringAt(font,1,29,probeString(params.probes.orp))
+    writeStringAt(font,1,38,probeString(params.probes.ph))
     writeStringAt(font,1,47,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll,true))    
     
     if (params.lastError!=null) {
@@ -103,18 +103,15 @@ function update() {
     }
 }
 
-function doProbe(font,y,probe) {
+function probeString(probe) {
     var txt = probe.short
     txt += ":"
     txt += probe.reading
-    writeStringAt(font,1,20,txt)
 
-    txt="DOSING"
-    writeStringAt(font,80,20,txt)
+    relayState = false
+    relayStateSince = null
 
-    //relayState = false
-    //relayStateSince = null
-
+    return txt
 }
 
 module.exports = {initialise,update}

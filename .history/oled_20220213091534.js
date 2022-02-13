@@ -93,9 +93,9 @@ function update() {
     //myoled.fillRect(1, 20, 128,64,0)
 
     let font = FontPack.oled_5x7;
-    doProbe(font,20,params.probes.temp)
-    doProbe(font,29,params.probes.orp)
-    doProbe(font,38,params.probes.ph)
+    writeStringAt(font,1,20,testString(params.probes.temp))
+    writeStringAt(font,1,29,testString(params.probes.orp))
+    writeStringAt(font,1,38,testString(params.probes.ph))
     writeStringAt(font,1,47,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll,true))    
     
     if (params.lastError!=null) {
@@ -103,18 +103,15 @@ function update() {
     }
 }
 
-function doProbe(font,y,probe) {
+function probeString(probe) {
     var txt = probe.short
     txt += ":"
     txt += probe.reading
-    writeStringAt(font,1,20,txt)
 
-    txt="DOSING"
-    writeStringAt(font,80,20,txt)
+    relayState = false
+    relayStateSince = null
 
-    //relayState = false
-    //relayStateSince = null
-
+    return txt
 }
 
 module.exports = {initialise,update}

@@ -109,9 +109,6 @@ function doProbe(font,y,probe) {
     txt += probe.reading
     writeStringAt(font,1,20,txt)
 
-    txt="DOSING"
-    writeStringAt(font,80,20,txt)
-
     //relayState = false
     //relayStateSince = null
 
