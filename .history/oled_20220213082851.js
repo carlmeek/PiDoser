@@ -75,8 +75,7 @@ function writeStringAt(font,x,y,text) {
 }
 
 function update() {
-    console.log("OLED Update...")
-    
+    HTMLFormControlsCollection.l
     myoled.setCursor(1, 10);
 
     let font = FontPack.hallfetica_normal_16x16
