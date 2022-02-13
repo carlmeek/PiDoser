@@ -107,11 +107,15 @@ function doProbe(font,y,probe) {
     var txt = probe.short
     txt += ":"
     txt += probe.reading
-    writeStringAt(font,1,y,txt)
+    writeStringAt(font,1,20,txt)
 
-    txt=(probe.relayState?"DOSING":"OFF")
-    txt +=funcs.ago(probe.relayStateSince,true)
-    writeStringAt(font,64,y,txt)
+    if 
+    txt=(probe.relayState?"DOSING":"OFF"
+    writeStringAt(font,80,20,txt)
+
+    //relayState = false
+    //relayStateSince = null
+
 }
 
 module.exports = {initialise,update}

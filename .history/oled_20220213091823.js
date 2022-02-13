@@ -111,7 +111,7 @@ function doProbe(font,y,probe) {
 
     txt=(probe.relayState?"DOSING":"OFF")
     txt +=funcs.ago(probe.relayStateSince,true)
-    writeStringAt(font,64,y,txt)
+    writeStringAt(font,650,y,txt)
 }
 
 module.exports = {initialise,update}
