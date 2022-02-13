@@ -96,10 +96,10 @@ function update() {
     doProbe(font,20,params.probes.temp)
     doProbe(font,29,params.probes.orp)
     doProbe(font,38,params.probes.ph)
-    writeStringAt(font,1,47,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll,true,true))    
+    writeStringAt(font,1,47,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll,true))    
     
     if (params.lastError!=null) {
-        writeStringAt(font,1,56,"Error "+funcs.ago(params.lastError,true,true))
+        writeStringAt(font,1,56,"Error "+funcs.ago(params.lastError,true))
     }
 }
 
