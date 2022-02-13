@@ -88,7 +88,7 @@ function update() {
 
     myoled.clearDisplay();
     let bigfont = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
-    spaceText(bigfont,1,1,params.title,12)
+    spaceText(font,1,1,params.title,12)
 
     //myoled.fillRect(1, 20, 128,64,0)
 
