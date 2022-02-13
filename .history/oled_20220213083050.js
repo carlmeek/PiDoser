@@ -51,7 +51,9 @@ function initialise(passparams) {
 
     let font = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
     spaceText(font,1,1,"Pool Doser",4)
-    writeStringAt(font,1,20,"Startup")
+    writeStringAt(font,1,1,"P")
+    writeStringAt(font,10,1,"o")
+    writeStringAt(font,1,10,"Startup")
 
     // sets cursor to x = 1, y = 1
     //console.log("string")
@@ -71,10 +73,7 @@ function initialise(passparams) {
 }
 
 function spaceText(font,x,y,text,space) {
-    for (var i=0;i<text.length;i++) {
-        writeStringAt(font,x,y,text[i])
-        x+=space
-    }
+
 }
 
 function writeStringAt(font,x,y,text) {

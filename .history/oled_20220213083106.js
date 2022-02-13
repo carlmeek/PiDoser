@@ -71,10 +71,7 @@ function initialise(passparams) {
 }
 
 function spaceText(font,x,y,text,space) {
-    for (var i=0;i<text.length;i++) {
-        writeStringAt(font,x,y,text[i])
-        x+=space
-    }
+    for (var i=0;i<)
 }
 
 function writeStringAt(font,x,y,text) {
