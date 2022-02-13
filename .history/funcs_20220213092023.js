@@ -15,7 +15,7 @@ function ago(d,shortformat,noago) {
     } else if (secs>60) {
         return Math.round(secs/60,0) + " "+(shortformat?'Mins':'Minutes')+(noago?"":" Ago")
     } else {
-        return secs + " "+(shortformat?'Secs':'Seconds')+(noago?"":" Ago")
+        return secs + " "+(shortformat?'Secs':'Seconds')+(noago:"":" Ago")
     }
 }
 module.exports = {formatDate,ago}
