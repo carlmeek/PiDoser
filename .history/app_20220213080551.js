@@ -82,10 +82,7 @@ app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 app.use(express.static(__dirname + '/static'));
 
 try {
-    go ()
-} catch(e) {
-    console.log("FATAL ERROR IN GO: "+e.toString())
-}
+go ()
 async function go() {
 
     console.log("Pi Pool Doser Version "+params.version)
@@ -95,7 +92,6 @@ async function go() {
 
     console.log("Uncaught Exception Handler...")
     process.on('uncaughtException', (error, source) => {
-        console.error("Uncaught Exception:"+error.toString())
         params.addError('Type:Uncaught Exception<br>' +
                         'Error:'+error.toString() + '<br>' +
                         'Source:'+source.toString())
@@ -103,7 +99,6 @@ async function go() {
 
     console.log("Unhandled Rejection Handler...")
     process.on('unhandledRejection', (reason, promise) => {
-        console.error("Unhandled Rejection:"+reason)
         params.addError('Type:Unhandled Rejection' + '<br>' +
                         'Reason:'+reason + '<br>' +
                         'Promise:'+promise.toString())

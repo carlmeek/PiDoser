@@ -10,10 +10,7 @@ class oled
         console.log("@OLED draw pixel")
     }
     setCursor() {
-        console.log("@OLED set cursor")
-    }
-    writeString() {
-        console.log("@OLED write string")
+        console.log("@OLED draw pixel")
     }
 }
 module.exports=oled

@@ -12,8 +12,8 @@ class oled
     setCursor() {
         console.log("@OLED set cursor")
     }
-    writeString() {
-        console.log("@OLED write string")
+    setCursor() {
+        console.log("@OLED set cursor")
     }
 }
 module.exports=oled

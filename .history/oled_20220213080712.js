@@ -7,8 +7,8 @@ if (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');
     oled = require('./oled-library.js');
 } else {
-    oled = require('./oled-dummy.js')
-}
+//    oled = require('./oled-dummy.js')
+//}
 
 var myoled
 
