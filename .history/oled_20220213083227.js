@@ -50,7 +50,7 @@ function initialise(passparams) {
     //let font5x7 = FontPack.oled_5x7;
 
     let font = FontPack.hallfetica_normal_16x16 //arial_normal_16x16
-    spaceText(font,1,1,"Pool Doser",10)
+    spaceText(font,1,1,"Pool Doser",4)
     writeStringAt(font,1,20,"Startup")
 
     // sets cursor to x = 1, y = 1
