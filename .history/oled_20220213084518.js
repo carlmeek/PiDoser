@@ -2,7 +2,7 @@ var oled
 var params
 var os = require('os')
 const FontPack = require('oled-font-pack');
-var funcs = require ('./funcs.js')
+var funcs = require ('/')
 
 if (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');

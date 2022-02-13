@@ -2,7 +2,6 @@ var oled
 var params
 var os = require('os')
 const FontPack = require('oled-font-pack');
-var funcs = require ('./funcs.js')
 
 if (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');
@@ -89,16 +88,13 @@ function update() {
     myoled.fillRect(1, 20, 128,64,0)
 
     let font = FontPack.oled_5x7;
-    writeStringAt(font,1,25,testString(params.probes.orp))
-    writeStringAt(font,1,35,testString(params.probes.ph))
-    writeStringAt(font,1,45,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
+    writeStringAt(font,1,25,"ORP:"+params.probes.orp.reading)
+    writeStringAt(font,1,35,"pH:"+params.probes.ph.reading)
+    writeStringAt(font,1,35,"Net:"+params.lastNetworkStatus+" "+funcs.ago(params.lastNetworkPoll))    
 }
 
 function testString(probe) {
-    var txt = probe.name
-    txt += ":"
-    txt += probe.reading
-    return txt
+    "ORP:"+params.probes.orp.reading
 }
 
 module.exports = {initialise,update}

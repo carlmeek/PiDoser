@@ -16,7 +16,7 @@ class oled
         console.log("@OLED write string")
     }
     fillRect() {
-        console.log("@OLED fill rect")
+        
     }
 }
 module.exports=oled
