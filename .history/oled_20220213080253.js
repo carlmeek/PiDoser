@@ -1,7 +1,7 @@
 var oled
 var params
 var os = require('os')
-const FontPack = require('oled-font-pack');
+
 
 //if (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');
@@ -43,14 +43,12 @@ function initialise(passparams) {
     myoled.setCursor(1, 1);
 
     console.log("font")
-    let font3x5 = FontPack.oled_3x5;
-    // Load the legacy oled-font-5x7;
-    let font5x7 = FontPack.oled_5x7;
+    var font = require('oled-font-5x7');
 
     // sets cursor to x = 1, y = 1
     myoled.setCursor(1, 1);
     console.log("string")
-    myoled.writeString(font5x7, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
+    myoled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 }
 
 

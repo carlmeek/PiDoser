@@ -50,7 +50,7 @@ function initialise(passparams) {
     // sets cursor to x = 1, y = 1
     myoled.setCursor(1, 1);
     console.log("string")
-    myoled.writeString(font5x7, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
+    myoled.writeString(font, 1, 'Cats and dogs are really cool animals, you know.', 1, true);
 }
 
 
