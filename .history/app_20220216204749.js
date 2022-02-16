@@ -178,6 +178,7 @@ async function go() {
         temp:new probe.Probe(params,'temp',logic)
     }
 
+
     if (typeof(params.settings)!='undefined') {
         console.log("Switching all relays off")
         for (const [key,probe] of Object.entries(params.probes)) {

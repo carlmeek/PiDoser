@@ -171,13 +171,6 @@ async function go() {
         console.log("Cannot read local today file - it does not exist")
     }
 
-    params.probes= {
-        orp:new probe.Probe(params,'orp',logic),
-        ph:new probe.Probe(params,'ph',logic),
-        tds:new probe.Probe(params,'tds',logic),
-        temp:new probe.Probe(params,'temp',logic)
-    }
-
     if (typeof(params.settings)!='undefined') {
         console.log("Switching all relays off")
         for (const [key,probe] of Object.entries(params.probes)) {
