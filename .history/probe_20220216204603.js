@@ -41,9 +41,6 @@ class Probe{
            case 'temp': { this.title = 'Temperature' ; this.short = 'Temp' ; this.desc='Temperature'            ; this.direction=true; break }
        }
 
-       var settings = this.settings()
-       this.params.pcf.outputPin(settings.gpio, false, false)
-
     }
 
     average() {
@@ -83,6 +80,9 @@ class Probe{
     }
     lastMaxRun() {
         return this.params.today.lastmaxrun[this.name]
+    }
+
+    relayInitialise() {
     }
 
     relaySet(val) {
