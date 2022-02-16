@@ -12,7 +12,7 @@ var probe = require('./probe.js')
 var fs = require('fs')
 var os = require('os')
 var queue = require('queue')
-var PCF8574 = require('./pcf8574.js').PCF8574;
+var PCF8574 = require('./pcf8574').PCF8574;
 
 var i2c
 if (os.arch() == 'arm') {
