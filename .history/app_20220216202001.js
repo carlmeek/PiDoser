@@ -148,7 +148,7 @@ async function go() {
             params.settings=newsettings
             console.log("SETTINGS FROM FILE:")
             console.log(params.settings)
-        } catch(e) {
+            } catch(e) {
             console.log("Settings from file are corrupted: "+e.message)
         }
     } else {

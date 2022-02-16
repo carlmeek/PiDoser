@@ -144,13 +144,9 @@ async function go() {
         var data = fs.readFileSync(params.settingsFile)
         console.log("Parsing settings from file")
         try {
-            var newsettings = JSON.parse(data)
-            params.settings=newsettings
-            console.log("SETTINGS FROM FILE:")
-            console.log(params.settings)
-        } catch(e) {
-            console.log("Settings from file are corrupted: "+e.message)
-        }
+            params.settings=JSON.parse(data)
+        console.log("SETTINGS FROM FILE:")
+        console.log(params.settings)
     } else {
         console.log("Cannot read local settings file - it does not exist")
     }
