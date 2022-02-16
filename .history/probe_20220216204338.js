@@ -83,7 +83,6 @@ class Probe{
     }
 
     relayInitialise() {
-        var settings = this.settings()
         this.params.pcf.outputPin(settings.gpio, false, false)
     }
 

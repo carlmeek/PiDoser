@@ -82,10 +82,7 @@ class Probe{
         return this.params.today.lastmaxrun[this.name]
     }
 
-    relayInitialise() {
-        var settings = this.settings()
-        this.params.pcf.outputPin(settings.gpio, false, false)
-    }
+    relayInitialise()
 
     relaySet(val) {
         var changing = (val!=this.relayState)
