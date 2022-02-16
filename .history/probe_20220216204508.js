@@ -101,7 +101,7 @@ class Probe{
         try {
             this.params.pcf.setPin(settings.gpio, val)
         } catch(e) {
-            throw("setPin failed on pin "+settings.gpio+" - "+e.toString())
+            throw()
         }
             /*
         var pin = settings.gpio
