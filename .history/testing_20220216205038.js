@@ -55,7 +55,6 @@ async function testingPoll() {
             log("i2cBus finds "+item)
         }
     }
-    */
 
     //find all EZO devices
     log("Find All Devices...")
