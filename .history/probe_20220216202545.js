@@ -1,5 +1,6 @@
 var os = require('os');
 var moment = require('moment')
+var PCF8574 = require('pcf8574').PCF8574;
 
 //var Gpio
 //if (os.arch() == 'arm') {
@@ -28,6 +29,7 @@ class Probe{
     reading = 0
     relayState = false
     relayStateSince = new Date()
+    pcf
 
     constructor(passparams,name,passlogic){
        this.name = name
@@ -40,7 +42,6 @@ class Probe{
            case 'tds' : { this.title = 'TDS'         ; this.short = 'TDS'  ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
            case 'temp': { this.title = 'Temperature' ; this.short = 'Temp' ; this.desc='Temperature'            ; this.direction=true; break }
        }
-
     }
 
     average() {
@@ -93,8 +94,6 @@ class Probe{
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
-        this.params.pcf.outputPin(pin, false, false)
-        this.params.pcf.setPin(pin, val)
         /*
         var pin = settings.gpio
 

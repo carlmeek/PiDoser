@@ -40,7 +40,6 @@ class Probe{
            case 'tds' : { this.title = 'TDS'         ; this.short = 'TDS'  ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
            case 'temp': { this.title = 'Temperature' ; this.short = 'Temp' ; this.desc='Temperature'            ; this.direction=true; break }
        }
-
     }
 
     average() {
@@ -93,8 +92,7 @@ class Probe{
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
-        this.params.pcf.outputPin(pin, false, false)
-        this.params.pcf.setPin(pin, val)
+        this.params.pcf..setPin(0, true);
         /*
         var pin = settings.gpio
 

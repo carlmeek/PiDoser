@@ -28,11 +28,13 @@ class Probe{
     reading = 0
     relayState = false
     relayStateSince = new Date()
+    pcf
 
-    constructor(passparams,name,passlogic){
+    constructor(passparams,name,passlogic,passpcf){
        this.name = name
        this.params = passparams
        this.logic = passlogic
+       this.pcf = passpcf
        
        switch (name){
            case 'orp' : { this.title = 'ORP'         ; this.short = 'ORP'  ; this.desc='Oxygen Redux Potential' ; this.direction=true; break }
@@ -40,7 +42,6 @@ class Probe{
            case 'tds' : { this.title = 'TDS'         ; this.short = 'TDS'  ; this.desc='Total Dissolved Solids' ; this.direction=false; break }
            case 'temp': { this.title = 'Temperature' ; this.short = 'Temp' ; this.desc='Temperature'            ; this.direction=true; break }
        }
-
     }
 
     average() {
@@ -93,8 +94,6 @@ class Probe{
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
-        this.params.pcf.outputPin(pin, false, false)
-        this.params.pcf.setPin(pin, val)
         /*
         var pin = settings.gpio
 

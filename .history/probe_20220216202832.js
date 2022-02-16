@@ -41,6 +41,7 @@ class Probe{
            case 'temp': { this.title = 'Temperature' ; this.short = 'Temp' ; this.desc='Temperature'            ; this.direction=true; break }
        }
 
+       pcf.outputPin(0, true, false)
     }
 
     average() {
@@ -93,7 +94,6 @@ class Probe{
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
-        this.params.pcf.outputPin(pin, false, false)
         this.params.pcf.setPin(pin, val)
         /*
         var pin = settings.gpio

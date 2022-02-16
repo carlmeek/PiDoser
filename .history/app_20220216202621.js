@@ -74,6 +74,14 @@ var oled = require('./oled.js')
 var testing = require('./testing.js')
 testing.initialise(params,logic,oled)
 
+var pcf = new PCF8574(i2cBus, addr, true);
+
+params.probes= {
+    orp:new probe.Probe(params,'orp',logic,pcf),
+    ph:new probe.Probe(params,'ph',logic),
+    tds:new probe.Probe(params,'tds',logic),
+    temp:new probe.Probe(params,'temp',logic)
+}
 
 app.set('view engine', 'ejs');
 app.use('/', routes.router);
@@ -114,15 +122,6 @@ async function go() {
     
     params.i2cbus = await i2c.openPromisified(1)    
     oled.initialise(params)
-
-    params.pcf = new PCF8574(params.i2cBus, 32, false);
-
-    params.probes= {
-        orp:new probe.Probe(params,'orp',logic),
-        ph:new probe.Probe(params,'ph',logic),
-        tds:new probe.Probe(params,'tds',logic),
-        temp:new probe.Probe(params,'temp',logic)
-    }
 
     params.systemdata='Architecture:'+os.arch()
     params.systemdata += '<br>'+os.cpus().length+" CPUs: "+os.cpus()[0].model

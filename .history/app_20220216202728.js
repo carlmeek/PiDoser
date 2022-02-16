@@ -115,7 +115,7 @@ async function go() {
     params.i2cbus = await i2c.openPromisified(1)    
     oled.initialise(params)
 
-    params.pcf = new PCF8574(params.i2cBus, 32, false);
+    params.pcf = new PCF8574(i2cBus, addr, true);
 
     params.probes= {
         orp:new probe.Probe(params,'orp',logic),
