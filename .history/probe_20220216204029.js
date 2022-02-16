@@ -91,7 +91,7 @@ class Probe{
             return
         }
 
-        console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+settings.gpio+')')
+        console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+pin+')')
 
         this.params.pcf.outputPin(settings.gpio, false, false)
         this.params.pcf.setPin(settings.gpio, val)
