@@ -181,7 +181,7 @@ async function go() {
     if (typeof(params.settings)!='undefined') {
         console.log("Switching all relays off")
         for (const [key,probe] of Object.entries(params.probes)) {
-            this.relayState=true //to force OFF
+            this.relayState=val
             probe.relayOff()
         }
     }
