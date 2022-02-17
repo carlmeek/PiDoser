@@ -155,7 +155,7 @@ async function probelogic(probe) {
                 }
             }
             //its already on, but send command anyway
-            log("Relay Result: "+probe.relayOn(),probe)
+            log("Relay Result: "+probe.relayOn())
             return
         } else {
             //Check max run release
@@ -170,7 +170,7 @@ async function probelogic(probe) {
                     params.today.lastmaxrun[probe.name]=null
                 } else {
                     log("Not released from max run yet",probe)
-                    log("Relay Result: "+probe.relayOff(),probe)
+                    log("Relay Result: "+probe.relayOff())
                     return
                 }
             }

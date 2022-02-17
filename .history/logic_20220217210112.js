@@ -170,7 +170,7 @@ async function probelogic(probe) {
                     params.today.lastmaxrun[probe.name]=null
                 } else {
                     log("Not released from max run yet",probe)
-                    log("Relay Result: "+probe.relayOff(),probe)
+                    log("Relay Result: "+probe.relayOff())
                     return
                 }
             }

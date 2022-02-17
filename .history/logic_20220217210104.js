@@ -133,7 +133,7 @@ async function probelogic(probe) {
         log("Today runtime is "+probe.runTimeToday()+" Max Run Per Day is "+probeSettings.maxrunperday,probe)
         if (probe.runTimeToday() >= probeSettings.maxrunperday) {
             log("MAX RUN HIT FOR TODAY",probe)
-            log("Relay Result: "+probe.relayOff(),probe)
+            log("Relay Result: "+probe.relayOff())
             return;
         }
         log("Relay currently showing as "+(probe.relayState?'ON':'OFF')+" Since "+probe.relayStateSince,probe)
@@ -149,13 +149,13 @@ async function probelogic(probe) {
             if (typeof(probeSettings.maxruntime)!='undefined') {
                 if(mins >= probeSettings.maxruntime) {
                     log("MAX RUN HIT")
-                    log("Relay Result: "+probe.relayOff(),probe)
+                    log("Relay Result: "+probe.relayOff())
                     params.today.lastmaxrun[probe.name]=new Date()
                     return
                 }
             }
             //its already on, but send command anyway
-            log("Relay Result: "+probe.relayOn(),probe)
+            log("Relay Result: "+probe.relayOn())
             return
         } else {
             //Check max run release
@@ -170,7 +170,7 @@ async function probelogic(probe) {
                     params.today.lastmaxrun[probe.name]=null
                 } else {
                     log("Not released from max run yet",probe)
-                    log("Relay Result: "+probe.relayOff(),probe)
+                    log("Relay Result: "+probe.relayOff())
                     return
                 }
             }
