@@ -3,6 +3,7 @@ var logic
 var oled
 var os = require('os')
 var moment = require('moment')
+const { EZODevice } = require('atlas-scientific-i2c')
 
 var atlas
 if (os.arch() == 'arm') {
@@ -155,8 +156,6 @@ async function testingPoll() {
         probe.lastTestingLog=probe.testingLog
     }//);
     
-    */
-
     log("All Complete, now running Logic...")
     params.lasttestinglog=params.testinglog
 

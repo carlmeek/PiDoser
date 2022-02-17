@@ -90,34 +90,21 @@ async function testingPoll() {
                     });
                     break;
                 case 100:
-                    var device = new EC(i2c_bus,item,info)
                     probe=params.probes.tds
-                    if (probe.reading=="@") probe.reading=0
-                    probe.testingLog=''
-                    log("Found EC (TDS) Device",probe)
-                    probe.reading = await device.GetReading();
-                    probe.lastReading = new Date()
-                    log('EC reading:'+probe.reading,probe);
+            if (probe.reading=="@") probe.reading=0
+            probe.testingLog=''
+            log("Found EC (TDS) Device",probe)
+            probe.reading = await item.GetReading();
+            probe.lastReading = new Date()
+            log('EC reading:'+probe.reading,probe);
 
-                    probe.calibration = device.IsCalibrated()
-                    log("EC TDS Calibration is "+probe.calibration,probe)
-                    break;
-                case 102:
-                    var device = new EZODevice(i2c_bus,item,info)
-                    probe=params.probes.temp
-                    probe.testingLog=''
-                    log("Found (assumed) RTD Temperature Device",probe)
-                    device.waitTime=900;
-                    var cmd = await device.SendCommand('R')
-                    probe.reading = await cmd.toString('ascii',1);
-                    probe.lastReading = new Date()
-                    log('Temp Reading:'+probe.reading,probe);
+            probe.calibration = item.IsCalibrated()
+            log("EC TDS Calibration is "+probe.calibration,probe)
                     break;
             }
         }
     }
 
-    /*
     //find all EZO devices
     log("Find All Devices...")
     const devs=await atlas.FindAllDevices(params.i2cbus);
@@ -136,7 +123,14 @@ async function testingPoll() {
         } else if(item instanceof atlas.EC){
             
         }else{
-            
+            probe=params.probes.temp
+            probe.testingLog=''
+            log("Found (assumed) RTD Temperature Device",probe)
+            item.waitTime=900;
+            var cmd = await item.SendCommand('R')
+            probe.reading = await cmd.toString('ascii',1);
+            probe.lastReading = new Date()
+            log('Temp Reading:'+probe.reading,probe);
         }
         log('After converting to Float: '+probe.reading,probe)
         probe.reading=parseFloat(probe.reading)
@@ -155,8 +149,6 @@ async function testingPoll() {
         probe.lastTestingLog=probe.testingLog
     }//);
     
-    */
-
     log("All Complete, now running Logic...")
     params.lasttestinglog=params.testinglog
 

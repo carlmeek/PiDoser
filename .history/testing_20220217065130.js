@@ -3,6 +3,7 @@ var logic
 var oled
 var os = require('os')
 var moment = require('moment')
+const { EZODevice } = require('atlas-scientific-i2c')
 
 var atlas
 if (os.arch() == 'arm') {
@@ -108,7 +109,7 @@ async function testingPoll() {
                     probe.testingLog=''
                     log("Found (assumed) RTD Temperature Device",probe)
                     device.waitTime=900;
-                    var cmd = await device.SendCommand('R')
+                    var cmd = await item.SendCommand('R')
                     probe.reading = await cmd.toString('ascii',1);
                     probe.lastReading = new Date()
                     log('Temp Reading:'+probe.reading,probe);
@@ -117,7 +118,6 @@ async function testingPoll() {
         }
     }
 
-    /*
     //find all EZO devices
     log("Find All Devices...")
     const devs=await atlas.FindAllDevices(params.i2cbus);
@@ -155,8 +155,6 @@ async function testingPoll() {
         probe.lastTestingLog=probe.testingLog
     }//);
     
-    */
-
     log("All Complete, now running Logic...")
     params.lasttestinglog=params.testinglog
 

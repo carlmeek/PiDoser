@@ -102,22 +102,10 @@ async function testingPoll() {
                     probe.calibration = device.IsCalibrated()
                     log("EC TDS Calibration is "+probe.calibration,probe)
                     break;
-                case 102:
-                    var device = new EZODevice(i2c_bus,item,info)
-                    probe=params.probes.temp
-                    probe.testingLog=''
-                    log("Found (assumed) RTD Temperature Device",probe)
-                    device.waitTime=900;
-                    var cmd = await device.SendCommand('R')
-                    probe.reading = await cmd.toString('ascii',1);
-                    probe.lastReading = new Date()
-                    log('Temp Reading:'+probe.reading,probe);
-                    break;
             }
         }
     }
 
-    /*
     //find all EZO devices
     log("Find All Devices...")
     const devs=await atlas.FindAllDevices(params.i2cbus);
@@ -136,7 +124,14 @@ async function testingPoll() {
         } else if(item instanceof atlas.EC){
             
         }else{
-            
+            probe=params.probes.temp
+            probe.testingLog=''
+            log("Found (assumed) RTD Temperature Device",probe)
+            item.waitTime=900;
+            var cmd = await item.SendCommand('R')
+            probe.reading = await cmd.toString('ascii',1);
+            probe.lastReading = new Date()
+            log('Temp Reading:'+probe.reading,probe);
         }
         log('After converting to Float: '+probe.reading,probe)
         probe.reading=parseFloat(probe.reading)
@@ -155,8 +150,6 @@ async function testingPoll() {
         probe.lastTestingLog=probe.testingLog
     }//);
     
-    */
-
     log("All Complete, now running Logic...")
     params.lasttestinglog=params.testinglog
 

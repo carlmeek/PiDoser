@@ -115,6 +115,8 @@ async function testingPoll() {
                     break;
             }
         }
+
+        log("Testing Poll Complete")
     }
 
     /*
