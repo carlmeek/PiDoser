@@ -192,8 +192,8 @@ async function testingPoll() {
     }
 
     //now re-schedule
-    params.testingTimer=setTimeout(testing.testingPoll, params.testPollInterval);
-    
+    //params.networkTimer=setInterval(network.networkPoll, params.networkPollInterval);
+    network.networkPoll()
 }
 
 

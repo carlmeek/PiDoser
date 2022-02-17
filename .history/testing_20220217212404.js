@@ -192,8 +192,6 @@ async function testingPoll() {
     }
 
     //now re-schedule
-    params.testingTimer=setTimeout(testing.testingPoll, params.testPollInterval);
-    
 }
 
 

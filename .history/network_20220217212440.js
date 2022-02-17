@@ -87,7 +87,6 @@ function networkPoll() {
     })
 
     //now re-schedule
-    params.networkTimer=setTimeout(network.networkPoll, params.networkPollInterval);
 
 }
 

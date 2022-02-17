@@ -192,7 +192,7 @@ async function go() {
     testing.testingPoll()
 
     console.log("Setting up Network Poll every "+params.networkPollInterval)
-    //params.networkTimer=setInterval(network.networkPoll, params.networkPollInterval);
+    params.networkTimer=setInterval(network.networkPoll, params.networkPollInterval);
     network.networkPoll()
 
     //console.log("Setting up OLED Poll every "+params.oledPollInterval)
