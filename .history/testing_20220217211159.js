@@ -131,22 +131,21 @@ async function testingPoll() {
             }
 
             if (probe!=null) {
-                log('After converting to Float: '+probe.reading,probe)
-                probe.reading=parseFloat(probe.reading)
-                if (isNaN(probe.reading)) probe.reading=0;
-        
-                probe.count ++
-                probe.total += probe.reading
-                if (probe.reading < probe.min) probe.min=probe.reading
-                if (probe.reading > probe.max) probe.max=probe.reading
-                log('Final Count:'+probe.count,probe)
-                log('Final Total:'+probe.total,probe)
-                log('Final Min:'+probe.min,probe)
-                log('Final Max:'+probe.max,probe)
-                log('Final Average:'+probe.average(),probe)
+            log('After converting to Float: '+probe.reading,probe)
+            probe.reading=parseFloat(probe.reading)
+            if (isNaN(probe.reading)) probe.reading=0;
+    
+            probe.count ++
+            probe.total += probe.reading
+            if (probe.reading < probe.min) probe.min=probe.reading
+            if (probe.reading > probe.max) probe.max=probe.reading
+            log('Final Count:'+probe.count,probe)
+            log('Final Total:'+probe.total,probe)
+            log('Final Min:'+probe.min,probe)
+            log('Final Max:'+probe.max,probe)
+            log('Final Average:'+probe.average(),probe)
 
-                probe.lastTestingLog=probe.testingLog
-            }
+            probe.lastTestingLog=probe.testingLog
         }
     }
 
