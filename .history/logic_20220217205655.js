@@ -107,7 +107,7 @@ async function probelogic(probe) {
     //Pause
     if (probeSettings.pause=="1") {
         log("PAUSED in settings. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        log("Relay Result: "+probe.relayOff()
         return
     }
 

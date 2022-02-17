@@ -106,9 +106,7 @@ class Probe{
         if (changing) {
             this.relayState=val
             this.relayStateSince=new Date()
-            return "Changed Relay State on pin "+settings.gpio+" to "+val
-        } else {
-            return "Relay "+settings.gpio+" already at state "+val
+            return "Changed Relay State on pin "+settings.gpio
         }
     }
 

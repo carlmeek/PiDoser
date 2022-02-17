@@ -82,14 +82,14 @@ async function probelogic(probe) {
     //check probe settings found
     if (typeof(probeSettings)=='undefined') {
         log("...Probe Settings Undefined. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        probe.relayOff()
         return
     }
     
     //check last reading ever existed
     if (probe.lastReading=='Never') {
         log("...Never had a reading. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        probe.relayOff()
         return
     }
 
@@ -98,7 +98,7 @@ async function probelogic(probe) {
     var secs = nowMoment.diff(m, 'seconds');
     if (secs>60) {
         log("...No reading for "+secs+" Seconds. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        probe.relayOff()
         return
     } else {
         log("...Last reading was "+secs+" Seconds ago.",probe)
@@ -107,7 +107,7 @@ async function probelogic(probe) {
     //Pause
     if (probeSettings.pause=="1") {
         log("PAUSED in settings. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        probe.relayOff()
         return
     }
 
@@ -184,7 +184,7 @@ async function probelogic(probe) {
     
     //End action - we got to here and nothing turned it on, so turn it off.
     log("...No reason to turn on. Turning Relay Off.",probe)
-    log("Relay Result: "+probe.relayOff())
+    log("Relay Result: "+probe.relayOff()
 }
 
 

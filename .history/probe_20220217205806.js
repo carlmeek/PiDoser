@@ -102,13 +102,17 @@ class Probe{
             console.log("setPin failed on pin "+settings.gpio+" - "+e.toString())
             return "setPin failed on pin "+settings.gpio+" - "+e.toString()
         }
+            /*
+        var pin = settings.gpio
+
+
+        var gpio = new Gpio(pin,'out')
+        gpio.writeSync(val?0:1);
+        */
 
         if (changing) {
             this.relayState=val
             this.relayStateSince=new Date()
-            return "Changed Relay State on pin "+settings.gpio+" to "+val
-        } else {
-            return "Relay "+settings.gpio+" already at state "+val
         }
     }
 

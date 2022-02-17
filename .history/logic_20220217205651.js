@@ -98,7 +98,7 @@ async function probelogic(probe) {
     var secs = nowMoment.diff(m, 'seconds');
     if (secs>60) {
         log("...No reading for "+secs+" Seconds. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        log("Relay Result: "+probe.relayOff()
         return
     } else {
         log("...Last reading was "+secs+" Seconds ago.",probe)
@@ -107,7 +107,7 @@ async function probelogic(probe) {
     //Pause
     if (probeSettings.pause=="1") {
         log("PAUSED in settings. Turning Relay Off.",probe)
-        log("Relay Result: "+probe.relayOff())
+        probe.relayOff()
         return
     }
 
