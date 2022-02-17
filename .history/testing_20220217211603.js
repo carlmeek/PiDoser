@@ -49,7 +49,7 @@ async function testingPoll() {
     if (typeof(founddevs)=='undefined') {
         log("Bus results undefined")
     } else {
-        log("*SCAN i2cBus finds "+founddevs.length+" devices")
+        log("*SCAN i2cBus finds "+item)
         for (var i=0; i<founddevs.length; i++) {
             var item=founddevs[i]
             var probe=null
