@@ -191,8 +191,7 @@ async function testingPoll() {
         log("No OLED Found")
     }
 
-    //now re-schedule this loop
-    log("Re-scheduling next test for "+params.testPollInterval)
+    //now re-schedule
     params.testingTimer=setTimeout(testingPoll, params.testPollInterval);
     
 }

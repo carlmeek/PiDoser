@@ -77,10 +77,9 @@ function networkPoll() {
         }
         params.lastnetworklog=params.networklog
         log("Network Poll Complete")
-
-        //now re-schedule
-        log("Re-scheduling next test for "+params.networkPollInterval)
-        params.networkTimer=setTimeout(this.networkPoll, params.networkPollInterval);
+    //now re-schedule
+    log("Re-scheduling next test for "+params.networkPollInterval)
+    params.networkTimer=setTimeout(this.networkPoll, params.networkPollInterval);
 
     })
     .catch(error => {
@@ -89,12 +88,6 @@ function networkPoll() {
         params.lastNetworkStatus="Error"
         params.lastNetworkError=error
         params.lastnetworklog=params.networklog
-
-        //now re-schedule
-        log("Re-scheduling next test for "+params.networkPollInterval)
-        params.networkTimer=setTimeout(this.networkPoll, params.networkPollInterval);
-
-
     })
 
 }
