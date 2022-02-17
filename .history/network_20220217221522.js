@@ -80,7 +80,7 @@ function networkPoll() {
 
         //now re-schedule
         log("Re-scheduling next test for "+params.networkPollInterval)
-        params.networkTimer=setTimeout(networkPoll, params.networkPollInterval);
+        params.networkTimer=setTimeout(.networkPoll, params.networkPollInterval);
 
     })
     .catch(error => {
