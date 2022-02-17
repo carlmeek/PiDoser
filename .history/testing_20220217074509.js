@@ -73,7 +73,6 @@ async function testingPoll() {
                     if (probe.reading=="@") probe.reading=0
                     probe.lastReading = new Date()
                     log('ORP reading:'+probe.reading,probe);
-                    probe.lastTestingLog=probe.testingLog
                     break;
                 case 99:
                     log("...pH Device")
@@ -101,7 +100,6 @@ async function testingPoll() {
                         params.addError('Type:Error getting pH slope<br>Error:'+error);
                         probe.slope="ERROR"
                     });
-                    probe.lastTestingLog=probe.testingLog
                     break;
                 case 100:
                     log("...EC Device")

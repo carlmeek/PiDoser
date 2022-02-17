@@ -73,7 +73,6 @@ async function testingPoll() {
                     if (probe.reading=="@") probe.reading=0
                     probe.lastReading = new Date()
                     log('ORP reading:'+probe.reading,probe);
-                    probe.lastTestingLog=probe.testingLog
                     break;
                 case 99:
                     log("...pH Device")
