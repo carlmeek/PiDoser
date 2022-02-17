@@ -90,7 +90,7 @@ async function testingPoll() {
                     });
                     break;
                 case 100:
-                    var device = new atlas.EC(i2c_bus,item,info)
+                    var device = new EC(i2c_bus,item,info)
                     probe=params.probes.tds
                     if (probe.reading=="@") probe.reading=0
                     probe.testingLog=''
@@ -103,7 +103,7 @@ async function testingPoll() {
                     log("EC TDS Calibration is "+probe.calibration,probe)
                     break;
                 case 102:
-                    var device = new atlas.EZODevice(i2c_bus,item,info)
+                    var device = new EZODevice(i2c_bus,item,info)
                     probe=params.probes.temp
                     probe.testingLog=''
                     log("Found (assumed) RTD Temperature Device",probe)
