@@ -58,7 +58,6 @@ async function testingPoll() {
             switch (item) {
                 case 60:
                     log("...OLED Screen")
-                    oledfound=true;
                     break;
                 case 32:
                     log("...GPIO Expander")

@@ -44,7 +44,6 @@ async function testingPoll() {
 
     //i2c scan
     log("Scanning i2c Bus...")
-    var oledfound=false;
     var founddevs = await params.i2cbus.scan()
     if (typeof(founddevs)=='undefined') {
         log("Bus results undefined")
@@ -58,7 +57,6 @@ async function testingPoll() {
             switch (item) {
                 case 60:
                     log("...OLED Screen")
-                    oledfound=true;
                     break;
                 case 32:
                     log("...GPIO Expander")
