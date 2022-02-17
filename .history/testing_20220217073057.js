@@ -52,7 +52,7 @@ async function testingPoll() {
             var item=founddevs[i]
             log("*SCAN i2cBus finds "+item)
 
-            var info=''   //this was originally from the enquire command
+            var info=''
 
             switch (item) {
                 case 98:
