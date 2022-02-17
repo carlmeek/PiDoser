@@ -183,8 +183,7 @@ async function testingPoll() {
     if (oledfound) {
         log("Finally updating OLED")
         oled.update();
-    } else {
-        log("No OLED Found")
+    } else {}
     }
 }
 
