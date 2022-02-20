@@ -187,7 +187,7 @@ async function testingPoll() {
     if (oledfound) {
         log("Finally updating OLED...")
         oled.update();
-        log("OLED Update Complete...")
+        log("Finally updating OLED...")
     } else {
         log("No OLED Found")
     }
