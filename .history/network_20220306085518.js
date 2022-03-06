@@ -3,8 +3,6 @@ var params
 const fs = require('fs')
 const { spawn } = require('child_process');
 var moment = require('moment')
-var funcs = require('./funcs.js');
-const e = require('express');
 
 function initialise(passparams) {
     params=passparams
@@ -19,11 +17,15 @@ function networkPoll() {
 
     const axios = require('axios')
 
-    var n=new moment(new Date())
-    var m=new moment(params.lastNetworkPost)
-    var diff=n.diff(m,'seconds')
-    log("Last full post was "+funcs.ago(params.lastNetworkPost))
+    if (params.lastNetworkPost==new Date('2000-01-01')) {
 
+    } else {
+        var n=new moment(new Date())
+        var m=new moment(params.lastNetworkPost)
+        var diff=n.diff(m,'seconds')
+        log("Last full post was "+diff+" seconds ago")
+    }
+    
     params.lastURL  = params.rootURL
     params.lastURL += '?m='+escape(params.macAddress)
 
@@ -34,12 +36,8 @@ function networkPoll() {
         params.lastURL += '&f=1'
         params.lastURL += '&u='+new moment(new Date()).diff(new moment(params.uptime))
         for (const [key,probe] of Object.entries(params.probes)) {
-            params.lastURL += probe.queryString() 
+            params.lastURL += probe.queryString()
         }
-    }
-
-    if (params.settingsLabels==null) {
-        params.lastURL += '&getlabels=1'
     }
 
     log("Getting URL...")
@@ -50,6 +48,9 @@ function networkPoll() {
     .then(res => {
         log("Received from server:")
         log(JSON.stringify(res.data,null,4))
+        params.settings=res.data
+        params.lastNetworkStatus="OK"
+        params.lastNetworkPost=new Date()
 
         if (typeof(res.data.command)!='undefined' && res.data.command!='') {
             log("*** COMMAND: "+res.data.command)
@@ -68,25 +69,7 @@ function networkPoll() {
             params.lastNetworkStatus="HasError"
             params.lastNetworkError="Unknown"
         } else {
-
-            params.settings=res.data
-            params.lastNetworkStatus="OK"
-            params.lastNetworkPost=new Date()
-
-            //split out labels
-            if (params.settings.labels!=null) {
-                params.settingsLabels=params.settings.labels
-                params.settings.labels=''
-
-                log("Writing Labels File")
-                fs.writeFile(params.labelsFile, JSON.stringify(params.settingsLabels, null, 4), err => {
-                    if (err) {
-                      console.error(err)
-                      return
-                    }
-                })    
-            }
-    
+            //NO ERROR
             log("Writing Settings File")
             fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
                 if (err) {

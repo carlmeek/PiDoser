@@ -3,8 +3,7 @@ var params
 const fs = require('fs')
 const { spawn } = require('child_process');
 var moment = require('moment')
-var funcs = require('./funcs.js');
-const e = require('express');
+var funcs = require('./funcs.js')
 
 function initialise(passparams) {
     params=passparams
@@ -34,7 +33,7 @@ function networkPoll() {
         params.lastURL += '&f=1'
         params.lastURL += '&u='+new moment(new Date()).diff(new moment(params.uptime))
         for (const [key,probe] of Object.entries(params.probes)) {
-            params.lastURL += probe.queryString() 
+            params.lastURL += probe.queryString()
         }
     }
 
@@ -73,20 +72,20 @@ function networkPoll() {
             params.lastNetworkStatus="OK"
             params.lastNetworkPost=new Date()
 
-            //split out labels
             if (params.settings.labels!=null) {
-                params.settingsLabels=params.settings.labels
-                params.settings.labels=''
+                params.settingsLabels==params.settings.labels
+                params.settings.labels==null
 
                 log("Writing Labels File")
-                fs.writeFile(params.labelsFile, JSON.stringify(params.settingsLabels, null, 4), err => {
+                fs.writeFile(params.labelsFile, JSON.stringify(settingsLabels, null, 4), err => {
                     if (err) {
                       console.error(err)
                       return
                     }
-                })    
-            }
+                })            
     
+            }
+        
             log("Writing Settings File")
             fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
                 if (err) {
@@ -94,6 +93,7 @@ function networkPoll() {
                   return
                 }
             })    
+
         }
         params.lastnetworklog=params.networklog
         log("Network Poll Complete")

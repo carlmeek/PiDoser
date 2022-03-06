@@ -3,8 +3,7 @@ var params
 const fs = require('fs')
 const { spawn } = require('child_process');
 var moment = require('moment')
-var funcs = require('./funcs.js');
-const e = require('express');
+var funcs = require('./funcs.js')
 
 function initialise(passparams) {
     params=passparams
@@ -39,7 +38,8 @@ function networkPoll() {
     }
 
     if (params.settingsLabels==null) {
-        params.lastURL += '&getlabels=1'
+        params.lastUrl += '&getlabels=1'
+        log()
     }
 
     log("Getting URL...")
@@ -72,21 +72,8 @@ function networkPoll() {
             params.settings=res.data
             params.lastNetworkStatus="OK"
             params.lastNetworkPost=new Date()
-
-            //split out labels
-            if (params.settings.labels!=null) {
-                params.settingsLabels=params.settings.labels
-                params.settings.labels=''
-
-                log("Writing Labels File")
-                fs.writeFile(params.labelsFile, JSON.stringify(params.settingsLabels, null, 4), err => {
-                    if (err) {
-                      console.error(err)
-                      return
-                    }
-                })    
-            }
     
+            //NO ERROR
             log("Writing Settings File")
             fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
                 if (err) {

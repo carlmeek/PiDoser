@@ -79,7 +79,7 @@ function networkPoll() {
                 params.settings.labels=''
 
                 log("Writing Labels File")
-                fs.writeFile(params.labelsFile, JSON.stringify(params.settingsLabels, null, 4), err => {
+                fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
                     if (err) {
                       console.error(err)
                       return

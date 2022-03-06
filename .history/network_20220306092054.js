@@ -74,17 +74,8 @@ function networkPoll() {
             params.lastNetworkPost=new Date()
 
             //split out labels
-            if (params.settings.labels!=null) {
-                params.settingsLabels=params.settings.labels
-                params.settings.labels=''
-
-                log("Writing Labels File")
-                fs.writeFile(params.labelsFile, JSON.stringify(params.settingsLabels, null, 4), err => {
-                    if (err) {
-                      console.error(err)
-                      return
-                    }
-                })    
+            if (params.settings.labels==null) {
+                
             }
     
             log("Writing Settings File")
