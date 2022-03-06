@@ -14,21 +14,9 @@
         if (typeof(value)=='object') {
             %></table>
             <h3><%=desc%></h3>
-
-            <table class="ptable" cellpadding=2>
-                <% for (const [subkey, subvalue] of Object.entries(value)) {
-                    var subdesc=subkey
-                    if (params.settingsLabels[key+'.'+subkey]) subdesc=params.settingsLabels[key+'.'+subkey]
-                %>
-                    <tr>
-                        <td class="ptable"><%=subdesc%></td>
-                        <td class="ptable"><%=subvalue%></td>
-                    </tr>
-                <% } %>
-            </table>
-
-            <table class="ptable" cellpadding=2>
-        <% } else { %>
+            <table class="ptable" cellpadding=2><%
+        } else {
+        %>
         <tr>
             <td class="ptable"><%=desc%></td>
             <td class="ptable"><%=value%></td>
@@ -37,10 +25,7 @@
     <% } %>
 </table>
 
-<% if (false) { %>
-<pre><%=JSON.stringify(params.settings,null,10)%></pre>
-<% } %>
-
+    <pre><%=JSON.stringify(params.settings,null,10)%></pre>
 </div>
 
 <%- include('includes/footer.ejs') %>

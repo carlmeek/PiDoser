@@ -1,0 +1,31 @@
+<%- include('includes/header.ejs',{active:'settings'}) %>
+
+<div class="container">
+
+    <style>
+        .ptable { border:1px solid grey;border-collapse:collapse }
+    </style>
+
+<table class="ptable" cellpadding=2>
+    <% for (const [key, value] of Object.entries(params.settings)) {
+        var desc=key
+        if (params.settingsLabels[key]) desc=params.settingsLabels[key]
+
+        if (typeof(value)=='object') {
+            %></table><h2></h2><%=desc%><table class="ptable" cellpadding=2><%
+        } else {
+        %>
+        <tr>
+            <td class="ptable"><%=desc%></td>
+            <td class="ptable"><%=value%></td>
+        </tr>
+        <% } %>
+    <% } %>
+</table>
+
+    <pre><%=JSON.stringify(params.settings,null,10)%></pre>
+</div>
+
+<%- include('includes/footer.ejs') %>
+
+

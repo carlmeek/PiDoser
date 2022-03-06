@@ -180,18 +180,17 @@ async function go() {
         if (data!='') {
             try {
                 params.settingsLabels=JSON.parse(data)
-                console.log("LABELS FROM FILE:")
+                console.log("TODAY FROM FILE:")
                 console.log(params.today)
             } catch(e) {
-                console.log("Parse LABELS file FAILED.")
+                console.log("Parse TODAY file FAILED.")
             }
         } else {
-            console.log("LABELS data blank")
+            console.log("Today data blank")
         }
     } else {
-        console.log("Cannot read local LABELS file - it does not exist")
+        console.log("Cannot read local today file - it does not exist")
     }
-    
     params.probes= {
         orp:new probe.Probe(params,'orp',logic),
         ph:new probe.Probe(params,'ph',logic),

@@ -1,0 +1,16 @@
+<%- include('includes/header.ejs',{active:'settings'}) %>
+
+<div class="container">
+
+<table cellspacing="0" cellpadding="3">
+    <% for (const [key, value] of Object.entries(params.settings)) { %>
+        <tr><td><%=key%></td></tr>
+    <% } %>
+</table>
+
+    <pre><%=JSON.stringify(params.settings,null,10)%></pre>
+</div>
+
+<%- include('includes/footer.ejs') %>
+
+

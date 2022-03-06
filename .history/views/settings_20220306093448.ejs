@@ -17,18 +17,20 @@
 
             <table class="ptable" cellpadding=2>
                 <% for (const [subkey, subvalue] of Object.entries(value)) {
-                    var subdesc=subkey
-                    if (params.settingsLabels[key+'.'+subkey]) subdesc=params.settingsLabels[key+'.'+subkey]
-                %>
+                    var desc=key
+                    if (params.settingsLabels[key]) desc=params.settingsLabels[key]
+            
                     <tr>
-                        <td class="ptable"><%=subdesc%></td>
-                        <td class="ptable"><%=subvalue%></td>
+                        <td class="ptable"><%=desc%></td>
+                        <td class="ptable"><%=value%></td>
                     </tr>
                 <% } %>
             </table>
 
             <table class="ptable" cellpadding=2>
-        <% } else { %>
+        <%
+        } else {
+        %>
         <tr>
             <td class="ptable"><%=desc%></td>
             <td class="ptable"><%=value%></td>
@@ -37,9 +39,7 @@
     <% } %>
 </table>
 
-<% if (false) { %>
 <pre><%=JSON.stringify(params.settings,null,10)%></pre>
-<% } %>
 
 </div>
 

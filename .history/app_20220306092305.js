@@ -173,25 +173,24 @@ async function go() {
         console.log("Cannot read local today file - it does not exist")
     }
 
-    if (fs.existsSync(params.labelsFile)) {
-        console.log("Reading LABELS from file")
-        var data = fs.readFileSync(params.labelsFile)
-        console.log("Labels Data: "+data)
+    if (fs.existsSync(params.settingsFile)) {
+        console.log("Reading TODAY from file")
+        var data = fs.readFileSync(params.todayFile)
+        console.log("Today Data: "+data)
         if (data!='') {
             try {
-                params.settingsLabels=JSON.parse(data)
-                console.log("LABELS FROM FILE:")
+                params.today=JSON.parse(data)
+                console.log("TODAY FROM FILE:")
                 console.log(params.today)
             } catch(e) {
-                console.log("Parse LABELS file FAILED.")
+                console.log("Parse TODAY file FAILED.")
             }
         } else {
-            console.log("LABELS data blank")
+            console.log("Today data blank")
         }
     } else {
-        console.log("Cannot read local LABELS file - it does not exist")
+        console.log("Cannot read local today file - it does not exist")
     }
-    
     params.probes= {
         orp:new probe.Probe(params,'orp',logic),
         ph:new probe.Probe(params,'ph',logic),

@@ -186,12 +186,11 @@ async function go() {
                 console.log("Parse LABELS file FAILED.")
             }
         } else {
-            console.log("LABELS data blank")
+            console.log("Today data blank")
         }
     } else {
-        console.log("Cannot read local LABELS file - it does not exist")
+        console.log("Cannot read local today file - it does not exist")
     }
-    
     params.probes= {
         orp:new probe.Probe(params,'orp',logic),
         ph:new probe.Probe(params,'ph',logic),
