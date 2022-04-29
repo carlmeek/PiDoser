@@ -118,15 +118,7 @@ function networkPoll() {
 
         })
     } catch(e) {
-        log("Error")
-        log(error.toString())
-        params.lastNetworkStatus="Error"
-        params.lastNetworkError=error
-        params.lastnetworklog=params.networklog
-
-        //now re-schedule
-        log("Re-scheduling next network poll for "+params.networkPollInterval)
-        params.networkTimer=setTimeout(networkPoll, params.networkPollInterval);
+        
     }
 }
 
