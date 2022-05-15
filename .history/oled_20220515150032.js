@@ -30,7 +30,6 @@ function initialise(passparams) {
     params=passparams
  
     //myoled = new oled(params.i2cbus,opts);
-    myoled = new oled(opts);
     lastInitialise=new Date()
 
     console.log("Clear OLED...")
