@@ -17,10 +17,10 @@ if (os.arch() == 'arm') {
 var opts = {
     width: 128,
     height: 64,
-    dcPin: 23,
-    rstPin : 24
     //address: 0x3C,
-};
+    dcPin: 23,
+  rstPin : 24
+  };
 
 var myoled
 

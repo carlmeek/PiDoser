@@ -9,7 +9,6 @@ var lastInitialise
 if (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');
     //oled = require('./oled-library.js');
-    oled = require('oled-spi');
 } else {
     oled = require('./oled-dummy.js')
 }
@@ -17,10 +16,8 @@ if (os.arch() == 'arm') {
 var opts = {
     width: 128,
     height: 64,
-    dcPin: 23,
-    rstPin : 24
-    //address: 0x3C,
-};
+    address: 0x3C,
+  };
 
 var myoled
 
