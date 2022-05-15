@@ -6,7 +6,7 @@ var funcs = require ('./funcs.js')
 var moment = require('moment')
 var lastInitialise
 
-//f (os.arch() == 'arm') {
+i//f (os.arch() == 'arm') {
     //oled = require('oled-i2c-bus');
     //oled = require('./oled-library.js');
 //    oled = require('oled-spi');
