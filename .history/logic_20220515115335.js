@@ -113,7 +113,7 @@ async function probelogic(probe) {
 
     //Manually set dose until
     if (typeof(probeSettings.doseuntil)!='undefined' && probeSettings.doseuntil!="" && probeSettings.doseuntil!="0") {
-        log("...Raw Dose Until is "+probeSettings.doseuntil,probe)
+        log("...Raw Dose Until is "+probeSettings.doseuntil),probe)
         var doseuntil = new moment(probeSettings.doseuntil)
         log("...Dose Until is "+doseuntil.format("Do MMMM YYYY, HH:mm:ss"),probe)
         if (doseuntil>nowMoment) {
