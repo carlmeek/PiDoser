@@ -43,7 +43,7 @@ class Probe{
 
         var settings = this.settings()
 
-        if (settings!=null) {
+        if (settings)!=null) {
             console.log(this.title + " Probe: Getting Output Pin")
             this.params.pcf.outputPin(settings.gpio, true, false)
         } else {
