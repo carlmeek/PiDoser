@@ -141,6 +141,7 @@ async function go() {
     console.log("Pi Pool Doser listening at http://%s:%s", host, port)
     })
 
+    console.log("Checking Settings File")
     if (fs.existsSync(params.settingsFile)) {
         console.log("Reading settings from file")
         var data = fs.readFileSync(params.settingsFile)
@@ -152,13 +153,12 @@ async function go() {
             console.log(params.settings)
         } catch(e) {
             console.log("Settings from file are corrupted: "+e.message)
-            //delete it
-            fs.unlinkSync(params.settingsFile);
         }
     } else {
         console.log("Cannot read local settings file - it does not exist")
     }
 
+    console.log("Checking TODAY file")
     if (fs.existsSync(params.todayFile)) {
         console.log("Reading TODAY from file")
         var data = fs.readFileSync(params.todayFile)
@@ -178,6 +178,7 @@ async function go() {
         console.log("Cannot read local today file - it does not exist")
     }
 
+    console.log("Checking Labels File")
     if (fs.existsSync(params.labelsFile)) {
         console.log("Reading LABELS from file")
         var data = fs.readFileSync(params.labelsFile)
@@ -197,6 +198,7 @@ async function go() {
         console.log("Cannot read local LABELS file - it does not exist")
     }
     
+    console.log("Creating Probes")
     params.probes= {
         orp:new probe.Probe(params,'orp',logic),
         ph:new probe.Probe(params,'ph',logic),

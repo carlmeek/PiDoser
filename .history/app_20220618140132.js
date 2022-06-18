@@ -5,7 +5,8 @@
 //
 //To make PM2 run at startup: sudo env PATH=$PATH:/usr/local/bin pm2 startup systemd -u pi --hp /home/pi
 //
-//To resize an IMG from an SD- here. https://askubuntu.com/questions/1174487/re-size-the-img-for-smaller-sd-card-how-to-shrink-a-bootable-sd-card-image
+//To clone and shrink SD card image:
+//https://www.guivi.one/2021/06/07/how-to-clone-raspberry-pi-sd-card-on-linux-and-shrink-it-to-actual-size/
 var server
 
 var express = require('express');
@@ -140,6 +141,7 @@ async function go() {
     console.log("Pi Pool Doser listening at http://%s:%s", host, port)
     })
 
+    console.log("Checking Settings File")
     if (fs.existsSync(params.settingsFile)) {
         console.log("Reading settings from file")
         var data = fs.readFileSync(params.settingsFile)
@@ -156,6 +158,7 @@ async function go() {
         console.log("Cannot read local settings file - it does not exist")
     }
 
+    console.log("Checking TODAY file")
     if (fs.existsSync(params.todayFile)) {
         console.log("Reading TODAY from file")
         var data = fs.readFileSync(params.todayFile)
@@ -175,6 +178,7 @@ async function go() {
         console.log("Cannot read local today file - it does not exist")
     }
 
+    console.log("Checking Labels File")
     if (fs.existsSync(params.labelsFile)) {
         console.log("Reading LABELS from file")
         var data = fs.readFileSync(params.labelsFile)
@@ -194,6 +198,7 @@ async function go() {
         console.log("Cannot read local LABELS file - it does not exist")
     }
     
+    console.log("Creating Probes")
     params.probes= {
         orp:new probe.Probe(params,'orp',logic),
         ph:new probe.Probe(params,'ph',logic),
