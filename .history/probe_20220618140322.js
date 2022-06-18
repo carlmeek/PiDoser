@@ -43,11 +43,9 @@ class Probe{
 
         var settings = this.settings()
 
-        if (typeof(settings)!='undefined') {
-            this.params.pcf.outputPin(settings.gpio, true, false)
-        } else {
-            console.log(this.title + " Probe: Cannot set the GPIO output pin as settings does not exist")
-        }
+        if (typeof(params.settings)!='undefined') {
+        this.params.pcf.outputPin(settings.gpio, true, false)
+
     }
 
     average() {
