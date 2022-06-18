@@ -12,7 +12,7 @@ router.get('/system', (req, res)   => { res.render('system',{params:params,funcs
 router.get('/network', (req, res)  => { res.render('network',{params:params,funcs:funcs});});
 router.get('/logic', (req, res)    => { res.render('logic',{params:params,funcs:funcs});});
 router.get('/errors', (req, res)   => { res.render('errors',{params:params,funcs:funcs});});
-router.get('/relays', (req, res)   => { res.render('relays',{params:params,funcs:funcs});});
+router.get('/errors', (req, res)   => { res.render('errors',{params:params,funcs:funcs});});
 
 //API
 router.get('/update', (req, res)   => { update(req,res) });
