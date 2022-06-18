@@ -5,8 +5,7 @@
 //
 //To make PM2 run at startup: sudo env PATH=$PATH:/usr/local/bin pm2 startup systemd -u pi --hp /home/pi
 //
-//To clone and shrink SD card image:
-//https://www.guivi.one/2021/06/07/how-to-clone-raspberry-pi-sd-card-on-linux-and-shrink-it-to-actual-size/
+//To resize an IMG from an SD- here. https://askubuntu.com/questions/1174487/re-size-the-img-for-smaller-sd-card-how-to-shrink-a-bootable-sd-card-image
 var server
 
 var express = require('express');
