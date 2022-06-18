@@ -1,14 +1,15 @@
 <%- include('includes/header.ejs',{active:'relays'}) %>
 <div class="container">
+    <%-params.lastlogiclog.replaceAll(' ','&nbsp;')%>
+
     <% for (const [key,probe] of Object.entries(params.probes)) { %>
         <div class="card">
             <div class="card-header">
             <%=probe.title%> - <%=probe.desc%>
             </div>
             <div class="card-body">
-            Pin <%-probe.settings().gpio%> = <%-(probe.relayState)?"<span style='background-color:red'>ON</span>":'OFF'%>
-            Since <%-probe.relayStateSince%> 
-           </div>
+            <%-this.relayState%>
+            </div>
         </div>
         <Br> 
     <% } %>
