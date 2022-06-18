@@ -152,6 +152,8 @@ async function go() {
             console.log(params.settings)
         } catch(e) {
             console.log("Settings from file are corrupted: "+e.message)
+            //delete it
+            fs.unlinkSync(params.settingsFile);
         }
     } else {
         console.log("Cannot read local settings file - it does not exist")
