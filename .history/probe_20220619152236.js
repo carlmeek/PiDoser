@@ -103,10 +103,6 @@ class Probe{
 
         try {
             this.params.pcf.outputPin(settings.gpio, true, false)
-        } catch(e) {
-            console.log("outputPin failed on pin "+settings.gpio+" - "+e.toString())
-            return "outputPin failed on pin "+settings.gpio+" - "+e.toString()
-        }
 
         try {
             this.params.pcf.setPin(settings.gpio, val)

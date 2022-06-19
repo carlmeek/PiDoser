@@ -101,12 +101,7 @@ class Probe{
 
         console.log(this.name + " Relay "+(val?'ON':'OFF')+" (pin "+settings.gpio+')')
 
-        try {
-            this.params.pcf.outputPin(settings.gpio, true, false)
-        } catch(e) {
-            console.log("outputPin failed on pin "+settings.gpio+" - "+e.toString())
-            return "outputPin failed on pin "+settings.gpio+" - "+e.toString()
-        }
+        this.params.pcf.outputPin(settings.gpio, true, false)
 
         try {
             this.params.pcf.setPin(settings.gpio, val)
