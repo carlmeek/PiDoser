@@ -40,7 +40,7 @@ function networkPoll() {
             for (const [key,probe] of Object.entries(params.probes)) {
                 params.lastURL += probe.queryString() 
             }
-        } else {
+        } else {}
             log("This is just a poll, not a full post")
         }
 
