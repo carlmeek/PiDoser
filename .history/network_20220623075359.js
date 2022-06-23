@@ -41,8 +41,6 @@ function networkPoll() {
                 params.lastURL += probe.queryString() 
             }
         }
-            log("This is just a poll, not a full post")
-        }
 
         if (params.settingsLabels==null) {
             params.lastURL += '&getlabels=1'

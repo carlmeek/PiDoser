@@ -30,7 +30,7 @@ function networkPoll() {
 
         var isFullPost = false
         if (diff>=params.networkPostInterval) {
-            log("THIS IS A FULL POST")
+            log("Last full post was "+funcs.ago(params.lastNetworkPost))
             isFullPost=true
             params.lastURL += '&ip='+escape(params.ip)
             params.lastURL += '&v='+escape(params.version)
@@ -40,8 +40,6 @@ function networkPoll() {
             for (const [key,probe] of Object.entries(params.probes)) {
                 params.lastURL += probe.queryString() 
             }
-        }
-            log("This is just a poll, not a full post")
         }
 
         if (params.settingsLabels==null) {
