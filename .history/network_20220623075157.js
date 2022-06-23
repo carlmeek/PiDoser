@@ -28,6 +28,7 @@ function networkPoll() {
         params.lastURL  = params.rootURL
         params.lastURL += '?m='+escape(params.macAddress)
 
+        var bool isFullPost = false;
         if (diff>=params.networkPostInterval) {
             params.lastURL += '&ip='+escape(params.ip)
             params.lastURL += '&v='+escape(params.version)

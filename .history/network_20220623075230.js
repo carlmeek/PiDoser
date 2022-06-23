@@ -28,7 +28,9 @@ function networkPoll() {
         params.lastURL  = params.rootURL
         params.lastURL += '?m='+escape(params.macAddress)
 
+        var isFullPost = false
         if (diff>=params.networkPostInterval) {
+            isFullPost=true
             params.lastURL += '&ip='+escape(params.ip)
             params.lastURL += '&v='+escape(params.version)
             //We just want the ENTIRE config every time so force f=1
@@ -72,6 +74,8 @@ function networkPoll() {
 
                 params.settings=res.data
                 params.lastNetworkStatus="OK"
+
+                if (isFullPost) {
                 params.lastNetworkPost=new Date()
 
                 //split out labels
@@ -119,14 +123,14 @@ function networkPoll() {
         })
     } catch(e) {
         log("Error")
-            log(error.toString())
-            params.lastNetworkStatus="Error"
-            params.lastNetworkError=error
-            params.lastnetworklog=params.networklog
+        log(error.toString())
+        params.lastNetworkStatus="Error"
+        params.lastNetworkError=error
+        params.lastnetworklog=params.networklog
 
-            //now re-schedule
-            log("Re-scheduling next network poll for "+params.networkPollInterval)
-            params.networkTimer=setTimeout(networkPoll, params.networkPollInterval);
+        //now re-schedule
+        log("Re-scheduling next network poll for "+params.networkPollInterval)
+        params.networkTimer=setTimeout(networkPoll, params.networkPollInterval);
     }
 }
 

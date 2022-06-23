@@ -74,11 +74,8 @@ function networkPoll() {
 
                 params.settings=res.data
                 params.lastNetworkStatus="OK"
+                params.lastNetworkPost=new Date()
 
-                if (isFullPost) {
-                    params.lastNetworkPost=new Date()
-                }
-                
                 //split out labels
                 if (params.settings.labels!=null) {
                     params.settingsLabels=params.settings.labels

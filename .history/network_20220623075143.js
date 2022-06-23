@@ -28,6 +28,7 @@ function networkPoll() {
         params.lastURL  = params.rootURL
         params.lastURL += '?m='+escape(params.macAddress)
 
+        bool isFullPost = false;
         if (diff>=params.networkPostInterval) {
             params.lastURL += '&ip='+escape(params.ip)
             params.lastURL += '&v='+escape(params.version)
@@ -118,7 +119,15 @@ function networkPoll() {
 
         })
     } catch(e) {
-        
+        log("Error")
+        log(error.toString())
+        params.lastNetworkStatus="Error"
+        params.lastNetworkError=error
+        params.lastnetworklog=params.networklog
+
+        //now re-schedule
+        log("Re-scheduling next network poll for "+params.networkPollInterval)
+        params.networkTimer=setTimeout(networkPoll, params.networkPollInterval);
     }
 }
 
