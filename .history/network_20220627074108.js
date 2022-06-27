@@ -101,6 +101,7 @@ function networkPoll() {
                     if (err) {
                         log(err)
                         console.error(err)
+                        return
                     }
                 })    
             }

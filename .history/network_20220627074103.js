@@ -99,8 +99,8 @@ function networkPoll() {
                 log("Writing Settings File")
                 fs.writeFile(params.settingsFile, JSON.stringify(res.data, null, 4), err => {
                     if (err) {
-                        log(err)
                         console.error(err)
+                        return
                     }
                 })    
             }
